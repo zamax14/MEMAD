@@ -756,8 +756,60 @@ b) $\lim_{(x,y) \to (0,0)} \frac{e^{xy} - 1}{y}$
 
 \subsection{Metodología}
 
+Para resolver estos límites utilizaremos diferentes técnicas:
+
+a) Para el primer límite, aplicaremos la regla de L'Hôpital, ya que tenemos una forma indeterminada $\frac{0}{0}$ cuando $x \to 0$.
+
+b) Para el segundo límite, primero multiplicaremos por $\frac{x}{x}$ para hacer la sustitución $u = xy$, lo que nos permitirá reducir el problema a un límite de una variable y aplicar L'Hôpital.
+
 \subsection{Resultados}
 \setcounter{equation}{0}
+
+\textbf{Inciso a}
+
+Evaluamos el límite:
+\begin{align}
+\lim_{x \to 0} \frac{e^x - 1}{x}
+\end{align}
+
+Al sustituir directamente $x = 0$, obtenemos:
+\begin{align}
+\frac{e^0 - 1}{0} = \frac{1 - 1}{0} = \frac{0}{0}
+\end{align}
+
+Como tenemos una forma indeterminada $\frac{0}{0}$, aplicamos la regla de L'Hôpital:
+\begin{align}
+\lim_{x \to 0} \frac{e^x - 1}{x} &= \lim_{x \to 0} \frac{\frac{d}{dx}(e^x - 1)}{\frac{d}{dx}(x)} \\
+&= \lim_{x \to 0} \frac{e^x}{1} \\
+&= \lim_{x \to 0} e^x \\
+&= e^0 \\
+&= 1
+\end{align}
+
+\textbf{Inciso b}
+
+Evaluamos el límite:
+\begin{align}
+\lim_{(x,y) \to (0,0)} \frac{e^{xy} - 1}{y}
+\end{align}
+
+Multiplicamos por $\frac{x}{x}$ para facilitar la sustitución:
+\begin{align}
+\lim_{(x,y) \to (0,0)} \frac{e^{xy} - 1}{y} &= \lim_{(x,y) \to (0,0)} \frac{e^{xy} - 1}{y} \cdot \frac{x}{x} \\
+&= \lim_{(x,y) \to (0,0)} \frac{x(e^{xy} - 1)}{xy}
+\end{align}
+
+Hacemos la sustitución $u = xy$. Cuando $(x,y) \to (0,0)$, tenemos $u \to 0$:
+\begin{align}
+\lim_{(x,y) \to (0,0)} \frac{x(e^{xy} - 1)}{xy} &= \lim_{u \to 0} \frac{e^u - 1}{u} \cdot \lim_{(x,y) \to (0,0)} x
+\end{align}
+
+Del inciso a) sabemos que $\lim_{u \to 0} \frac{e^u - 1}{u} = 1$, y claramente $\lim_{(x,y) \to (0,0)} x = 0$.
+
+Por lo tanto:
+\begin{align}
+\lim_{(x,y) \to (0,0)} \frac{e^{xy} - 1}{y} = 1 \cdot 0 = 0
+\end{align}
 
 \subsection{Discusión}
 
