@@ -592,9 +592,151 @@ Mostrar si los siguientes puntos son concíclicos o no:
 $$p_1 = (-1, 6), \quad p_2 = (-1, 2), \quad p_3 = (1, 4), \quad p_4 = (0, 4 - \sqrt{3})$$
 
 \subsection{Metodología}
+Para determinar si cuatro puntos son concíclicos, utilizaremos el criterio del determinante. 
+
+Los puntos $p_1, p_2, p_3, p_4$ son concíclicos si y solo si el determinante de la matriz formada por sus coordenadas es cero:
+
+\begin{align}
+\begin{vmatrix}
+x_1 & y_1 & x_1^2 + y_1^2 & 1 \\
+x_2 & y_2 & x_2^2 + y_2^2 & 1 \\
+x_3 & y_3 & x_3^2 + y_3^2 & 1 \\
+x_4 & y_4 & x_4^2 + y_4^2 & 1
+\end{vmatrix} = 0
+\end{align}
+
+Este criterio se basa en el hecho de que cuatro puntos concíclicos satisfacen la misma ecuación de círculo $x^2 + y^2 + Dx + Ey + F = 0$, lo que genera dependencia lineal en el sistema.
 
 \subsection{Resultados}
 \setcounter{equation}{0}
+
+Primero, calculemos los valores de $x_i^2 + y_i^2$ para cada punto:
+
+Para $p_1 = (-1, 6)$:
+\begin{align}
+x_1^2 + y_1^2 = (-1)^2 + 6^2 = 1 + 36 = 37
+\end{align}
+
+Para $p_2 = (-1, 2)$:
+\begin{align}
+x_2^2 + y_2^2 = (-1)^2 + 2^2 = 1 + 4 = 5
+\end{align}
+
+Para $p_3 = (1, 4)$:
+\begin{align}
+x_3^2 + y_3^2 = 1^2 + 4^2 = 1 + 16 = 17
+\end{align}
+
+Para $p_4 = (0, 4 - \sqrt{3})$:
+\begin{align}
+x_4^2 + y_4^2 &= 0^2 + (4 - \sqrt{3})^2 \\
+&= (4 - \sqrt{3})^2 \\
+&= 16 - 8\sqrt{3} + 3 \\
+&= 19 - 8\sqrt{3}
+\end{align}
+
+La matriz del determinante es:
+\begin{align}
+\det = \begin{vmatrix}
+-1 & 6 & 37 & 1 \\
+-1 & 2 & 5 & 1 \\
+1 & 4 & 17 & 1 \\
+0 & 4-\sqrt{3} & 19-8\sqrt{3} & 1
+\end{vmatrix}
+\end{align}
+
+Calculemos el determinante expandiendo por la cuarta columna (ya que todos los elementos son 1):
+
+\begin{align}
+\det &= 1 \cdot \begin{vmatrix}
+-1 & 2 & 5 \\
+1 & 4 & 17 \\
+0 & 4-\sqrt{3} & 19-8\sqrt{3}
+\end{vmatrix} - 1 \cdot \begin{vmatrix}
+-1 & 6 & 37 \\
+1 & 4 & 17 \\
+0 & 4-\sqrt{3} & 19-8\sqrt{3}
+\end{vmatrix} \\
+&\quad + 1 \cdot \begin{vmatrix}
+-1 & 6 & 37 \\
+-1 & 2 & 5 \\
+0 & 4-\sqrt{3} & 19-8\sqrt{3}
+\end{vmatrix} - 1 \cdot \begin{vmatrix}
+-1 & 6 & 37 \\
+-1 & 2 & 5 \\
+1 & 4 & 17
+\end{vmatrix}
+\end{align}
+
+Calculemos cada determinante $3 \times 3$:
+
+Primer determinante, expandiendo por la tercera fila:
+\begin{align}
+\begin{vmatrix}
+-1 & 2 & 5 \\
+1 & 4 & 17 \\
+0 & 4-\sqrt{3} & 19-8\sqrt{3}
+\end{vmatrix} &= 0 - (4-\sqrt{3}) \begin{vmatrix} -1 & 5 \\ 1 & 17 \end{vmatrix} + (19-8\sqrt{3}) \begin{vmatrix} -1 & 2 \\ 1 & 4 \end{vmatrix} \\
+&= -(4-\sqrt{3})(-17-5) + (19-8\sqrt{3})(-4-2) \\
+&= -(4-\sqrt{3})(-22) + (19-8\sqrt{3})(-6) \\
+&= 22(4-\sqrt{3}) - 6(19-8\sqrt{3}) \\
+&= 88 - 22\sqrt{3} - 114 + 48\sqrt{3} \\
+&= -26 + 26\sqrt{3} \\
+&= 26(\sqrt{3} - 1)
+\end{align}
+
+Segundo determinante, expandiendo por la tercera fila:
+\begin{align}
+\begin{vmatrix}
+-1 & 6 & 37 \\
+1 & 4 & 17 \\
+0 & 4-\sqrt{3} & 19-8\sqrt{3}
+\end{vmatrix} &= 0 - (4-\sqrt{3}) \begin{vmatrix} -1 & 37 \\ 1 & 17 \end{vmatrix} + (19-8\sqrt{3}) \begin{vmatrix} -1 & 6 \\ 1 & 4 \end{vmatrix} \\
+&= -(4-\sqrt{3})(-17-37) + (19-8\sqrt{3})(-4-6) \\
+&= -(4-\sqrt{3})(-54) + (19-8\sqrt{3})(-10) \\
+&= 54(4-\sqrt{3}) - 10(19-8\sqrt{3}) \\
+&= 216 - 54\sqrt{3} - 190 + 80\sqrt{3} \\
+&= 26 + 26\sqrt{3} \\
+&= 26(1 + \sqrt{3})
+\end{align}
+
+Tercer determinante, expandiendo por la tercera fila:
+\begin{align}
+\begin{vmatrix}
+-1 & 6 & 37 \\
+-1 & 2 & 5 \\
+0 & 4-\sqrt{3} & 19-8\sqrt{3}
+\end{vmatrix} &= 0 - (4-\sqrt{3}) \begin{vmatrix} -1 & 37 \\ -1 & 5 \end{vmatrix} + (19-8\sqrt{3}) \begin{vmatrix} -1 & 6 \\ -1 & 2 \end{vmatrix} \\
+&= -(4-\sqrt{3})(-5+37) + (19-8\sqrt{3})(-2+6) \\
+&= -(4-\sqrt{3})(32) + (19-8\sqrt{3})(4) \\
+&= -32(4-\sqrt{3}) + 4(19-8\sqrt{3}) \\
+&= -128 + 32\sqrt{3} + 76 - 32\sqrt{3} \\
+&= -52
+\end{align}
+
+Cuarto determinante:
+\begin{align}
+\begin{vmatrix}
+-1 & 6 & 37 \\
+-1 & 2 & 5 \\
+1 & 4 & 17
+\end{vmatrix} &= -1 \begin{vmatrix} 2 & 5 \\ 4 & 17 \end{vmatrix} - 6 \begin{vmatrix} -1 & 5 \\ 1 & 17 \end{vmatrix} + 37 \begin{vmatrix} -1 & 2 \\ 1 & 4 \end{vmatrix} \\
+&= -1(34-20) - 6(-17-5) + 37(-4-2) \\
+&= -14 - 6(-22) + 37(-6) \\
+&= -14 + 132 - 222 \\
+&= -104
+\end{align}
+
+Sustituyendo en el determinante principal:
+\begin{align}
+\det &= 1 \cdot 26(\sqrt{3} - 1) - 1 \cdot 26(1 + \sqrt{3}) + 1 \cdot (-52) - 1 \cdot (-104) \\
+&= 26(\sqrt{3} - 1) - 26(1 + \sqrt{3}) - 52 + 104 \\
+&= 26\sqrt{3} - 26 - 26 - 26\sqrt{3} - 52 + 104 \\
+&= -52 + 52 \\
+&= 0
+\end{align}
+
+Por lo tanto, $\det = 0$, lo que confirma que los cuatro puntos son concíclicos.
 
 \subsection{Discusión}
 
