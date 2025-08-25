@@ -1,0 +1,286 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\title{MEMAD-T01}
+\author{ALEJANDRO ZARATE MACIAS}
+\date{25 de Agosto 2025}
+
+\begin{document}
+
+\maketitle
+
+% ========================================
+% INTRODUCCIÓN
+% ========================================
+\section*{Introducción}
+
+Para esta tarea se busca la resolución de problemas relacionados con álgebra vectorial, cálculo multivariable y métodos de optimización.
+La idea es utilizar lo aprendido en los videos proporcionados como material de estudio, además de otras
+
+% ========================================
+% SECCIÓN 1
+% ========================================
+\section{Problema 1}
+
+\subsection{Enunciado}
+Encontrar los ángulos (ambos) entre los vectores $\vec{p} = (-1, 3, 1)$ y $\vec{q} = (-2, -3, -7)$.
+
+\subsection{Metodología}
+Para la resolución de este problema, se debe utilizar la fórmula
+
+\begin{align}
+\cos(\theta) = \frac{<\vec{p},\vec{q}>}{||\vec{p}|| ||\vec{q}||}
+\end{align}
+
+donde $<\vec{p},\vec{q}>$ es el producto punto de los vectores y $||\vec{p}||$ y $||\vec{q}||$ son las normas de los vectores.
+Para esto, se deben seguir los siguientes pasos:
+\begin{enumerate}
+    \item[-]  Calcular el producto punto $<\vec{p},\vec{q}>$.
+    \item[-] Calcular las normas $||\vec{p}||$ y $||\vec{q}||$.
+    \item[-] Sustituir los valores en la fórmula.
+    \item[-] Despejar $\theta$.
+    \item[-] Calcular los ángulos.
+\end{enumerate}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+Siguiendo los pasos mencionados, en la metodología, tenemos que el producto punto es:
+\begin{align}
+<\vec{p},\vec{q}> &= (-1)(-2) + (3)(-3) + (1)(-7) \\
+&= 2 - 9 - 7 \\
+&= -14
+\end{align}
+
+Ahora calculamos las normas.
+Para $\vec{p}$:
+\begin{align}
+||\vec{p}|| &= \sqrt{(-1)^2 + 3^2 + 1^2} \\
+&= \sqrt{1 + 9 + 1} \\
+&= \sqrt{11}
+\end{align}
+
+Y para $\vec{q}$:
+\begin{align}
+||\vec{q}|| &= \sqrt{(-2)^2 + (-3)^2 + (-7)^2} \\
+&= \sqrt{4 + 9 + 49} \\
+&= \sqrt{62}
+\end{align}
+
+Sustituyendo los valores en la fórmula, tenemos:
+\begin{align}
+\cos(\theta) &= \frac{-14}{(\sqrt{11}) (\sqrt{62})} \\
+&= \frac{-14}{\sqrt{682}} 
+\end{align}
+
+Despejando $\theta$, tenemos:
+\begin{align}
+\theta = \arccos(\frac{-14}{\sqrt{682}}) 
+\end{align}
+
+Por lo tanto:
+\begin{align}
+\theta_1 &= \arccos(-0.536) \\
+&\approx 122.41^\circ
+\end{align}
+
+Como resultado dio mayor a $90\circ$, este es el ángulo obtuso entre los vectores.
+
+El ángulo agudo correspondiente es:
+\begin{align}
+\theta_2 &= 180^\circ - 122.41^\circ \\
+&= 57.59^\circ
+\end{align}
+
+\subsection{Discusión}
+
+\subsection{Conclusión}
+
+% ========================================
+% SECCIÓN 2
+% ========================================
+\section{Problema 2}
+
+\subsection{Enunciado}
+Encontrar dos vectores no paralelos que sean ortogonales a $\vec{p} = (1, 1, 1)$.
+
+\subsection{Metodología}
+
+Para encontrar vectores ortogonales a $\vec{p} = (1, 1, 1)$, debemos encontrar vectores $\vec{v}$ tales que el producto punto $\vec{p} \cdot \vec{v} = 0$.
+
+Si $\vec{v} = (x, y, z)$, entonces:
+\begin{align}
+\vec{p} \cdot \vec{v} = (1, 1, 1) \cdot (x, y, z) = x + y + z = 0
+\end{align}
+
+Para verificar que los vectores no sean paralelos, utilizaremos el concepto de proporcionalidad: dos vectores $\vec{v_1} = (a_1, b_1, c_1)$ y $\vec{v_2} = (a_2, b_2, c_2)$ son paralelos si y solo si las razones entre sus componentes correspondientes son iguales, es decir:
+$$\frac{a_1}{a_2} = \frac{b_1}{b_2} = \frac{c_1}{c_2}$$
+
+Entonces, para encontrar dos vectores no paralelos que sean ortogonales a $\vec{p}$, seguiremos estos pasos:
+\begin{enumerate}
+    \item[-] Elegir vectores que cumplan la condición $x + y + z = 0$.
+    \item[-] Verificar que ambos sean ortogonales a $\vec{p}$.
+    \item[-] Verificar que no sean paralelos usando el concepto de proporcionalidad.
+\end{enumerate}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+Vector 1: $\vec{v_1} = (5,-1,-4)$ \\
+Verificación de ortogonalidad: \\
+\begin{align}
+\vec{p} \cdot \vec{v_1} &= (1, 1, 1) \cdot (5, -1, -4) \\
+&= 1(5) + 1(-1) + 1(-4) \\
+&= 5 - 1 - 4 \\
+&= 0
+\end{align}
+
+Vector 2: $\vec{v_2} = (1, 2, -3)$ \\
+Verificación de ortogonalidad: \\
+\begin{align}
+\vec{p} \cdot \vec{v_2} &= (1, 1, 1) \cdot (1, 2, -3) \\
+&= 1(1) + 1(2) + 1(-3) \\
+&= 1 + 2 - 3 \\
+&= 0
+\end{align}
+
+Ahora debemos asegurarnos de que los vectores no sean paralelos, para esto usamos proporcionalidad:
+\begin{align}
+\frac{5}{1} &= 5 \\
+\frac{-1}{2} &= -0.5 \\
+\frac{-4}{-3} &\approx 1.33
+\end{align}
+
+Como $5 \neq -0.5 \neq 1.33$, los vectores no son paralelos.
+
+\subsection{Discusión}
+
+\subsection{Conclusión}
+
+% ========================================
+% SECCIÓN 3
+% ========================================
+\section{Problema 3}
+
+\subsection{Enunciado}
+Sea $n$ un número natural y $A$ como sigue:
+$$A = \begin{vmatrix}
+n & n+1 & n+2 \\
+n+3 & n+4 & n+5 \\
+n+6 & n+7 & n+8
+\end{vmatrix}$$
+
+Mostrar que $\det(A)$ permanece constante con respecto a $n$.
+
+\subsection{Metodología}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+\subsection{Discusión}
+
+\subsection{Conclusión}
+
+% ========================================
+% SECCIÓN 4
+% ========================================
+\section{Problema 4}
+
+\subsection{Enunciado}
+Resolver el siguiente sistema de ecuaciones lineales usando determinantes:
+\begin{align}
+x + y + z &= 1 \\
+2y - 2z - w &= -7 \\
+x + y - z &= -3 \\
+x + z + w &= 2
+\end{align}
+
+\subsection{Metodología}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+\subsection{Discusión}
+
+\subsection{Conclusión}
+
+% ========================================
+% SECCIÓN 5
+% ========================================
+\section{Problema 5}
+
+\subsection{Enunciado}
+Mostrar si los siguientes puntos son concíclicos o no:
+$$p_1 = (-1, 6), \quad p_2 = (-1, 2), \quad p_3 = (1, 4), \quad p_4 = (0, 4 - \sqrt{3})$$
+
+\subsection{Metodología}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+\subsection{Discusión}
+
+\subsection{Conclusión}
+
+% ========================================
+% SECCIÓN 6
+% ========================================
+\section{Problema 6}
+
+\subsection{Enunciado}
+Calcular los siguientes límites:
+
+a) $\lim_{x \to 0} \frac{e^x - 1}{x}$
+
+b) $\lim_{(x,y) \to (0,0)} \frac{e^{xy} - 1}{y}$
+
+\subsection{Metodología}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+\subsection{Discusión}
+
+\subsection{Conclusión}
+
+% ========================================
+% SECCIÓN 7
+% ========================================
+\section{Problema 7}
+
+\subsection{Enunciado}
+Calcular $\nabla f(1, 1, 1)$ y $\nabla^2 f(1, 1, 1)$ donde $f(x, y, z) = (x + z)e^{x-y}$.
+
+\subsection{Metodología}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+\subsection{Discusión}
+
+\subsection{Conclusión}
+
+% ========================================
+% SECCIÓN 9
+% ========================================
+\section{Problema 9}
+
+\subsection{Enunciado}
+Sean $\mathbf{x}$ y $\mathbf{1} := (1, 1, \ldots, 1)$ ambos en $\mathbb{R}^n$. Considerar la función de Rosenbrock:
+$$f(\mathbf{x}) = \sum_{i=1}^{n-1} \left[100(x_{i+1} - x_i^2)^2 + (x_i - 1)^2\right]$$
+
+Calcular $\nabla f(\mathbf{1})$.
+
+\subsection{Metodología}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+\subsection{Discusión}
+
+\subsection{Conclusión}
+
+\end{document}
