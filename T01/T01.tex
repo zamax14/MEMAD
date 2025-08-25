@@ -177,8 +177,48 @@ Mostrar que $\det(A)$ permanece constante con respecto a $n$.
 
 \subsection{Metodología}
 
+Para demostrar que $\det(A)$ permanece constante con respecto a $n$, calcularemos el determinante para un valor específico de $n$ y luego analizaremos la estructura de la matriz para mostrar dependencia lineal entre las filas.
+
 \subsection{Resultados}
 \setcounter{equation}{0}
+
+Calculemos el determinante para $n = 1$:
+$$A = \begin{vmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{vmatrix}$$
+
+Expandiendo por la primera fila:
+\begin{align}
+\det(A) &= 1 \begin{vmatrix} 5 & 6 \\ 8 & 9 \end{vmatrix} - 2 \begin{vmatrix} 4 & 6 \\ 7 & 9 \end{vmatrix} + 3 \begin{vmatrix} 4 & 5 \\ 7 & 8 \end{vmatrix} \\
+&= 1 (5 \times 9 - 6 \times 8) - 2 (4 \times 9 - 6 \times 7) + 3 (4 \times 8 - 5 \times 7) \\
+&= 1 (45 - 48) - 2 (36 - 42) + 3 (32 - 35) \\
+&= 1 (-3) - 2 (-6) + 3 (-3) \\
+&= -3 + 12 - 9 \\
+&= 0
+\end{align}
+
+El hecho de que $\det(A) = 0$ nos indica una posible dependencia lineal entre las filas.
+
+Analicemos la estructura de la matriz. Observemos que cada fila es una progresión aritmética con diferencia común 1, y entre filas consecutivas hay una diferencia común de 3 en cada posición:
+
+Para la matriz general:
+$$\begin{pmatrix}
+n & n+1 & n+2 \\
+n+3 & n+4 & n+5 \\
+n+6 & n+7 & n+8
+\end{pmatrix}$$
+
+Notemos que la tercera fila menos la segunda fila es igual a la segunda fila menos la primera fila:
+\begin{align}
+\text{Fila 3} - \text{Fila 2} &= (3, 3, 3) \\
+\text{Fila 2} - \text{Fila 1} &= (3, 3, 3)
+\end{align}
+
+Por lo tanto: $\text{Fila 1} - 2 \times \text{Fila 2} + \text{Fila 3} = (0, 0, 0)$
+
+Esta relación lineal entre las filas demuestra que son linealmente dependientes, lo que implica que $\det(A) = 0$ para cualquier valor de $n$.
 
 \subsection{Discusión}
 
