@@ -240,8 +240,343 @@ x + z + w &= 2
 
 \subsection{Metodología}
 
+Para resolver el sistema de ecuaciones lineales usando determinantes, utilizaremos el método de Cramer. El sistema se puede escribir en forma matricial como $A\mathbf{x} = \mathbf{b}$, donde:
+
+\begin{align*}
+    A = \begin{pmatrix}
+    1 & 1 & 1 & 0 \\
+    0 & 2 & -2 & -1 \\
+    1 & 1 & -1 & 0 \\
+    1 & 0 & 1 & 1
+    \end{pmatrix}, \quad \mathbf{x} = \begin{pmatrix} x \\ y \\ z \\ w \end{pmatrix}, \quad \mathbf{b} = \begin{pmatrix} 1 \\ -7 \\ -3 \\ 2 \end{pmatrix}
+\end{align*}
+
+El método de Cramer establece que:
+
+\begin{align*}
+    x = \frac{\det(A_x)}{\det(A)}, \quad y = \frac{\det(A_y)}{\det(A)}, \quad z = \frac{\det(A_z)}{\det(A)}, \quad w = \frac{\det(A_w)}{\det(A)}    
+\end{align*}
+
+donde $A_x$, $A_y$, $A_z$, $A_w$ son las matrices obtenidas al reemplazar la columna correspondiente de $A$ por el vector $\mathbf{b}$.
+
+Los pasos a seguir son:
+\begin{enumerate}
+    \item[-] Calcular $\det(A)$.
+    \item[-] Calcular $\det(A_x)$, $\det(A_y)$, $\det(A_z)$, $\det(A_w)$.
+    \item[-] Aplicar el método de Cramer para obtener cada variable.
+\end{enumerate}
+
 \subsection{Resultados}
 \setcounter{equation}{0}
+
+Primero calculamos $\det(A)$ expandiendo por la primera fila:
+
+\begin{align}
+    det(A) = \begin{vmatrix}
+    1 & 1 & 1 & 0 \\
+    0 & 2 & -2 & -1 \\
+    1 & 1 & -1 & 0 \\
+    1 & 0 & 1 & 1
+    \end{vmatrix}
+\end{align}
+
+Quedando de la siguiente manera:
+\begin{align}
+    det(A) = 1 \cdot \begin{vmatrix}
+    2 & -2 & -1 \\
+    1 & -1 & 0 \\
+    0 & 1 & 1
+    \end{vmatrix} - 1 \cdot \begin{vmatrix}
+    0 & -2 & -1 \\
+    1 & -1 & 0 \\
+    1 & 1 & 1
+    \end{vmatrix} + 1 \cdot \begin{vmatrix}
+    0 & 2 & -1 \\
+    1 & 1 & 0 \\
+    1 & 0 & 1
+    \end{vmatrix}
+\end{align}
+
+En este caso, el cuarto elemento de la primera fila fue omitido, ya que al ser $0$, su multiplicación dará $0$. Además, podemos notar que los demás elementos de la primera fila son $1$, por lo que podemos simplificar la expresión a: \\
+
+\begin{align}
+    det(A) = \begin{vmatrix}
+    2 & -2 & -1 \\
+    1 & -1 & 0 \\
+    0 & 1 & 1
+    \end{vmatrix} - \begin{vmatrix}
+    0 & -2 & -1 \\
+    1 & -1 & 0 \\
+    1 & 1 & 1
+    \end{vmatrix} + \begin{vmatrix}
+    0 & 2 & -1 \\
+    1 & 1 & 0 \\
+    1 & 0 & 1
+    \end{vmatrix}
+\end{align}
+
+Para calcular los 3 determinantes de las matrices resultantes, expandiremos nuevamente por la primer fila de cada matriz.
+
+Primer determinante:
+\begin{align}
+    \begin{vmatrix}
+    2 & -2 & -1 \\
+    1 & -1 & 0 \\
+    0 & 1 & 1
+    \end{vmatrix} &= 2 \begin{vmatrix} -1 & 0 \\ 1 & 1 \end{vmatrix} - (-2) \begin{vmatrix} 1 & 0 \\ 0 & 1 \end{vmatrix} + (-1) \begin{vmatrix} 1 & -1 \\ 0 & 1 \end{vmatrix} \\
+    &= 2(-1) + 2(1) - 1(1) \\
+    &= -2 + 2 - 1 \\
+    &= -1
+\end{align}
+
+Segundo determinante:
+\begin{align}
+    \begin{vmatrix}
+    0 & -2 & -1 \\
+    1 & -1 & 0 \\
+    1 & 1 & 1
+    \end{vmatrix} &= 0 - (-2) \begin{vmatrix} 1 & 0 \\ 1 & 1 \end{vmatrix} + (-1) \begin{vmatrix} 1 & -1 \\ 1 & 1 \end{vmatrix} \\
+    &= 0 + 2(1) - 1(2) \\
+    &= 2 - 2 \\
+    &= 0
+\end{align}
+
+Tercer determinante:
+\begin{align}
+    \begin{vmatrix}
+    0 & 2 & -1 \\
+    1 & 1 & 0 \\
+    1 & 0 & 1
+    \end{vmatrix} &= 0 - 2 \begin{vmatrix} 1 & 0 \\ 1 & 1 \end{vmatrix} + (-1) \begin{vmatrix} 1 & 1 \\ 1 & 0 \end{vmatrix} \\
+    &= 0 - 2(1) - 1(-1) \\
+    &= -2 + 1 \\
+    &= -1
+\end{align}
+
+Por lo tanto:
+\begin{align}
+    \det(A) &= (-1) - (0) + (-1) \\
+    &= -2
+\end{align}
+
+Ahora que ya conocemos el determinante de la matriz $A$, podemos calcular los determinantes de las matrices $A_x$, $A_y$, $A_z$ y $A_w$.
+
+Calculamos $\det(A_x)$:
+
+\begin{align}
+    A_x = \begin{pmatrix}
+    1 & 1 & 1 & 0 \\
+    -7 & 2 & -2 & -1 \\
+    -3 & 1 & -1 & 0 \\
+    2 & 0 & 1 & 1
+    \end{pmatrix}
+\end{align}
+
+Expandiendo por la primera fila:
+\begin{align}
+    \det(A_x) &= 1 \cdot \begin{vmatrix} 2 & -2 & -1 \\ 1 & -1 & 0 \\ 0 & 1 & 1 \end{vmatrix} - 1 \cdot \begin{vmatrix} -7 & -2 & -1 \\ -3 & -1 & 0 \\ 2 & 1 & 1 \end{vmatrix} + 1 \cdot \begin{vmatrix} -7 & 2 & -1 \\ -3 & 1 & 0 \\ 2 & 0 & 1 \end{vmatrix}
+\end{align}
+
+Calculamos cada determinante 3×3:
+
+Primer determinante:
+\begin{align}
+    \begin{vmatrix} 2 & -2 & -1 \\ 1 & -1 & 0 \\ 0 & 1 & 1 \end{vmatrix} &= 2 \begin{vmatrix} -1 & 0 \\ 1 & 1 \end{vmatrix} - (-2) \begin{vmatrix} 1 & 0 \\ 0 & 1 \end{vmatrix} + (-1) \begin{vmatrix} 1 & -1 \\ 0 & 1 \end{vmatrix} \\
+    &= 2(-1) + 2(1) - 1(1) \\
+    &= -2 + 2 - 1 \\
+    &= -1
+\end{align}
+
+Segundo determinante:
+\begin{align}
+    \begin{vmatrix} -7 & -2 & -1 \\ -3 & -1 & 0 \\ 2 & 1 & 1 \end{vmatrix} &= -7 \begin{vmatrix} -1 & 0 \\ 1 & 1 \end{vmatrix} - (-2) \begin{vmatrix} -3 & 0 \\ 2 & 1 \end{vmatrix} + (-1) \begin{vmatrix} -3 & -1 \\ 2 & 1 \end{vmatrix} \\
+    &= -7(-1) + 2(-3) - 1(-3 + 2) \\
+    &= 7 - 6 - 1(-1) \\
+    &= 7 - 6 + 1 \\
+    &= 2
+\end{align}
+
+Tercer determinante:
+\begin{align}
+    \begin{vmatrix} -7 & 2 & -1 \\ -3 & 1 & 0 \\ 2 & 0 & 1 \end{vmatrix} &= -7 \begin{vmatrix} 1 & 0 \\ 0 & 1 \end{vmatrix} - 2 \begin{vmatrix} -3 & 0 \\ 2 & 1 \end{vmatrix} + (-1) \begin{vmatrix} -3 & 1 \\ 2 & 0 \end{vmatrix} \\
+    &= -7(1) - 2(-3) - 1(0 - 2) \\
+    &= -7 + 6 - 1(-2) \\
+    &= -7 + 6 + 2 \\
+    &= 1
+\end{align}
+
+Por lo tanto:
+\begin{align}
+    \det(A_x) &= 1(-1) - 1(2) + 1(1) - 0 \\
+    &= -1 - 2 + 1 \\
+    &= -2
+\end{align}
+
+Calculamos $\det(A_y)$:
+
+\begin{align}
+    A_y = \begin{pmatrix}
+    1 & 1 & 1 & 0 \\
+    0 & -7 & -2 & -1 \\
+    1 & -3 & -1 & 0 \\
+    1 & 2 & 1 & 1
+    \end{pmatrix}
+\end{align}
+
+Expandiendo por la primera fila:
+\begin{align}
+    \det(A_y) &= 1 \cdot \begin{vmatrix} -7 & -2 & -1 \\ -3 & -1 & 0 \\ 2 & 1 & 1 \end{vmatrix} - 1 \cdot \begin{vmatrix} 0 & -2 & -1 \\ 1 & -1 & 0 \\ 1 & 1 & 1 \end{vmatrix} + 1 \cdot \begin{vmatrix} 0 & -7 & -1 \\ 1 & -3 & 0 \\ 1 & 2 & 1 \end{vmatrix}
+\end{align}
+
+Calculamos cada determinante 3×3:
+
+Primer determinante:
+\begin{align}
+    \begin{vmatrix} -7 & -2 & -1 \\ -3 & -1 & 0 \\ 2 & 1 & 1 \end{vmatrix} &= -7 \begin{vmatrix} -1 & 0 \\ 1 & 1 \end{vmatrix} - (-2) \begin{vmatrix} -3 & 0 \\ 2 & 1 \end{vmatrix} + (-1) \begin{vmatrix} -3 & -1 \\ 2 & 1 \end{vmatrix} \\
+    &= -7(-1) + 2(-3) - 1(-3 + 2) \\
+    &= 7 - 6 + 1 \\
+    &= 2
+\end{align}
+
+Segundo determinante:
+\begin{align}
+    \begin{vmatrix} 0 & -2 & -1 \\ 1 & -1 & 0 \\ 1 & 1 & 1 \end{vmatrix} &= 0 - (-2) \begin{vmatrix} 1 & 0 \\ 1 & 1 \end{vmatrix} + (-1) \begin{vmatrix} 1 & -1 \\ 1 & 1 \end{vmatrix} \\
+    &= 0 + 2(1) - 1(1 + 1) \\
+    &= 2 - 2 \\
+    &= 0
+\end{align}
+
+Tercer determinante:
+\begin{align}
+    \begin{vmatrix} 0 & -7 & -1 \\ 1 & -3 & 0 \\ 1 & 2 & 1 \end{vmatrix} &= 0 - (-7) \begin{vmatrix} 1 & 0 \\ 1 & 1 \end{vmatrix} + (-1) \begin{vmatrix} 1 & -3 \\ 1 & 2 \end{vmatrix} \\
+    &= 0 + 7(1) - 1(2 + 3) \\
+    &= 7 - 5 \\
+    &= 2
+\end{align}
+
+Por lo tanto:
+\begin{align}
+    \det(A_y) &= 1(2) - 1(0) + 1(2) \\
+    &= 2 + 0 + 2 \\
+    &= 4
+\end{align}
+
+Calculamos $\det(A_z)$:
+
+\begin{align}
+    A_z = \begin{pmatrix}
+    1 & 1 & 1 & 0 \\
+    0 & 2 & -7 & -1 \\
+    1 & 1 & -3 & 0 \\
+    1 & 0 & 2 & 1
+    \end{pmatrix}
+\end{align}
+
+Expandiendo por la primera fila:
+\begin{align}
+    \det(A_z) &= 1 \cdot \begin{vmatrix} 2 & -7 & -1 \\ 1 & -3 & 0 \\ 0 & 2 & 1 \end{vmatrix} - 1 \cdot \begin{vmatrix} 0 & -7 & -1 \\ 1 & -3 & 0 \\ 1 & 2 & 1 \end{vmatrix} + 1 \cdot \begin{vmatrix} 0 & 2 & -1 \\ 1 & 1 & 0 \\ 1 & 0 & 1 \end{vmatrix}
+\end{align}
+
+Calculamos cada determinante 3×3:
+
+Primer determinante:
+\begin{align}
+    \begin{vmatrix} 2 & -7 & -1 \\ 1 & -3 & 0 \\ 0 & 2 & 1 \end{vmatrix} &= 2 \begin{vmatrix} -3 & 0 \\ 2 & 1 \end{vmatrix} - (-7) \begin{vmatrix} 1 & 0 \\ 0 & 1 \end{vmatrix} + (-1) \begin{vmatrix} 1 & -3 \\ 0 & 2 \end{vmatrix} \\
+    &= 2(-3) + 7(1) - 1(2) \\
+    &= -6 + 7 - 2 \\
+    &= -1
+\end{align}
+
+Segundo determinante:
+\begin{align}
+    \begin{vmatrix} 0 & -7 & -1 \\ 1 & -3 & 0 \\ 1 & 2 & 1 \end{vmatrix} &= 0 - (-7) \begin{vmatrix} 1 & 0 \\ 1 & 1 \end{vmatrix} + (-1) \begin{vmatrix} 1 & -3 \\ 1 & 2 \end{vmatrix} \\
+    &= 0 + 7(1) - 1(2 + 3) \\
+    &= 7 - 5 \\
+    &= 2
+\end{align}
+
+Tercer determinante:
+\begin{align}
+    \begin{vmatrix} 0 & 2 & -1 \\ 1 & 1 & 0 \\ 1 & 0 & 1 \end{vmatrix} &= 0 - 2 \begin{vmatrix} 1 & 0 \\ 1 & 1 \end{vmatrix} + (-1) \begin{vmatrix} 1 & 1 \\ 1 & 0 \end{vmatrix} \\
+    &= 0 - 2(1) - 1(0 - 1) \\
+    &= -2 + 1 \\
+    &= -1
+\end{align}
+
+Por lo tanto:
+\begin{align}
+    \det(A_z) &= 1(-1) - 1(2) + 1(-1) \\
+    &= -1 - 2 - 1 \\
+    &= -4
+\end{align}
+
+Calculamos $\det(A_w)$:
+
+\begin{align}
+    A_w = \begin{pmatrix}
+    1 & 1 & 1 & 1 \\
+    0 & 2 & -2 & -7 \\
+    1 & 1 & -1 & -3 \\
+    1 & 0 & 1 & 2
+    \end{pmatrix}
+\end{align}
+
+Expandiendo por la primera fila:
+\begin{align}
+    \det(A_w) &= 1 \cdot \begin{vmatrix} 2 & -2 & -7 \\ 1 & -1 & -3 \\ 0 & 1 & 2 \end{vmatrix} - 1 \cdot \begin{vmatrix} 0 & -2 & -7 \\ 1 & -1 & -3 \\ 1 & 1 & 2 \end{vmatrix} + 1 \cdot \begin{vmatrix} 0 & 2 & -7 \\ 1 & 1 & -3 \\ 1 & 0 & 2 \end{vmatrix} - 1 \cdot \begin{vmatrix} 0 & 2 & -2 \\ 1 & 1 & -1 \\ 1 & 0 & 1 \end{vmatrix}
+\end{align}
+
+Calculamos cada determinante 3×3:
+
+Primer determinante:
+\begin{align}
+    \begin{vmatrix} 2 & -2 & -7 \\ 1 & -1 & -3 \\ 0 & 1 & 2 \end{vmatrix} &= 2 \begin{vmatrix} -1 & -3 \\ 1 & 2 \end{vmatrix} - (-2) \begin{vmatrix} 1 & -3 \\ 0 & 2 \end{vmatrix} + (-7) \begin{vmatrix} 1 & -1 \\ 0 & 1 \end{vmatrix} \\
+    &= 2(-2 + 3) + 2(2) - 7(1) \\
+    &= 2 + 4 - 7 \\
+    &= -1
+\end{align}
+
+Segundo determinante:
+\begin{align}
+    \begin{vmatrix} 0 & -2 & -7 \\ 1 & -1 & -3 \\ 1 & 1 & 2 \end{vmatrix} &= 0 - (-2) \begin{vmatrix} 1 & -3 \\ 1 & 2 \end{vmatrix} + (-7) \begin{vmatrix} 1 & -1 \\ 1 & 1 \end{vmatrix} \\
+    &= 0 + 2(2 + 3) - 7(1 + 1) \\
+    &= 10 - 14 \\
+    &= -4
+\end{align}
+
+Tercer determinante:
+\begin{align}
+    \begin{vmatrix} 0 & 2 & -7 \\ 1 & 1 & -3 \\ 1 & 0 & 2 \end{vmatrix} &= 0 - 2 \begin{vmatrix} 1 & -3 \\ 1 & 2 \end{vmatrix} + (-7) \begin{vmatrix} 1 & 1 \\ 1 & 0 \end{vmatrix} \\
+    &= 0 - 2(2 + 3) - 7(0 - 1) \\
+    &= -10 + 7 \\
+    &= -3
+\end{align}
+
+Cuarto determinante:
+\begin{align}
+    \begin{vmatrix} 0 & 2 & -2 \\ 1 & 1 & -1 \\ 1 & 0 & 1 \end{vmatrix} &= 0 - 2 \begin{vmatrix} 1 & -1 \\ 1 & 1 \end{vmatrix} + (-2) \begin{vmatrix} 1 & 1 \\ 1 & 0 \end{vmatrix} \\
+    &= 0 - 2(1 + 1) - 2(0 - 1) \\
+    &= -4 + 2 \\
+    &= -2
+\end{align}
+
+Por lo tanto:
+\begin{align}
+    \det(A_w) &= 1(-1) - 1(-4) + 1(-3) - 1(-2) \\
+    &= -1 + 4 - 3 + 2 \\
+    &= 2
+\end{align}
+
+Aplicando la regla de Cramer:
+\begin{align}
+x &= \frac{\det(A_x)}{\det(A)} = \frac{-2}{-2} = 1 \\
+y &= \frac{\det(A_y)}{\det(A)} = \frac{4}{-2} = -2 \\
+z &= \frac{\det(A_z)}{\det(A)} = \frac{-4}{-2} = 2 \\
+w &= \frac{\det(A_w)}{\det(A)} = \frac{2}{-2} = -1
+\end{align}
+
+Por lo tanto, la solución del sistema es: $x = 1$, $y = -2$, $z = 2$, $w = -1$.
+
 
 \subsection{Discusión}
 
