@@ -63,10 +63,19 @@ x &= \frac{2 \pm \sqrt{4 + 96}}{6} \\
 &= \frac{2 \pm 10}{6}
 \end{align}
 
-Por lo tanto:
+Por lo tanto, tenemos que $x_1$ es:
 \begin{align}
-x_{1} &= \frac{2 + 10}{6} = \frac{12}{6} = 2 \\
-x_{2} &= \frac{2 - 10}{6} = \frac{-8}{6} = -\frac{4}{3}
+x_{1} &= \frac{2 + 10}{6} \\
+&= \frac{12}{6} \\
+&= 2 \\
+\end{align}
+
+Y por otra parte, $x_2$ es:
+
+\begin{align}
+    x_{2} &= \frac{2 - 10}{6} \\
+    &= \frac{-8}{6} \\
+    &= -\frac{4}{3}
 \end{align}
 
 Ambos puntos críticos están dentro del intervalo $[-2, 2]$.
@@ -76,20 +85,22 @@ Ahora clasificamos los puntos críticos usando el criterio de la segunda derivad
 f''(x) &= 6x - 2
 \end{align}
 
-Para $x = -\frac{4}{3}$:
+Para $x_1 = -\frac{4}{3}$:
 \begin{align}
 f''\left(-\frac{4}{3}\right) &= 6\left(-\frac{4}{3}\right) - 2 \\
 &= -8 - 2 \\
-&= -10 < 0
+&= -10 \\
+&10 < 0
 \end{align}
 
 Como $f''(-\frac{4}{3}) < 0$, el punto $x = -\frac{4}{3}$ es un máximo local.
 
-Para $x = 2$:
+Para $x_2 = 2$:
 \begin{align}
 f''(2) &= 6(2) - 2 \\
 &= 12 - 2 \\
-&= 10 > 0
+&= 10 \\
+&10> 0
 \end{align}
 
 Como $f''(2) > 0$, el punto $x = 2$ es un mínimo local.
@@ -414,6 +425,290 @@ Para cada una de las siguientes funciones, encuentre sus puntos críticos y clas
 
 \subsection{Resultados}
 \setcounter{equation}{0}
+
+\textbf{Inciso (a): $f(x,y) = \ln(x^{2} + y^{2} + 1)$}
+
+Calculamos las primeras derivadas parciales:
+\begin{align}
+f_x(x,y) &= \frac{2x}{x^2 + y^2 + 1} \\
+f_y(x,y) &= \frac{2y}{x^2 + y^2 + 1}
+\end{align}
+
+Para encontrar puntos críticos, igualamos a cero:
+\begin{align}
+f_x(x,y) &= \frac{2x}{x^2 + y^2 + 1} = 0 \Rightarrow x = 0 \\
+f_y(x,y) &= \frac{2y}{x^2 + y^2 + 1} = 0 \Rightarrow y = 0
+\end{align}
+
+El único punto crítico es $(0,0)$.
+
+Ahora calculamos las segundas derivadas parciales para formar la matriz Hessiana. Para $f_{xx}$, derivamos $f_x$ con respecto a $x$:
+\begin{align}
+f_{xx}(x,y) &=  \frac{2(x^2 + y^2 + 1) - 2x(2x)}{(x^2 + y^2 + 1)^2} \\
+&= \frac{2x^2 + 2y^2 + 2 - 4x^2}{(x^2 + y^2 + 1)^2} \\
+&= \frac{-2x^2 + 2y^2 + 2}{(x^2 + y^2 + 1)^2} \\
+&= \frac{2(-x^2 + y^2 + 1)}{(x^2 + y^2 + 1)^2}
+\end{align}
+
+Para $f_{yy}$, derivamos $f_y$ con respecto a $y$:
+\begin{align}
+f_{yy}(x,y) &= \frac{2(x^2 + y^2 + 1) - 2y(2y)}{(x^2 + y^2 + 1)^2} \\
+&= \frac{2x^2 + 2y^2 + 2 - 4y^2}{(x^2 + y^2 + 1)^2} \\
+&= \frac{2x^2 - 2y^2 + 2}{(x^2 + y^2 + 1)^2} \\
+&= \frac{2(x^2 - y^2 + 1)}{(x^2 + y^2 + 1)^2}
+\end{align}
+
+Para $f_{xy}$, derivamos $f_x$ con respecto a $y$:
+\begin{align}
+f_{xy}(x,y) &= \frac{0 \cdot (x^2 + y^2 + 1) - 2x(2y)}{(x^2 + y^2 + 1)^2} \\
+&= \frac{-4xy}{(x^2 + y^2 + 1)^2}
+\end{align}
+
+La matriz Hessiana general es:
+\begin{align}
+H(x,y) =  \begin{pmatrix} 
+\frac{2(-x^2 + y^2 + 1)}{(x^2 + y^2 + 1)^2} & \frac{-4xy}{(x^2 + y^2 + 1)^2} \\
+\frac{-4xy}{(x^2 + y^2 + 1)^2} & \frac{2(x^2 - y^2 + 1)}{(x^2 + y^2 + 1)^2}
+\end{pmatrix}
+\end{align}
+
+Factorizando el factor común $\frac{2}{(x^2 + y^2 + 1)^2}$, podemos escribir:
+\begin{align}
+H(x,y) = \frac{2}{(x^2 + y^2 + 1)^2} \begin{pmatrix} 
+1 + y^2 - x^2 & -2xy \\
+-2xy & 1 + x^2 - y^2
+\end{pmatrix}
+\end{align}
+
+Ahora evaluamos en el punto crítico $(0,0)$:
+\begin{align}
+H(0,0) &= \frac{2}{(0^2 + 0^2 + 1)^2} \begin{pmatrix} 
+1 + 0^2 - 0^2 & -2(0)(0) \\
+-2(0)(0) & 1 + 0^2 - 0^2
+\end{pmatrix} \\
+&= \frac{2}{1} \begin{pmatrix} 
+1 & 0 \\
+0 & 1
+\end{pmatrix} \\
+&= \begin{pmatrix} 
+2 & 0 \\
+0 & 2
+\end{pmatrix}
+\end{align}
+
+Para clasificar el punto crítico, calculamos el determinante de la Hessiana:
+\begin{align}
+\det(H(0,0)) &= (2)(2) - (0)(0) \\
+&= 4 \\
+&4>0
+\end{align}
+
+Como $\det(H(0,0)) = 4 > 0$, el punto $(0,0)$ es un mínimo local.
+
+\textbf{Inciso (b): $f(x,y) = x^{2} + y^{2} - x - y + 1$}
+
+Calculamos las primeras derivadas parciales:
+\begin{align}
+f_x(x,y) &= 2x - 1 \\
+f_y(x,y) &= 2y - 1
+\end{align}
+
+Para encontrar puntos críticos:
+\begin{align}
+f_x(x,y) = 2x - 1 &= 0 \\
+x &= \frac{1}{2} \\
+f_y(x,y) = 2y - 1 &= 0 \\
+y &= \frac{1}{2}
+\end{align}
+
+El único punto crítico es $\left(\frac{1}{2}, \frac{1}{2}\right)$.
+
+Las segundas derivadas parciales son:
+\begin{align}
+f_{xx} &= 2 \\
+f_{yy} &= 2 \\
+f_{xy} &= 0
+\end{align}
+
+La matriz Hessiana es:
+\begin{align}
+H = \begin{pmatrix} 2 & 0 \\ 0 & 2 \end{pmatrix}
+\end{align}
+
+El determinante es $\det = (2)(2) - (0)(0) = 4 > 0$, por lo que $\left(\frac{1}{2}, \frac{1}{2}\right)$ es un mínimo local.
+
+\textbf{Inciso (c): $f(x,y) = e^{x}\cos(y)$}
+
+Calculamos las primeras derivadas parciales:
+\begin{align}
+f_x(x,y) &= e^x \cos(y) \\
+f_y(x,y) &= -e^x \sin(y)
+\end{align}
+
+Para encontrar puntos críticos:
+\begin{align}
+f_x(x,y) &= e^x \cos(y) = 0 \\
+f_y(x,y) &= -e^x \sin(y) = 0
+\end{align}
+
+Como $e^x > 0$ para todo $x$ real, necesitamos:
+\begin{align}
+\cos(y) &= 0 \\
+\sin(y) &= 0
+\end{align}
+
+No existe un valor de $y$ que satisfaga ambas condiciones simultáneamente. Por lo tanto, no hay puntos críticos.
+
+\textbf{Inciso (d): $f(x,y) = (x^{2} + y - 11)^{2} + (x + y^{2} - 7)^{2}$ (Función de Himmelblau)}
+
+Esta función es conocida como la función de Himmelblau. Para desarrollar las derivadas, definamos las funciones auxiliares:
+\begin{align}
+u(x,y) &= x^2 + y - 11 \\
+v(x,y) &= x + y^2 - 7
+\end{align}
+
+Entonces $f(x,y) = u^2 + v^2$.
+
+Calculamos las primeras derivadas parciales usando la regla de la cadena:
+\begin{align}
+f_x(x,y) &= 2u \cdot u_x + 2v \cdot v_x \\
+&= 2(x^2 + y - 11)(2x) + 2(x + y^2 - 7)(1) \\
+&= 4x(x^2 + y - 11) + 2(x + y^2 - 7)
+\end{align}
+
+\begin{align}
+f_y(x,y) &= 2u \cdot u_y + 2v \cdot v_y \\
+&= 2(x^2 + y - 11)(1) + 2(x + y^2 - 7)(2y) \\
+&= 2(x^2 + y - 11) + 4y(x + y^2 - 7)
+\end{align}
+
+Los puntos críticos se encuentran resolviendo el sistema:
+\begin{align}
+f_x(x,y) &= 4x(x^2 + y - 11) + 2(x + y^2 - 7) = 0 \\
+f_y(x,y) &= 2(x^2 + y - 11) + 4y(x + y^2 - 7) = 0
+\end{align}
+
+Este sistema no lineal es complejo de resolver analíticamente, pero se conocen sus cuatro soluciones:
+\begin{align}
+P_1 &= (3, 2) \\
+P_2 &= (-2.805118, 3.131312) \\
+P_3 &= (-3.779310, -3.283186) \\
+P_4 &= (3.584428, -1.848126)
+\end{align}
+
+Ahora calculamos las segundas derivadas parciales. Para $f_{xx}$:
+\begin{align}
+f_{xx}(x,y) &= 4(x^2 + y - 11) + 4x(2x) + 2(1) \\
+&= 4(x^2 + y - 11) + 8x^2 + 2 \\
+&= 4x^2 + 4y - 44 + 8x^2 + 2 \\
+&= 12x^2 + 4y - 42
+\end{align}
+
+Para $f_{yy}$:
+\begin{align}
+f_{yy}(x,y) &= 2(1) + 4(x + y^2 - 7) + 4y(2y) \\
+&= 2 + 4x + 4y^2 - 28 + 8y^2 \\
+&= 4x + 12y^2 - 26
+\end{align}
+
+Para $f_{xy}$:
+\begin{align}
+f_{xy}(x,y) &= 4x(1) + 2(2y) \\
+&= 4x + 4y
+\end{align}
+
+La matriz Hessiana general es:
+\begin{align}
+H(x,y) = \begin{pmatrix} 
+12x^2 + 4y - 42 & 4x + 4y \\
+4x + 4y & 4x + 12y^2 - 26
+\end{pmatrix}
+\end{align}
+
+Evaluamos la matriz Hessiana en cada punto crítico:
+
+\textbf{Para $P_1 = (3, 2)$:}
+\begin{align}
+f_{xx}(3,2) &= 12(3)^2 + 4(2) - 42 \\
+&= 108 + 8 - 42 = 74 \\
+f_{yy}(3,2) &= 4(3) + 12(2)^2 - 26 \\
+&= 12 + 48 - 26 = 34 \\
+f_{xy}(3,2) &= 4(3) + 4(2) \\
+&= 12 + 8 = 20
+\end{align}
+\begin{align}
+H_1 &= \begin{pmatrix} 74 & 20 \\ 20 & 34 \end{pmatrix} \\
+\det(H_1) &= (74)(34) - (20)(20) = 2516 - 400 = 2116
+\end{align}
+Como $\det(H_1) > 0$, el punto $(3,2)$ es un mínimo local.
+
+\textbf{Para $P_2 = (-2.805118, 3.131312)$:}
+\begin{align}
+f_{xx}(-2.805118, 3.131312) &= 12(-2.805118)^2 + 4(3.131312) - 42 \\
+&= 12(7.868687) + 12.525248 - 42 \\
+&= 94.424244 + 12.525248 - 42 \\
+&= 64.949492 \\
+f_{yy}(-2.805118, 3.131312) &= 4(-2.805118) + 12(3.131312)^2 - 26 \\
+&= -11.220472 + 12(9.805112) - 26 \\
+&= -11.220472 + 117.661344 - 26 \\
+&= 80.440872 \\
+f_{xy}(-2.805118, 3.131312) &= 4(-2.805118) + 4(3.131312) \\
+&= -11.220472 + 12.525248 \\
+&= 1.304776
+\end{align}
+\begin{align}
+H_2 &= \begin{pmatrix} 64.95 & 1.30 \\ 1.30 & 80.44 \end{pmatrix} \\
+\det(H_2) &= (64.95)(80.44) - (1.30)(1.30) \\
+&= 5225.58 - 1.69 \\
+&= 5223.89
+\end{align}
+Como $\det(H_2) = 5223.89 > 0$, el punto $(-2.805118, 3.131312)$ es un mínimo local.
+
+\textbf{Para $P_3 = (-3.779310, -3.283186)$:}
+\begin{align}
+f_{xx}(-3.779310, -3.283186) &= 12(-3.779310)^2 + 4(-3.283186) - 42 \\
+&= 12(14.283191) + (-13.132744) - 42 \\
+&= 171.398292 - 13.132744 - 42 \\
+&= 116.265548 \\
+f_{yy}(-3.779310, -3.283186) &= 4(-3.779310) + 12(-3.283186)^2 - 26 \\
+&= -15.117240 + 12(10.779316) - 26 \\
+&= -15.117240 + 129.351792 - 26 \\
+&= 88.234552 \\
+f_{xy}(-3.779310, -3.283186) &= 4(-3.779310) + 4(-3.283186) \\
+&= -15.117240 - 13.132744 \\
+&= -28.249984
+\end{align}
+\begin{align}
+H_3 &= \begin{pmatrix} 116.27 & -28.25 \\ -28.25 & 88.23 \end{pmatrix} \\
+\det(H_3) &= (116.27)(88.23) - (-28.25)(-28.25) \\
+&= 10258.64 - 798.06 \\
+&= 9460.58
+\end{align}
+Como $\det(H_3) = 9460.58 > 0$, el punto $(-3.779310, -3.283186)$ es un mínimo local.
+
+\textbf{Para $P_4 = (3.584428, -1.848126)$:}
+\begin{align}
+f_{xx}(3.584428, -1.848126) &= 12(3.584428)^2 + 4(-1.848126) - 42 \\
+&= 12(12.848125) + (-7.392504) - 42 \\
+&= 154.177500 - 7.392504 - 42 \\
+&= 104.784996 \\
+f_{yy}(3.584428, -1.848126) &= 4(3.584428) + 12(-1.848126)^2 - 26 \\
+&= 14.337712 + 12(3.414370) - 26 \\
+&= 14.337712 + 40.972440 - 26 \\
+&= 29.310152 \\
+f_{xy}(3.584428, -1.848126) &= 4(3.584428) + 4(-1.848126) \\
+&= 14.337712 - 7.392504 \\
+&= 6.945208
+\end{align}
+\begin{align}
+H_4 &= \begin{pmatrix} 104.78 & 6.95 \\ 6.95 & 29.31 \end{pmatrix} \\
+\det(H_4) &= (104.78)(29.31) - (6.95)(6.95) \\
+&= 3071.15 - 48.30 \\
+&= 3022.85
+\end{align}
+Como $\det(H_4) = 3022.85 > 0$, el punto $(3.584428, -1.848126)$ es un mínimo local.
+
+Todos los puntos críticos de la función de Himmelblau son mínimos locales con valor de función $f = 0$.
 
 \subsection{Discusión}
 
