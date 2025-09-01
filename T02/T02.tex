@@ -41,6 +41,15 @@ Para cada una de las siguientes funciones, encuentre los valores máximo y míni
 
 \subsection{Metodología}
 
+Para encontrar los valores máximo y mínimo de una función en un intervalo cerrado, seguimos estos pasos:
+\begin{enumerate}
+    \item Calcular la primera derivada de la función.
+    \item Encontrar los puntos críticos resolviendo $f'(x) = 0$.
+    \item Verificar que los puntos críticos estén dentro del intervalo dado.
+    \item Clasificar los puntos críticos usando la segunda derivada.
+    \item Evaluar la función en los puntos críticos y en los extremos del intervalo.
+\end{enumerate}
+
 \subsection{Resultados}
 \setcounter{equation}{0}
 
@@ -170,8 +179,24 @@ f(5) &= \frac{5}{5^{2} - 1} = \frac{5}{25 - 1} = \frac{5}{24}
 
 \subsection{Discusión}
 
+\textbf{Inciso (a):} 
+Comparando los valores obtenidos:
+- $f(-2) = 5$
+- $f(-4/3) = 203/27 \approx 7.52$  
+- $f(2) = -11$
+
+El valor máximo es $203/27$ en $x = -4/3$ y el valor mínimo es $-11$ en $x = 2$.
+
+\textbf{Inciso (b):}
+Como no hay puntos críticos en el intervalo, solo comparamos los extremos:
+- $f(0) = 0$
+- $f(5) = 5/24 \approx 0.21$
+
+El valor máximo es $5/24$ en $x = 5$ y el valor mínimo es $0$ en $x = 0$.
 
 \subsection{Conclusión}
+
+Para funciones continuas en intervalos cerrados, siempre existen valores máximo y mínimo absolutos. Estos pueden ocurrir en puntos críticos del interior del intervalo o en los extremos. Es esencial evaluar la función en todos los candidatos para determinar los valores extremos correctos.
 
 
 % ========================================
@@ -186,6 +211,13 @@ f(x) \;=\; \sum_{i=1}^{n} (x - a_i)^2
 \]
 
 \subsection{Metodología}
+
+Para encontrar el mínimo de esta función expresada como la sumatoria de cuadrados de $x-a_i$, debemos seguir los siguientes pasos:
+\begin{enumerate}
+    \item Calcular la primera derivada de la función que aplique para todo $i$.
+    \item Igualar la derivada a cero para encontrar puntos críticos.
+    \item Verificar que el punto encontrado es un mínimo usando la segunda derivada.
+\end{enumerate}
 
 \subsection{Resultados}
 \setcounter{equation}{0}
@@ -225,7 +257,15 @@ f(\bar{a}) = \sum_{i=1}^{n} (\bar{a} - a_i)^2
 
 \subsection{Discusión}
 
+El resultado muestra que el punto que minimiza la función es $x = \bar{a} = \frac{1}{n}\sum_{i=1}^{n} a_i$, que corresponde a la media de los valores $a_i$.
+
+La segunda derivada $f''(x) = 2n > 0$ confirma que se trata de un valor mínimo, ya que es una constante positiva para cualquier $n > 0$.
+
+El hecho de que la función contenga un solo valor de $x$ nos permitie factorizar fácilmente la expresión, tratando todos los términos $a_i$ como constantes durante la derivación. Esto simplifica considerablemente el proceso.
+
 \subsection{Conclusión}
+
+La media $\bar{a}$ minimiza la funcion de suma de cuadrados. Este resultado se obtuvo de manera directa mediante cálculo diferencial, aprovechando que la variable $x$ aparece de forma uniforme en todos los términos de la suma, lo que facilita la factorización y simplifica los cálculos.
 
 % ========================================
 % SECCIÓN 3
@@ -236,6 +276,15 @@ f(\bar{a}) = \sum_{i=1}^{n} (\bar{a} - a_i)^2
 ¿Cuál es la relación entre los puntos críticos de $f$ y los de $f^{2}$?
 
 \subsection{Metodología}
+
+Para encontrar la relación entre los puntos críticos de $f$ y $f^2$, aplicamos los teoremas vistos en el temario de la semana:
+\begin{enumerate}
+    \item Identificar los puntos críticos de la función original $f$.
+    \item Identificar los puntos criticos de $f^{2}$.
+    \item Comparar ambos conjuntos de puntos críticos para establecer relaciones.
+\end{enumerate}
+
+Al no tener algun ejemplo en especifico, se debe de recurrir al analisis de las formas generales en las que se ven estas funciones.
 
 \subsection{Resultados}
 \setcounter{equation}{0}
@@ -264,7 +313,15 @@ Por lo tanto, los puntos críticos de $f^2$ incluyen:
 
 \subsection{Discusión}
 
+El análisis muestra que el conjunto de puntos críticos de $f^2$ siempre contiene como subconjunto a los puntos críticos de $f$. Esto se debe a que cuando $f'(x) = 0$, automáticamente se cumple que $g'(x) = 2f(x)f'(x) = 0$.
+
+Sin embargo, $f^2$ puede tener puntos críticos adicionales en los ceros de $f$, donde $f(x) = 0$ pero $f'(x) \neq 0$.
+
+Por lo tanto, para toda función cuadrática podemos encontrar sus puntos críticos, y entre estos estarán incluidos todos los puntos críticos de la función original sin elevar al cuadrado.
+
 \subsection{Conclusión}
+
+Los puntos críticos de $f$ forman un subconjunto de los puntos críticos de $f^2$. La función cuadrática $f^2$ conserva todos los extremos de $f$ y puede agregar nuevos extremos en los ceros de $f$, ampliando así el conjunto de puntos críticos.
 
 % ========================================
 % SECCIÓN 4
@@ -275,6 +332,16 @@ Por lo tanto, los puntos críticos de $f^2$ incluyen:
 Entre todos los cilindros circulares rectos de volumen fijo $V$, encuentre aquel con el área de superficie más pequeña.
 
 \subsection{Metodología}
+
+Para resolver este problema de optimización con restricciones, seguimos estos pasos:
+\begin{enumerate}
+    \item Identificar las variables: radio $r$ y altura $h$ del cilindro.
+    \item Establecer la función objetivo: área de superficie $A = 2\pi r^2 + 2\pi rh$.
+    \item Aplicar la restricción de volumen fijo: $V = \pi r^2 h$.
+    \item Usar la restricción para eliminar una variable y convertir el problema en optimización sin restricciones.
+    \item Aplicar cálculo diferencial para encontrar el mínimo.
+    \item Verificar que es un mínimo usando la segunda derivada.
+\end{enumerate}
 
 \subsection{Resultados}
 \setcounter{equation}{0}
@@ -357,7 +424,15 @@ Esta es el área mínima de superficie para un cilindro de volumen fijo $V$.
 
 \subsection{Discusión}
 
+El resultado principal es que $h = 2r$, lo que significa que la altura del cilindro óptimo es exactamente el doble de su radio. 
+
+La segunda derivada $f''(r) = 12\pi > 0$ confirma que encontramos un mínimo global. Esto tiene sentido porque al usar la restricción de volumen, convertimos el problema en una función de una sola variable donde solo puede haber un punto crítico.
+
+El proceso de sustitución fue clave: usar la restricción $V = \pi r^2 h$ para expresar $h$ en términos de $r$ nos permitió reducir el problema a optimizar una función de una variable.
+
 \subsection{Conclusión}
+
+El cilindro de área mínima con volumen fijo tiene la relación $h = 2r$. Este resultado se obtuvo aplicando cálculo diferencial después de usar la restricción para reducir el problema a una variable. La geometría óptima es más "alta" que "ancha" en comparación con un cilindro donde $h = r$.
 
 % ========================================
 % SECCIÓN 5
@@ -368,6 +443,8 @@ Esta es el área mínima de superficie para un cilindro de volumen fijo $V$.
 Demuestre que la suma de un número positivo y su recíproco es al menos $2$.
 
 \subsection{Metodología}
+
+Cuando nos referimos al recíproco de $a$, estamos hablando de $\frac{1}{a}$, y en esta demostración se debe de validar si es que $a + \frac{1}{a} \geq 2$. Para esto podemos aplicar ciertas técnicas de álgebra básica para jugar con la expresión.
 
 \subsection{Resultados}
 \setcounter{equation}{0}
@@ -404,7 +481,15 @@ Por lo tanto, $(a - 1)^2 \geq 0$ para todo $a \in \mathbb{R}$, y en particular p
 
 \subsection{Discusión}
 
+Al despejar la función para que fuera $\geq 0$ se pudo ver de manera fácil que podíamos transformar esta ecuación en una cuadrática al multiplicarla por $a$, dado un binomio cuadrado, y por lógica sabemos que el cuadrado siempre es $\geq 0$, lo cual concuerda con la expresión que teníamos.
+
+El punto clave es que $(a-1)^2 \geq 0$ siempre es verdadero para cualquier número real $a$, y la igualdad se alcanza únicamente cuando $a = 1$. Esto significa que el valor mínimo de $a + \frac{1}{a}$ es exactamente $2$, y se obtiene cuando $a = 1$.
+
+Esta desigualdad también se conoce como la desigualdad aritmético-geométrica para dos términos, ya que $\frac{a + \frac{1}{a}}{2} \geq \sqrt{a \cdot \frac{1}{a}} = 1$, lo que implica $a + \frac{1}{a} \geq 2$.
+
 \subsection{Conclusión}
+
+Después de esta demostración podemos decir que $a + \frac{1}{a} \geq 2$ para todo número positivo gracias a su transformación en un binomio al cuadrado usando álgebra.
 
 % ========================================
 % SECCIÓN 6
@@ -724,6 +809,31 @@ Demuestre que, de todos los paralelepípedos rectangulares con una superficie da
 
 \subsection{Metodología}
 
+Para resolver este problema de optimización con restricciones, utilizaremos el método de los multiplicadores de Lagrange. Este método nos permite encontrar extremos de una función sujeta a restricciones. 
+
+Un paralelepípedo rectangular tiene dimensiones $x$, $y$ y $z$. Queremos maximizar su volumen sujeto a que tenga una superficie dada.
+
+La función objetivo (volumen) es:
+$$V(x,y,z) = xyz$$
+
+La restricción (superficie fija) es:
+$$S = 2xy + 2xz + 2yz$$
+
+donde $S$ es una constante dada.
+
+Definimos la función de Lagrange:
+$$L(x,y,z,\lambda) = xyz - \lambda(2xy + 2xz + 2yz - S)$$
+
+donde $\lambda$ es el multiplicador de Lagrange.
+
+Los pasos a seguir son:
+\begin{enumerate}
+    \item[-] Calcular las derivadas parciales de $L$ con respecto a $x$, $y$, $z$ y $\lambda$.
+    \item[-] Igualar todas las derivadas a cero para obtener el sistema de ecuaciones.
+    \item[-] Resolver el sistema para demostrar que $x = y = z$.
+    \item[-] Verificar que el resultado corresponde a un cubo.
+\end{enumerate}
+
 \subsection{Resultados}
 \setcounter{equation}{0}
 
@@ -834,9 +944,16 @@ A=\begin{pmatrix}
 
 \subsection{Metodología}
 
+Para saber si una matriz es definida positiva, podemos usar el criterio de Sylvester. Básicamente necesitamos calcular los menores principales de la matriz y verificar que todos sean positivos:
+\begin{enumerate}
+    \item Calcular el primer menor principal (solo el elemento $a_{11}$).
+    \item Calcular el segundo menor principal (determinante de la submatriz 2x2 superior izquierda).
+    \item Calcular el tercer menor principal (determinante de toda la matriz 3x3).
+    \item Si todos son positivos, la matriz es definida positiva. Si alguno es negativo o cero, no lo es.
+\end{enumerate}
+
 \subsection{Resultados}
 \setcounter{equation}{0}
-
 
 \textbf{Inciso (a):}
 \begin{align}
@@ -906,7 +1023,17 @@ Como el primer menor principal es negativo, la matriz del inciso (c) no es defin
 
 \subsection{Discusión}
 
+Los resultados muestran patrones claros. Para el inciso (a), todos los menores principales fueron positivos (16, 400, 14400), así que esa matriz sí es definida positiva.
+
+Para el inciso (b), aunque el primer menor principal fue positivo (9), el segundo ya salió negativo (-45), así que ahí mismo podemos parar y decir que no es definida positiva.
+
+Para el inciso (c) fue aún más directo: desde el primer menor principal ya tuvimos un número negativo (-9), entonces definitivamente no es definida positiva.
+
+El criterio de Sylvester nos dice que todos los menores principales deben ser positivos para que la matriz sea definida positiva. En cuanto uno sale negativo o cero, ya sabemos que no cumple.
+
 \subsection{Conclusión}
+
+Solo la matriz del inciso (a) es definida positiva. Las matrices de los incisos (b) y (c) no son definidas positivas porque tienen menores principales negativos. El criterio de Sylvester nos permite determinarlo de manera rápida y directa calculando los menores principales en orden.
 
 % ========================================
 % SECCIÓN 9
