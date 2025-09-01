@@ -766,6 +766,73 @@ A=\begin{pmatrix}
 \subsection{Resultados}
 \setcounter{equation}{0}
 
+
+\textbf{Inciso (a):}
+\begin{align}
+    A=\begin{pmatrix} 16 & -8 & -4\\ -8 & 29 & 12\\ -4 & 12 & 41 \end{pmatrix}
+\end{align}
+
+Verificamos los menores principales:
+
+\textbf{Primer menor principal:}
+\begin{align}
+M_1 = 16 > 0
+\end{align}
+
+\textbf{Segundo menor principal:}
+\begin{align}
+M_2 &= \det\begin{pmatrix} 16 & -8 \\ -8 & 29 \end{pmatrix} \\
+&= (16)(29) - (-8)(-8) \\
+&= 464 - 64 \\
+&= 400 > 0
+\end{align}
+
+\textbf{Tercer menor principal (determinante completo):}
+Usando la regla de Sarrus:
+\begin{align}
+M_3 &= \det(A) = (16)(29)(41) + (-8)(12)(-4) + (-4)(-8)(12) \\
+&\quad - (-4)(29)(-4) - (12)(12)(16) - (41)(-8)(-8) \\
+&= 19024 + 384 + 384 - 464 - 2304 - 2624 \\
+&= 19792 - 5392 \\
+&= 14400 > 0
+\end{align}
+
+Como todos los menores principales son positivos, la matriz del inciso (a) es definida positiva.
+
+\textbf{Inciso (b):}
+\begin{align}
+     A=\begin{pmatrix} 9 & 0 & -8\\ 6 & -5 & -2\\ -9 & 3 & 3 \end{pmatrix}
+\end{align}
+Verificamos los menores principales:
+
+\textbf{Primer menor principal:}
+\begin{align}
+M_1 = 9 > 0
+\end{align}
+
+\textbf{Segundo menor principal:}
+\begin{align}
+M_2 &= \det\begin{pmatrix} 9 & 0 \\ 6 & -5 \end{pmatrix} \\
+&= (9)(-5) - (0)(6) \\
+&= -45 < 0
+\end{align}
+
+Como el segundo menor principal es negativo, la matriz del inciso (b) no es definida positiva.
+
+\textbf{Inciso (c):}
+\begin{align}
+     A=\begin{pmatrix} -9 & 0 & -8\\ 6 & -5 & -2\\ -9 & 3 & 3 \end{pmatrix}
+\end{align}
+
+Verificamos el primer menor principal:
+
+\textbf{Primer menor principal:}
+\begin{align}
+M_1 = -9 < 0
+\end{align}
+
+Como el primer menor principal es negativo, la matriz del inciso (c) no es definida positiva.
+
 \subsection{Discusión}
 
 \subsection{Conclusión}
@@ -794,6 +861,57 @@ f(\mathbf{x}) &= \sum_{i=1}^{n-1} \bigl[100(x_{i+1}-x_i^{2})^{2} + (x_i-1)^{2}\b
 
 \subsection{Resultados}
 \setcounter{equation}{0}
+
+\textbf{Inciso (b): Puntos mínimos por inspección}
+
+\textbf{Función 1: $f(\mathbf{x}) = \sum_{i=1}^{n} x_i^{2}$}
+
+Esta función es una suma de cuadrados. Cada término $x_i^2 \geq 0$, y la suma es mínima cuando cada término es mínimo.
+
+Como $x_i^2 = 0$ únicamente cuando $x_i = 0$, el mínimo se alcanza cuando:
+\begin{align}
+x_i = 0 \quad \text{para todo } i = 1, 2, \ldots, n
+\end{align}
+
+El punto mínimo es:
+\begin{align}
+\mathbf{x}^* = (0, 0, 0, 0, 0) \quad \text{para } n = 5
+\end{align}
+
+El valor mínimo es $f(\mathbf{x}^*) = 0$.
+
+\textbf{Función 2: $f(x,y) = (x^{2}+y-11)^{2} + (x+y^{2}-7)^{2}$}
+
+Los cuatro puntos mínimos de esta función de Himmelblau ya fueron calculados en el Problema 6, inciso (d). En todos estos puntos el valor de la función es $f(\mathbf{x}^*) = 0$.
+\begin{align}
+P_1 &= (3, 2) \\
+P_2 &= (-2.805118, 3.131312) \\
+P_3 &= (-3.779310, -3.283186) \\
+P_4 &= (3.584428, -1.848126)
+\end{align}
+
+\textbf{Función 3: $f(\mathbf{x}) = \sum_{i=1}^{n-1} \bigl[100(x_{i+1}-x_i^{2})^{2} + (x_i-1)^{2}\bigr]$}
+
+Esta función de Rosenbrock es una suma de términos no negativos. Cada término contiene dos cuadrados:
+\begin{align}
+100(x_{i+1} - x_i^2)^2 &\geq 0 \\
+(x_i - 1)^2 &\geq 0
+\end{align}
+
+La función es mínima cuando todos los cuadrados son cero:
+\begin{align}
+(x_i - 1)^2 &= 0 \quad \Rightarrow \quad x_i = 1 \\
+(x_{i+1} - x_i^2)^2 &= 0 \quad \Rightarrow \quad x_{i+1} = x_i^2 = 1^2 = 1
+\end{align}
+
+Esto significa que $x_i = 1$ para todo $i$.
+
+El punto mínimo es:
+\begin{align}
+\mathbf{x}^* = (1, 1, 1, 1, 1) \quad \text{para } n = 5
+\end{align}
+
+El valor mínimo es $f(\mathbf{x}^*) = 0$.
 
 \subsection{Discusión}
 
