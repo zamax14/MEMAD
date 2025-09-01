@@ -44,6 +44,119 @@ Para cada una de las siguientes funciones, encuentre los valores máximo y míni
 \subsection{Resultados}
 \setcounter{equation}{0}
 
+\textbf{Inciso (a): $f(x) = x^{3} - x^{2} - 8x + 1$ en $[-2,\,2]$}
+
+Primero calculamos la derivada:
+\begin{align}
+f'(x) &= 3x^{2} - 2x - 8
+\end{align}
+
+Para encontrar los puntos críticos, resolvemos $f'(x) = 0$:
+\begin{align}
+3x^{2} - 2x - 8 &= 0
+\end{align}
+
+Usando la fórmula cuadrática:
+\begin{align}
+x &= \frac{2 \pm \sqrt{4 + 96}}{6} \\
+&= \frac{2 \pm \sqrt{100}}{6} \\
+&= \frac{2 \pm 10}{6}
+\end{align}
+
+Por lo tanto:
+\begin{align}
+x_{1} &= \frac{2 + 10}{6} = \frac{12}{6} = 2 \\
+x_{2} &= \frac{2 - 10}{6} = \frac{-8}{6} = -\frac{4}{3}
+\end{align}
+
+Ambos puntos críticos están dentro del intervalo $[-2, 2]$.
+
+Ahora clasificamos los puntos críticos usando el criterio de la segunda derivada:
+\begin{align}
+f''(x) &= 6x - 2
+\end{align}
+
+Para $x = -\frac{4}{3}$:
+\begin{align}
+f''\left(-\frac{4}{3}\right) &= 6\left(-\frac{4}{3}\right) - 2 \\
+&= -8 - 2 \\
+&= -10 < 0
+\end{align}
+
+Como $f''(-\frac{4}{3}) < 0$, el punto $x = -\frac{4}{3}$ es un máximo local.
+
+Para $x = 2$:
+\begin{align}
+f''(2) &= 6(2) - 2 \\
+&= 12 - 2 \\
+&= 10 > 0
+\end{align}
+
+Como $f''(2) > 0$, el punto $x = 2$ es un mínimo local.
+
+Ahora evaluamos $f(x)$ en los puntos críticos y en los extremos:
+
+En $x = -2$:
+\begin{align}
+f(-2) &= (-2)^{3} - (-2)^{2} - 8(-2) + 1 \\
+&= -8 - 4 + 16 + 1 \\
+&= 5
+\end{align}
+
+En $x = -\frac{4}{3}$:
+\begin{align}
+f\left(-\frac{4}{3}\right) &= \left(-\frac{4}{3}\right)^{3} - \left(-\frac{4}{3}\right)^{2} - 8\left(-\frac{4}{3}\right) + 1 \\
+&= -\frac{64}{27} - \frac{16}{9} + \frac{32}{3} + 1 \\
+&= -\frac{64}{27} - \frac{48}{27} + \frac{288}{27} + \frac{27}{27} \\
+&= \frac{-64 - 48 + 288 + 27}{27} \\
+&= \frac{203}{27}
+\end{align}
+
+En $x = 2$:
+\begin{align}
+f(2) &= 2^{3} - 2^{2} - 8(2) + 1 \\
+&= 8 - 4 - 16 + 1 \\
+&= -11
+\end{align}
+
+
+\textbf{Inciso (b): $f(x) = \dfrac{x}{x^{2}-1}$ en $[0,\,5]$}
+
+Calculamos la derivada usando la regla del cociente:
+\begin{align}
+f'(x) &= \frac{(x^{2}-1)(1) - x(2x)}{(x^{2}-1)^{2}} \\
+&= \frac{x^{2} - 1 - 2x^{2}}{(x^{2}-1)^{2}} \\
+&= \frac{-x^{2} - 1}{(x^{2}-1)^{2}} \\
+&= \frac{-(x^{2} + 1)}{(x^{2}-1)^{2}}
+\end{align}
+
+Para encontrar puntos críticos, resolvemos $f'(x) = 0$:
+\begin{align}
+\frac{-(x^{2} + 1)}{(x^{2}-1)^{2}} &= 0
+\end{align}
+
+Esto ocurre cuando el numerador es cero:
+\begin{align}
+-(x^{2} + 1) &= 0 \\
+x^{2} + 1 &= 0 \\
+x^{2} &= -1 \\
+x &= \sqrt{-1}
+\end{align}
+
+Esta ecuación no tiene soluciones reales, por lo que no hay puntos críticos en $\mathbb{R}$.
+
+Evaluamos en los extremos del intervalo:
+
+En $x = 0$:
+\begin{align}
+f(0) &= \frac{0}{0^{2} - 1} = \frac{0}{-1} = 0
+\end{align}
+
+En $x = 5$:
+\begin{align}
+f(5) &= \frac{5}{5^{2} - 1} = \frac{5}{25 - 1} = \frac{5}{24}
+\end{align}
+
 \subsection{Discusión}
 
 \subsection{Conclusión}
