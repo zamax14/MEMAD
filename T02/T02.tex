@@ -727,6 +727,77 @@ Demuestre que, de todos los paralelepípedos rectangulares con una superficie da
 \subsection{Resultados}
 \setcounter{equation}{0}
 
+Para encontrar los puntos críticos, igualamos a cero todas las derivadas parciales:
+
+\begin{align}
+\frac{\partial L}{\partial x} &= yz - \lambda(2y + 2z) = 0 \\
+\frac{\partial L}{\partial y} &= xz - \lambda(2x + 2z) = 0 \\
+\frac{\partial L}{\partial z} &= xy - \lambda(2x + 2y) = 0 \\
+\frac{\partial L}{\partial \lambda} &= -(2xy + 2xz + 2yz - S) = 0
+\end{align}
+
+De las primeras tres ecuaciones obtenemos:
+\begin{align}
+yz &= 2\lambda(y + z) \\
+xz &= 2\lambda(x + z) \\
+xy &= 2\lambda(x + y)
+\end{align}
+
+Igualamos las expresiones para $2\lambda$:
+
+De las ecuaciones (5) y (6): $\frac{yz}{y + z} = \frac{xz}{x + z}$
+
+Simplificando (cancelando $z$):
+\begin{align}
+\frac{y}{y + z} = \frac{x}{x + z}
+\end{align}
+
+Realizando productos cruzados:
+\begin{align}
+y(x + z) &= x(y + z) \\
+yx + yz &= xy + xz \\
+yz &= xz
+\end{align}
+
+Como $z \neq 0$, podemos dividir entre $z$:
+\begin{align}
+y = x
+\end{align}
+
+De manera similar, comparando las ecuaciones (5) y (7):
+
+$\frac{yz}{y + z} = \frac{xy}{x + y}$
+
+Como ya sabemos que $y = x$, sustituimos:
+\begin{align}
+\frac{xz}{x + z} &= \frac{x^2}{x + x} \\
+\frac{xz}{x + z} &= \frac{x^2}{2x} \\
+\frac{xz}{x + z} &= \frac{x}{2}
+\end{align}
+
+Multiplicando ambos lados por $(x + z)$:
+\begin{align}
+xz &= \frac{x(x + z)}{2} \\
+xz &= \frac{x^2 + xz}{2}
+\end{align}
+
+Multiplicando por 2:
+\begin{align}
+2xz &= x^2 + xz \\
+2xz - xz &= x^2 \\
+xz &= x^2
+\end{align}
+
+Como $x \neq 0$, dividimos entre $x$:
+\begin{align}
+z = x
+\end{align}
+
+Hemos demostrado que:
+\begin{align}
+x = y = z
+\end{align}
+
 \subsection{Discusión}
 
 \subsection{Conclusión}
