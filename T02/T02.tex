@@ -159,7 +159,9 @@ f(5) &= \frac{5}{5^{2} - 1} = \frac{5}{25 - 1} = \frac{5}{24}
 
 \subsection{Discusión}
 
+
 \subsection{Conclusión}
+
 
 % ========================================
 % SECCIÓN 2
@@ -176,6 +178,39 @@ f(x) \;=\; \sum_{i=1}^{n} (x - a_i)^2
 
 \subsection{Resultados}
 \setcounter{equation}{0}
+
+Para encontrar el valor mínimo de $f(x) = \sum_{i=1}^{n} (x - a_i)^2$, calculamos la derivada:
+
+\begin{align}
+    f'(x) &= 2\sum_{i=1}^{n} (x - a_i) \\
+    &= 2\sum_{i=1}^{n} x - 2\sum_{i=1}^{n} a_i \\
+    &= 2nx - 2\sum_{i=1}^{n} a_i
+\end{align}
+
+Para encontrar el punto crítico, igualamos $f'(x) = 0$:
+\begin{align}
+    2nx - 2\sum_{i=1}^{n} a_i &= 0 \\
+    2nx &= 2\sum_{i=1}^{n} a_i \\
+    x &= \frac{1}{n}\sum_{i=1}^{n} a_i 
+\end{align}
+
+Analizando esto, $x$ es la media de todos los valores de $a$
+
+\begin{align}
+    x = \bar{a}
+\end{align}
+
+La segunda derivada es:
+\begin{align}
+f''(x) = 2n > 0
+\end{align}
+
+Como $f''(x) > 0$, el punto $x = \bar{a}$ es un mínimo.
+
+El valor mínimo de la función es:
+\begin{align}
+f(\bar{a}) = \sum_{i=1}^{n} (\bar{a} - a_i)^2
+\end{align}
 
 \subsection{Discusión}
 
