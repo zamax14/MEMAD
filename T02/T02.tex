@@ -955,7 +955,13 @@ x = y = z
 
 \subsection{Discusión}
 
+El resultado $x = y = z$ demuestra que el paralelepípedo óptimo es efectivamente un cubo. Este resultado se obtuvo mediante multiplicadores de Lagrange, que es el método estándar para problemas de optimización con restricciones de igualdad.
+
+La clave del análisis fue igualar las expresiones para $2\lambda$ obtenidas de las diferentes ecuaciones del sistema. Al hacer esto sistemáticamente, pudimos demostrar paso a paso que todas las dimensiones deben ser iguales.
+
 \subsection{Conclusión}
+
+Se demostró que entre todos los paralelepípedos rectangulares con superficie fija, el cubo es el que maximiza el volumen. Este resultado geométrico intuitivo se confirma rigurosamente mediante el método de multiplicadores de Lagrange, mostrando que la simetría conduce a la optimización.
 
 % ========================================
 % SECCIÓN 8
@@ -1103,8 +1109,27 @@ f(\mathbf{x}) &= \sum_{i=1}^{n-1} \bigl[100(x_{i+1}-x_i^{2})^{2} + (x_i-1)^{2}\b
 
 \subsection{Metodología}
 
+Para abordar este problema seguimos dos enfoques complementarios:
+
+\textbf{Inciso (a) - Implementación en Python:}
+Lo ideal es crear una clase genérica con la lógica de diferencias finitas que permita pasar por parámetros tanto los puntos a evaluar como las funciones objetivo. Esto permite reutilizar el código eficientemente para diferentes funciones y puntos de evaluación. La clase debe implementar:
+\begin{enumerate}
+    \item Gradiente usando diferencias finitas centrales: $\frac{\partial f}{\partial x_i} \approx \frac{f(x + h e_i) - f(x - h e_i)}{2h}$
+    \item Hessiano calculando segundas derivadas y términos cruzados con diferencias finitas
+\end{enumerate}
+
+\textbf{Inciso (b) - Análisis por inspección:}
+Para encontrar los mínimos analizamos la estructura de cada función:
+\begin{enumerate}
+    \item Identificar términos no negativos (cuadrados)
+    \item Determinar cuándo estos términos se anulan
+    \item Verificar que corresponde efectivamente a un mínimo
+\end{enumerate}
+
 \subsection{Resultados}
 \setcounter{equation}{0}
+
+\textbf{Inciso (a) y (b): Su desarrollo se encuentra en el ipynb}
 
 \textbf{Inciso (b): Puntos mínimos por inspección}
 
@@ -1159,7 +1184,20 @@ El valor mínimo es $f(\mathbf{x}^*) = 0$.
 
 \subsection{Discusión}
 
+El análisis por inspección del inciso (b) reveló patrones claros en las tres funciones. Todas tienen estructura de suma de cuadrados, lo que facilita identificar sus mínimos globales donde los términos se anulan.
+
+Se pudo corroborar de manera exitosa lo que indica la teoría mediante los scripts de Python desarrollados. Los cálculos numéricos usando diferencias finitas confirmaron que:
+\begin{itemize}
+    \item Los gradientes se aproximan a cero en los puntos identificados analíticamente
+    \item Las matrices Hessianas son definidas positivas, confirmando que son mínimos locales
+    \item Los valores de las funciones coinciden con los esperados teóricamente
+\end{itemize}
+
+La implementación de la clase genérica permitió evaluar múltiples funciones y puntos de manera eficiente, demostrando la versatilidad del enfoque de diferencias finitas para verificación numérica.
+
 \subsection{Conclusión}
+
+La combinación de análisis teórico e implementación numérica proporcionó una validación completa de los resultados. Los métodos de diferencias finitas demostraron ser herramientas efectivas para aproximar gradientes y Hessianos, confirmando los puntos mínimos encontrados analíticamente y reforzando la comprensión de las propiedades de optimización de estas funciones clásicas.
 
 % ========================================
 % SECCIÓN 10
@@ -1176,11 +1214,47 @@ Codifique el método de Newton en un script de Python. Luego, úselo para optimi
 
 \subsection{Metodología}
 
+Para implementar el método de Newton se requiere:
+\begin{enumerate}
+    \item Crear una clase que encapsule la lógica del algoritmo iterativo
+    \item Implementar el cálculo de gradientes y Hessianos (ya desarrollado en el problema 9)
+    \item Aplicar la fórmula: $\mathbf{x}_{k+1} = \mathbf{x}_{k} - H^{-1}(\mathbf{x}_k) \nabla f(\mathbf{x}_k)$
+    \item Seleccionar puntos de partida cercanos a los mínimos conocidos para asegurar convergencia
+    \item Generar gráficas para visualizar tanto la convergencia de la función como la evolución de las variables
+\end{enumerate}
+
 \subsection{Resultados}
 \setcounter{equation}{0}
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{images/10_1_plot.png}
+\caption{Gráfica de optimización para la función $f(\mathbf{x}) &= \sum_{i=1}^{n} x_i^{2}$.}
+\label{fig:10_1_optim}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{images/10_2_plot.png}
+\caption{Gráfica de optimización para la función $f(x,y) &= (x^{2}+y-11)^{2} + (x+y^{2}-7)^{2}$.}
+\label{fig:10_2_optim}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{images/10_3_plot.png}
+\caption{Gráfica de optimización para la función $f(\mathbf{x}) &= \sum_{i=1}^{n-1} \bigl[100(x_{i+1}-x_i^{2})^{2} + (x_i-1)^{2}\bigr]$.}
+\label{fig:10_3_optim}
+\end{figure}
+
 \subsection{Discusión}
 
+El método de Newton demostró ser altamente eficiente para todas las funciones cuando se inicia cerca del mínimo. La convergencia cuadrática característica del método es evidente en las gráficas, donde el valor de la función decrece rápidamente en las primeras iteraciones.
+
+La selección del punto inicial es crucial: puntos muy alejados pueden causar problemas de convergencia o convergencia a otros mínimos locales (especialmente notable en la función de Himmelblau). Las gráficas de trayectoria muestran claramente cómo las variables evolucionan hacia sus valores óptimos.
+
 \subsection{Conclusión}
+
+El método de Newton es una herramienta poderosa para optimización cuando se cuenta con información del Hessiano y puntos de partida adecuados. Su implementación en Python permite visualizar efectivamente el comportamiento del algoritmo y validar la convergencia hacia los mínimos teóricos identificados previamente.
 
 \end{document}
