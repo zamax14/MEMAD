@@ -22,7 +22,6 @@ Cada carpeta de tarea contiene:
 - **📝 `T0X.tex`** - Desarrollo teórico de los problemas (LaTeX)
 - **💻 `t0X_alejandro_zarate_macias.ipynb`** - Problemas de programación (Jupyter Notebook)
 - **📊 `t0X_alejandro_zarate_macias_results.pdf`** - Resultados de la ejecución de los problemas
-- **📦 `t0X_alejandro_zarate_macias.zip`** - Archivo comprimido con todos los resultados
 
 ## Recursos de Consulta
 
@@ -40,6 +39,7 @@ Cada carpeta de tarea contiene:
 
 - **Semana 01**: [Lista de reproducción en YouTube](https://www.youtube.com/playlist?list=PL66A4_etiRmz_QUD1p0BjEKIHJdjmuTPn)
 - **Semana 02**: [Lista de reproducción en YouTube](https://www.youtube.com/playlist?list=PL66A4_etiRmwHCxbmYGUHKMExtLqpNP0t)
+- **Semana 03**: [Lista de reproducción en YouTube](https://www.youtube.com/playlist?list=PL66A4_etiRmyllBGU4edNxyiQSsXcs88U)
 
 ## Repositorio
 
