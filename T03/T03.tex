@@ -1,0 +1,247 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+
+\title{MEMAD-T03}
+\author{ALEJANDRO ZARATE MACIAS}
+\date{8 de Septiembre 2025}
+
+\begin{document}
+
+\maketitle
+
+% ========================================
+% INTRODUCCIÓN
+% ========================================
+\section*{Introducción}
+Para la tarea de esta semana se busca trabajar distintos problemas enfocados en el uso de gradientes y su aplicación en métodos de optimización. El objetivo es poner en práctica lo aprendido en los videos proporcionados como material de estudio, así como en los libros sugeridos para el curso. Todo esto con el fin de aplicar:
+
+\begin{itemize}
+    \item Propiedades de convexidad.
+    \item Teorema de Taylor.
+    \item Gradientes: dirección, tamaño de paso, suficiente descenso, etc.
+    \item Condiciones de Armijo y Wolfe
+    \item Metodos: Newton, Quasi-Newton y Steepest Descent (descenso mas pronunciado)
+\end{itemize}
+% ========================================
+% SECCIÓN 1
+% ========================================
+\section{Problema 1}
+
+\subsection{Enunciado}
+Supóngase que $f(\mathbf{x}) = \mathbf{x}^T Q \mathbf{x}$, donde $Q \in \mathbb{R}^{n \times n}$, $Q \geq 0$, $Q = Q^T$. Demuestre que $f(\mathbf{x})$ es convexa $\forall \, \mathbf{x} \in \mathbb{R}^n$.
+
+\subsection{Metodología}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+\subsection{Discusión}
+
+\subsection{Conclusión}
+
+% ========================================
+% SECCIÓN 2
+% ========================================
+\section{Problema 2}
+
+\subsection{Enunciado}
+Sea $A \in \mathbb{R}^{n \times n}$, $A = A^T$. Considere  
+\begin{align*}
+    B = A + \alpha \mathbb{I},
+\end{align*}
+donde $\mathbb{I} \in \mathbb{R}^{n \times n}$ denota la matriz identidad y $\alpha \in \mathbb{R}^{+}$. Demuestre que $B > 0$ para valores suficientemente grandes de $\alpha$.
+
+\subsection{Metodología}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+\subsection{Discusión}
+
+\subsection{Conclusión}
+
+% ========================================
+% SECCIÓN 3
+% ========================================
+\section{Problema 3}
+
+\subsection{Enunciado}
+Escriba un script en Python para generar una matriz simétrica aleatoria $A \in (-0.5, 0.5)^{10 \times 10}$. Use la idea del Problema 2 para encontrar un valor adecuado de $\alpha$ y construir $B$ tal que $B > 0$. Explique por qué la ``estructura interna'' de ambas matrices $A$ y $B$ permanece igual al inspeccionar su espectro.
+
+\subsection{Metodología}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+\subsection{Discusión}
+
+\subsection{Conclusión}
+
+% ========================================
+% SECCIÓN 4
+% ========================================
+\section{Problema 4}
+
+\subsection{Enunciado}
+Explique por qué la idea del Problema 2 falla si $A \neq A^T$.
+
+\subsection{Metodología}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+\subsection{Discusión}
+
+\subsection{Conclusión}
+
+% ========================================
+% SECCIÓN NOTAS
+% ========================================
+\section*{Importante}
+\setcounter{equation}{0}
+Para los problemas 5 -- 8 considere las siguientes funciones $f : \mathbb{R}^n \rightarrow \mathbb{R}$:
+
+\begin{itemize}
+    \item Función de esfera trasladada:\\
+    \begin{align}
+        f(\mathbf{x}) = \sum_{i=1}^{n} (x_i - c_i)^2, \quad \text{para un determinado (fijo)} \quad \mathbf{c} \in \mathbb{R}^n.
+    \end{align}
+    Puede tomarse $\mathbf{c} = (1,1,\dots,1)$, por ejemplo.
+
+    \item Función de Rosenbrock:\\
+    \begin{align}
+        f(\mathbf{x}) = \sum_{i=1}^{n-1} \Big[ 100(x_{i+1} - x_i^{2})^{2} + (x_i - 1)^{2} \Big].
+    \end{align}
+
+    \item Función de Perm $n,\beta$:\\
+    \begin{align}
+        f(\mathbf{x}) =
+        \sum_{i=1}^{n} \left(
+            \sum_{j=1}^{n}\,(j^{\,i} + \beta)\left( \left(\frac{x_j}{j}\right)^{i} - 1 \right)
+        \right)^{2}, \quad \text{para un determinado (fijo)} \quad \beta \in \mathbb{R}.
+    \end{align}
+    Puede tomarse $\beta = 1$, por ejemplo.
+\end{itemize}
+Además, como punto inicial considere $\mathbf{x}_0 = (0.5,0.5,\dots,0.5)$. Asimismo, puede suponerse $n=5$.
+
+% ========================================
+% SECCIÓN 5
+% ========================================
+\section{Problema 5}
+
+\subsection{Enunciado}
+Calcule analíticamente $\nabla f(\mathbf{x})$ para las funciones (1)--(3).
+
+\subsection{Metodología}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+\subsection{Discusión}
+
+\subsection{Conclusión}
+
+% ========================================
+% SECCIÓN 6
+% ========================================
+\section{Problema 6}
+
+\subsection{Enunciado}
+Implemente en Python el algoritmo de descenso más pronunciado (SD) para las funciones $ (1)-(3) $. Use un paso de longitud fija y el gradiente analítico. Muestre gráficas del número de iteraciones contra el valor de la función.
+
+\subsection{Metodología}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+\subsection{Discusión}
+
+\subsection{Conclusión}
+
+% ========================================
+% SECCIÓN 7
+% ========================================
+\section{Problema 7}
+
+\subsection{Enunciado}
+Mejore su script anterior usando un gradiente numérico en lugar del gradiente analítico. A continuación, resuelva el problema de minimización para las funciones (1)-(3) usando el mismo número de iteraciones que antes. Realice una comparación de las soluciones obtenidas con las del Problema 6.
+
+
+\subsection{Metodología}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+\subsection{Discusión}
+
+\subsection{Conclusión}
+
+% ========================================
+% SECCIÓN 8
+% ========================================
+\section{Problema 8}
+
+\subsection{Enunciado}
+Mejore aún más su script añadiendo longitudes de paso de tipo decreciente lineal, adaptativa e inteligente (i.e.\ condiciones de Armijo o de Wolfe). Puede usar un gradiente analítico o numérico. Use algunas gráficas para comparar los resultados obtenidos con cada una de las cuatro estrategias de longitud de paso.
+
+\subsection{Metodología}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+\subsection{Discusión}
+
+\subsection{Conclusión}
+
+% ========================================
+% SECCIÓN 9
+% ========================================
+\section{Problema 9}
+
+\subsection{Enunciado}
+Considere la siguiente función
+
+\begin{align}
+    f(x_1, x_2) = 10^{9}x_1^{2} + x_2^{2}. \tag{4}
+\end{align}
+
+Considere $\mathbf{x}_0 = (1.5, 1.5)$ como punto inicial. Resuelva el problema de minimización usando su script de $SD$. ¿Cuántas iteraciones necesita su implementación de $SD$ para alcanzar un valor de la función menor que $1e^{-4}$? A continuación, escale las variables de (4). ¿Cuántas iteraciones necesita su implementación de $SD$ para alcanzar un valor menor que $1e^{-4}$ en esta versión escalada de (4)?
+
+
+\subsection{Metodología}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+\subsection{Discusión}
+
+\subsection{Conclusión}
+
+% ========================================
+% SECCIÓN 10
+% ========================================
+\section{Problema 10}
+
+\subsection{Enunciado}
+La diferenciación analítica y numérica no son las únicas formas de calcular derivadas. Investigue un poco sobre la diferenciación automática. Luego, considere la función de Himmelblau:
+
+\begin{align}
+    f(x,y) = (x^{2} + y - 11)^{2} + (x + y^{2} - 7)^{2}. \tag{5}
+\end{align}
+
+Calcule las derivadas parciales de (5) en el punto $(1,-1)$ usando diferenciación automática (dibuje en papel las gráficas correspondientes y muestre su procedimiento). ¿Qué ventajas y desventajas tienen la diferenciación analítica, numérica y automática al compararlas entre sí?
+
+\subsection{Metodología}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+\subsection{Discusión}
+
+\subsection{Conclusión}
+
+\end{document}
