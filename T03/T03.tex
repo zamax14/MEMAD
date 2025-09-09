@@ -163,12 +163,40 @@ Escriba un script en Python para generar una matriz simétrica aleatoria $A \in 
 
 \subsection{Metodología}
 
+Para resolver este problema, se puede realizar un pequeño script con lo siguiente:
+\begin{enumerate}
+    \item Generar una matriz aleatoria $A \in \mathbb{R}^{10 \times 10}$ con valores entre $(-0.5, 0.5)$ usando numpy.
+    \item Hacer que sea simétrica usando la operación $A = \frac{A + A^T}{2}$.
+    \item Calcular los valores propios de $A$ utilizando lo que nos ofrece la libreria.
+    \item Determinar $\alpha = |\lambda_{\min}| + \epsilon$ donde $\epsilon = 10^{-3}$ para garantizar que $B > 0$.
+    \item Construir $B = A + \alpha \mathbb{I}$ y verifica su definida positividad.
+\end{enumerate}
+
 \subsection{Resultados}
 \setcounter{equation}{0}
 
+Los resultados se pueden encontrar en el archivo "\texttt{t03\_alejandro\_zarate\_macias.ipynb}".
+
 \subsection{Discusión}
 
+La "estructura interna" de las matrices $A$ y $B$ permanece igual al inspeccionar su espectro porque:
+
+\begin{enumerate}
+    \item Vectores propios preservados: Al agregar $\alpha \mathbb{I}$ a una matriz simétrica $A$, los vectores propios de $B$ son idénticos a los de $A$. Esto se debe a que:
+    \begin{align}
+    A\mathbf{v}_i = \lambda_i \mathbf{v}_i \implies (A + \alpha \mathbb{I})\mathbf{v}_i = (\lambda_i + \alpha)\mathbf{v}_i
+    \end{align}
+    
+    \item Desplazamiento espectral uniforme: Los valores propios de $B$ son simplemente los de $A$ desplazados por $\alpha$:
+    \begin{align}
+    \text{eig}(B) = \text{eig}(A) + \alpha
+    \end{align}
+    
+\end{enumerate}
+
 \subsection{Conclusión}
+
+Se implementó exitosamente un script de pocas líneas que transforma una matriz simétrica en una matriz definida positiva mediante regularización espectral. La técnica preserva la estructura de la matriz original, modificando únicamente la magnitud de los valores propios. Este resultado confirma la teoría del Problema 2.
 
 % ========================================
 % SECCIÓN 4
@@ -549,16 +577,16 @@ $f = v_7 + v_8$ & $146$ & $-2$ & $\dot{f} = \dot{v_7} + \dot{v_8} = -22 + 20 = -
 
 Proceso paso a paso:
 
-1. Inicialización\textbf{:} Se establecen las variables de entrada $(x,y) = (1,-1)$ y las semillas direccionales $(\dot{x}, \dot{y})$ según la derivada que se quiera calcular.
+1. Inicialización: Se establecen las variables de entrada $(x,y) = (1,-1)$ y las semillas direccionales $(\dot{x}, \dot{y})$ según la derivada que se quiera calcular.
 
-2. Operaciones\textbf{ }elementales\textbf{:} Cada operación en el grafo se evalúa propagando tanto el valor como su derivada usando las reglas:
+2. Operaciones elementales: Cada operación en el grafo se evalúa propagando tanto el valor como su derivada usando las reglas:
    \begin{itemize}
        \item Potenciación: $\frac{d}{dx}(u^n) = nu^{n-1}\frac{du}{dx}$
        \item Suma: $\frac{d}{dx}(u + v) = \frac{du}{dx} + \frac{dv}{dx}$
        \item Constante: $\frac{d}{dx}(u + c) = \frac{du}{dx}$
    \end{itemize}
 
-3. Propagación\textbf{:} Los valores y derivadas se propagan hacia adelante en el grafo hasta llegar a la función objetivo.
+3. Propagación: Los valores y derivadas se propagan hacia adelante en el grafo hasta llegar a la función objetivo.
 
 Resultados en $(1,-1)$:
 \begin{align}
