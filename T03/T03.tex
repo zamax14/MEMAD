@@ -405,12 +405,61 @@ Implemente en Python el algoritmo de descenso más pronunciado (SD) para las fun
 
 \subsection{Metodología}
 
+Se implementará el algoritmo de descenso más pronunciado en Python con las siguientes características:
+
+\begin{enumerate}
+    \item \textbf{Clase SteepestDescent}: Algoritmo SD con paso fijo que incluye parámetros configurables (tolerancia, máximo de iteraciones, tamaño de paso) y registro del historial de convergencia.
+    
+    \item \textbf{Funciones objetivo}: Implementación de las tres funciones según el Problema 5 con $n=5$, $\mathbf{c} = (1,1,1,1,1)$ y $\beta = 1$.
+    
+    \item \textbf{Gradientes analíticos}: Uso de las derivadas calculadas en el Problema 5 para obtener direcciones de descenso exactas.
+    
+    \item \textbf{Configuración experimental}: Punto inicial $\mathbf{x}_0 = (0.5, 0.5, 0.5, 0.5, 0.5)$ y paso fijo optimizado empíricamente para cada función.
+\end{enumerate}
+
 \subsection{Resultados}
 \setcounter{equation}{0}
 
+Las implementaciones del algoritmo de descenso más pronunciado se ejecutaron para las tres funciones objetivo. Los resultados se presentan en las siguientes gráficas que muestran la evolución del valor de la función respecto al número de iteraciones:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{images/6_sphere.png}
+\caption{Convergencia del algoritmo SD para la función de esfera trasladada. La función converge rápidamente debido a su naturaleza convexa cuadrática.}
+\label{fig:sd_sphere}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{images/6_rosenbrock.png}
+\caption{Convergencia del algoritmo SD para la función de Rosenbrock. Se observa una convergencia más lenta debido a la naturaleza.}
+\label{fig:sd_rosenbrock}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{images/6_perm.png}
+\caption{Convergencia del algoritmo SD para la función de Perm. La convergencia presenta comportamiento irregular debido a la complejidad de la función.}
+\label{fig:sd_perm}
+\end{figure}
+
+Los resultados detallados y la implementación completa del código se encuentran en el archivo \texttt{t03\_alejandro\_zarate\_macias.ipynb}.
+
 \subsection{Discusión}
 
+Los resultados confirman las características de optimización vistas en el Problema 5:
+
+\begin{itemize}
+    \item \textbf{Función de esfera}: Como se predijo, resultó la más sencilla de optimizar. Su naturaleza convexa cuadrática permite una convergencia rápida hacia el mínimo global. El gradiente analítico simple $\nabla f(\mathbf{x}) = 2(\mathbf{x} - \mathbf{c})$ facilita direcciones de descenso eficientes.
+    
+    \item \textbf{Función de Rosenbrock}: Representa un verdadero reto de optimización debido a su curvatura pronunciada. La convergencia es notablemente más lenta, requiriendo un ajuste cuidadoso del tamaño de paso para evitar oscilaciones o que los valores incrementen en lugar de acercarse a 0. El gradiente analítico, aunque complejo, proporciona direcciones precisas pero la geometría de la función limita la eficiencia del método.
+    
+    \item \textbf{Función de Perm}: Confirma ser un desafío significativo con convergencia irregular. La complejidad de su gradiente analítico con sumas anidadas y potencias variables requiere evaluaciones computacionalmente más costosas.
+\end{itemize}
+
 \subsection{Conclusión}
+
+Se implementó exitosamente el algoritmo de descenso más pronunciado con gradientes analíticos para las tres funciones objetivo. Los resultados demuestran la efectividad del método para funciones convexas simples como la esfera, mientras revelan las limitaciones del método para funciones más complejas como Rosenbrock y Perm. El gradiente analítico garantiza precisión en las direcciones de descenso, aunque requiere un esfuerzo previo considerable en la derivación matemática.
 
 % ========================================
 % SECCIÓN 7
@@ -420,15 +469,66 @@ Implemente en Python el algoritmo de descenso más pronunciado (SD) para las fun
 \subsection{Enunciado}
 Mejore su script anterior usando un gradiente numérico en lugar del gradiente analítico. A continuación, resuelva el problema de minimización para las funciones (1)-(3) usando el mismo número de iteraciones que antes. Realice una comparación de las soluciones obtenidas con las del Problema 6.
 
-
 \subsection{Metodología}
+
+Se modifica la implementación del Problema 6 reemplazando los gradientes analíticos por gradientes numéricos:
+
+\begin{enumerate}
+    \item \textbf{Gradiente numérico}: Implementación usando diferencias finitas centrales:
+    \begin{align}
+    \frac{\partial f}{\partial x_i} \approx \frac{f(\mathbf{x} + h\mathbf{e}_i) - f(\mathbf{x} - h\mathbf{e}_i)}{2h}
+    \end{align}
+    donde $h = 10^{-5}$ y $\mathbf{e}_i$ es el vector unitario en la dirección $i$.
+    
+    \item \textbf{Misma configuración experimental}: Se mantienen los mismos parámetros del Problema 6 (punto inicial, número de iteraciones, tamaño de paso) para permitir comparación directa.
+    
+    \item \textbf{Análisis comparativo}: Evaluación de convergencia, precisión y costo computacional entre ambos métodos.
+\end{enumerate}
 
 \subsection{Resultados}
 \setcounter{equation}{0}
 
+Los resultados del algoritmo de descenso más pronunciado con gradiente numérico se presentan en las siguientes gráficas:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{images/7_sphere.png}
+\caption{Convergencia del algoritmo SD con gradiente numérico para la función de esfera trasladada. El comportamiento es prácticamente idéntico al gradiente analítico.}
+\label{fig:sd_numerical_sphere}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{images/7_rosenbrock.png}
+\caption{Convergencia del algoritmo SD con gradiente numérico para la función de Rosenbrock. Se observa convergencia similar al caso analítico con ligeras variaciones numéricas.}
+\label{fig:sd_numerical_rosenbrock}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{images/7_perm.png}
+\caption{Convergencia del algoritmo SD con gradiente numérico para la función de Perm. El comportamiento irregular se mantiene consistente con el gradiente analítico.}
+\label{fig:sd_numerical_perm}
+\end{figure}
+
+Los resultados detallados y la implementación completa del código se encuentran en el archivo \texttt{t03\_alejandro\_zarate\_macias.ipynb}.
+
 \subsection{Discusión}
 
+La comparación entre gradientes analíticos y numéricos revela resultados notablemente similares:
+
+\begin{itemize}
+    \item \textbf{Comportamiento de convergencia}: Las tres funciones exhiben patrones de convergencia prácticamente idénticos entre ambos métodos. Las trayectorias de optimización son casi indistinguibles, confirmando la precisión del gradiente numérico implementado.
+    
+    \item \textbf{Facilidad de implementación}: El gradiente numérico ofrece una ventaja significativa en términos de implementación: no requiere derivación manual ni implementación específica para cada función. Un solo método genérico puede calcular gradientes para cualquier función diferenciable.
+    
+    \item \textbf{Robustez}: El método numérico elimina la posibilidad de errores en la derivación manual, especialmente relevante para funciones complejas como la de Perm donde el gradiente analítico involucra múltiples sumas anidadas.
+\end{itemize}
+
 \subsection{Conclusión}
+
+Se demostró que el gradiente numérico produce resultados prácticamente idénticos al gradiente analítico para las tres funciones estudiadas, con la ventaja adicional de simplificar significativamente la implementación. La facilidad de no requerir derivación manual hace que el gradiente numérico sea una alternativa muy atractiva para problemas de optimización, especialmente cuando las funciones objetivo son complejas o cuando se necesita un enfoque genérico aplicable a diferentes tipos de funciones.
+
 
 % ========================================
 % SECCIÓN 8
@@ -440,12 +540,89 @@ Mejore aún más su script añadiendo longitudes de paso de tipo decreciente lin
 
 \subsection{Metodología}
 
+Se implementan cuatro estrategias diferentes para el tamaño de paso en el algoritmo de descenso más pronunciado:
+
+\begin{enumerate}
+    \item \textbf{Paso fijo}: Tamaño de paso constante durante toda la optimización (implementado en problemas anteriores).
+    
+    \item \textbf{Paso decreciente lineal}: Reducción lineal del tamaño de paso conforme avanzan las iteraciones.
+    
+    \item \textbf{Paso adaptativo}: Ajuste dinámico del tamaño de paso basado en el progreso de la función objetivo, incrementando cuando hay mejora y reduciendo cuando no la hay.
+    
+    \item \textbf{Condición de Armijo}: Búsqueda de línea que satisface la condición de descenso suficiente mediante backtracking.
+\end{enumerate}
+
+Se compararán estas estrategias usando las mismas tres funciones objetivo (esfera trasladada, Rosenbrock y Perm) con configuración experimental idéntica para evaluar su efectividad relativa.
+
+
 \subsection{Resultados}
 \setcounter{equation}{0}
 
+Los resultados de las cuatro estrategias de tamaño de paso se presentan en las siguientes gráficas de convergencia:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{images/8_sphere.png}
+\caption{Comparación de estrategias de tamaño de paso para la función de esfera trasladada. Se observa que todas las estrategias convergen efectivamente, con Armijo mostrando la convergencia más estable.}
+\label{fig:step_strategies_sphere}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{images/8_rosenbrock.png}
+\caption{Comparación de estrategias de tamaño de paso para la función de Rosenbrock. Las estrategias adaptativas muestran ventajas significativas sobre el paso fijo en esta función desafiante.}
+\label{fig:step_strategies_rosenbrock}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{images/8_perm.png}
+\caption{Comparación de estrategias de tamaño de paso para la función de Perm. La condición de Armijo demuestra mayor robustez en el manejo de la complejidad de esta función.}
+\label{fig:step_strategies_perm}
+\end{figure}
+
+Adicionalmente, se presenta la evolución del tamaño de paso para cada estrategia:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{images/8_sphere_lr.png}
+\caption{Evolución del tamaño de paso (learning rate) para la función de esfera trasladada. Se observa cómo cada estrategia ajusta dinámicamente el paso según su metodología específica.}
+\label{fig:lr_evolution_sphere}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{images/8_rosenbrock_lr.png}
+\caption{Evolución del tamaño de paso para la función de Rosenbrock. El método adaptativo y Armijo muestran ajustes más sofisticados que mejoran la convergencia.}
+\label{fig:lr_evolution_rosenbrock}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{images/8_perm_lr.png}
+\caption{Evolución del tamaño de paso para la función de Perm. Se evidencia la importancia del control dinámico del paso en funciones complejas.}
+\label{fig:lr_evolution_perm}
+\end{figure}
+
+Los resultados detallados y la implementación completa del código se encuentran en el archivo \texttt{t03\_alejandro\_zarate\_macias.ipynb}.
+
 \subsection{Discusión}
 
+La comparación de las cuatro estrategias revela patrones importantes sobre el comportamiento del tamaño de paso:
+
+\begin{itemize}
+    \item \textbf{Paso fijo}: Proporciona comportamiento predecible pero puede ser subóptimo. Para la función esfera funciona bien, pero para Rosenbrock y Perm puede ser demasiado agresivo o conservador según la región del espacio de búsqueda.
+    
+    \item \textbf{Paso decreciente lineal}: Ofrece un balance entre exploración inicial (paso grande) y refinamiento final (paso pequeño). Funciona especialmente bien cuando se tiene una estimación del número total de iteraciones necesarias.
+    
+    \item \textbf{Paso adaptativo}: Demuestra excelente flexibilidad al ajustarse automáticamente según el progreso. Incrementa el paso cuando hay mejora (acelerando convergencia) y lo reduce cuando hay retroceso (evitando divergencia). Particularmente efectivo para Rosenbrock donde la curvatura varía significativamente.
+    
+    \item \textbf{Condición de Armijo}: Proporciona la estrategia más robusta con garantías teóricas de convergencia. Aunque computacionalmente más costosa (requiere múltiples evaluaciones de función por iteración), ofrece la convergencia más estable y confiable, especialmente para funciones complejas como Perm.
+\end{itemize}
+
 \subsection{Conclusión}
+
+Se implementaron exitosamente cuatro estrategias diferentes de tamaño de paso, cada una con características distintivas. Los resultados demuestran que la elección de la estrategia de paso es crucial para el rendimiento del algoritmo, especialmente en funciones no convexas. La condición de Armijo se mostró como la más robusta para funciones complejas, mientras que el paso adaptativo ofreció un excelente balance entre simplicidad de implementación y efectividad. El paso decreciente lineal se mostró como una alternativa práctica cuando se conoce aproximadamente el horizonte de optimización.
 
 % ========================================
 % SECCIÓN 9
@@ -461,15 +638,69 @@ Considere la siguiente función
 
 Considere $\mathbf{x}_0 = (1.5, 1.5)$ como punto inicial. Resuelva el problema de minimización usando su script de $SD$. ¿Cuántas iteraciones necesita su implementación de $SD$ para alcanzar un valor de la función menor que $1e^{-4}$? A continuación, escale las variables de (4). ¿Cuántas iteraciones necesita su implementación de $SD$ para alcanzar un valor menor que $1e^{-4}$ en esta versión escalada de (4)?
 
-
 \subsection{Metodología}
+
+Se analiza el problema de optimización de la función mal condicionada $f(x_1, x_2) = 10^9 x_1^2 + x_2^2$ utilizando dos enfoques:
+
+\begin{enumerate}
+    \item \textbf{Función original}: Aplicación directa del algoritmo SD con las cuatro estrategias de tamaño de paso implementadas en el Problema 8.
+    
+    \item \textbf{Función escalada}: Normalización de variables para equilibrar los coeficientes mediante transformación $x_1' = \frac{x_1}{\sqrt{10^9}}$ y $x_2' = x_2$, resultando en una función mejor condicionada.
+    
+    \item \textbf{Análisis comparativo}: Evaluación del número de iteraciones requeridas para alcanzar $f(\mathbf{x}) < 10^{-4}$ en ambos casos.
+\end{enumerate}
 
 \subsection{Resultados}
 \setcounter{equation}{0}
 
+Los resultados de optimización revelan diferencias dramáticas entre la función original y la escalada:
+
+\textbf{Función original ($f(x_1, x_2) = 10^9 x_1^2 + x_2^2$):}
+
+Todas las estrategias de tamaño de paso experimentaron convergencia prematura, quedando estancadas en valores cercanos a $f(\mathbf{x}) \approx 2$. Ninguna estrategia logró alcanzar el criterio de parada $f(\mathbf{x}) < 10^{-4}$, incluso después de aumentar significativamente el número máximo de iteraciones.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{images/9_funcion4.png}
+\caption{Convergencia del algoritmo SD para la función original mal condicionada. Todas las estrategias se estancan en valores cercanos a 2 sin alcanzar el criterio de convergencia.}
+\label{fig:ill_conditioned_original}
+\end{figure}
+
+\textbf{Función escalada:}
+
+La normalización de variables permitió que todas las estrategias alcanzaran exitosamente el criterio de convergencia:
+
+\begin{itemize}
+    \item \textbf{Paso fijo}: 26 iteraciones
+    \item \textbf{Paso decreciente lineal}: 30 iteraciones  
+    \item \textbf{Paso adaptativo}: 4 iteraciones
+    \item \textbf{Paso inteligente (Armijo)}: 5 iteraciones
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{images/9_funcion4_norm.png}
+\caption{Convergencia del algoritmo SD para la función escalada. Todas las estrategias convergen exitosamente, con las estrategias adaptativas mostrando convergencia más rápida.}
+\label{fig:ill_conditioned_scaled}
+\end{figure}
+
+Los resultados detallados y gráficas comparativas se encuentran en el archivo \texttt{t03\_alejandro\_zarate\_macias.ipynb}.
+
 \subsection{Discusión}
 
+Los resultados ilustran claramente el impacto devastador del mal condicionamiento en algoritmos de optimización:
+
+\begin{itemize}
+    \item \textbf{Problema de condicionamiento}: La función original presenta un número de condición extremadamente alto ($\kappa \approx 10^9$) debido a la disparidad entre coeficientes. Esto crea un paisaje de optimización con forma de valle muy estrecho y alargado.
+    
+    \item \textbf{Estancamiento en función original}: El gradiente de la función mal condicionada produce direcciones de descenso que oscilan entre las dos variables sin hacer progreso efectivo hacia el mínimo. El algoritmo queda atrapado en un comportamiento de "zigzag" que impide la convergencia.
+    
+    \item \textbf{Efectividad del escalado}: La normalización equilibra los gradientes de ambas variables, permitiendo que el algoritmo encuentre direcciones de descenso más eficientes. El número de condición se reduce drásticamente, mejorando la geometría del problema.
+\end{itemize}
+
 \subsection{Conclusión}
+
+Este problema demuestra la importancia crítica del preprocesamiento en optimización numérica. El escalado de variables transforma un problema intratable en uno que converge eficientemente con todas las estrategias probadas. Los resultados indican que el mal condicionamiento puede ser más limitante que la elección del algoritmo de optimización, y que técnicas simples de normalización pueden producir mejoras dramáticas en el rendimiento. Las estrategias adaptativas e inteligentes emergieron como las más robustas, especialmente en el contexto de la función escalada.
 
 % ========================================
 % SECCIÓN 10
@@ -577,16 +808,16 @@ $f = v_7 + v_8$ & $146$ & $-2$ & $\dot{f} = \dot{v_7} + \dot{v_8} = -22 + 20 = -
 
 Proceso paso a paso:
 
-1. Inicialización: Se establecen las variables de entrada $(x,y) = (1,-1)$ y las semillas direccionales $(\dot{x}, \dot{y})$ según la derivada que se quiera calcular.
+1. Inicialización\textbf{:} Se establecen las variables de entrada $(x,y) = (1,-1)$ y las semillas direccionales $(\dot{x}, \dot{y})$ según la derivada que se quiera calcular.
 
-2. Operaciones elementales: Cada operación en el grafo se evalúa propagando tanto el valor como su derivada usando las reglas:
+2. Operaciones\textbf{ }elementales\textbf{:} Cada operación en el grafo se evalúa propagando tanto el valor como su derivada usando las reglas:
    \begin{itemize}
        \item Potenciación: $\frac{d}{dx}(u^n) = nu^{n-1}\frac{du}{dx}$
        \item Suma: $\frac{d}{dx}(u + v) = \frac{du}{dx} + \frac{dv}{dx}$
        \item Constante: $\frac{d}{dx}(u + c) = \frac{du}{dx}$
    \end{itemize}
 
-3. Propagación: Los valores y derivadas se propagan hacia adelante en el grafo hasta llegar a la función objetivo.
+3. Propagación\textbf{:} Los valores y derivadas se propagan hacia adelante en el grafo hasta llegar a la función objetivo.
 
 Resultados en $(1,-1)$:
 \begin{align}
