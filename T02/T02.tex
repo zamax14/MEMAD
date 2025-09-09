@@ -315,14 +315,11 @@ Por lo tanto, los puntos críticos de $f^2$ incluyen:
 \subsection{Discusión}
 
 El análisis muestra que el conjunto de puntos críticos de $f^2$ siempre contiene como subconjunto a los puntos críticos de $f$. Esto se debe a que cuando $f'(x) = 0$, automáticamente se cumple que $g'(x) = 2f(x)f'(x) = 0$.
-
-Sin embargo, $f^2$ puede tener puntos críticos adicionales en los ceros de $f$, donde $f(x) = 0$ pero $f'(x) \neq 0$.
-
 Por lo tanto, para toda función cuadrática podemos encontrar sus puntos críticos, y entre estos estarán incluidos todos los puntos críticos de la función original sin elevar al cuadrado.
 
 \subsection{Conclusión}
 
-Los puntos críticos de $f$ forman un subconjunto de los puntos críticos de $f^2$. La función cuadrática $f^2$ conserva todos los extremos de $f$ y puede agregar nuevos extremos en los ceros de $f$, ampliando así el conjunto de puntos críticos.
+Los puntos críticos de $f$ forman un subconjunto de los puntos críticos de $f^2$. Esto quiere decir que los puntos donde la función se hace 0 en $f$ también se encuentran en $f²$, pero no todos los puntos de $f²$ están contenidos en $f$.
 
 % ========================================
 % SECCIÓN 4
@@ -429,11 +426,11 @@ El resultado principal es que $h = 2r$, lo que significa que la altura del cilin
 
 La segunda derivada $f''(r) = 12\pi > 0$ confirma que encontramos un mínimo global. Esto tiene sentido porque al usar la restricción de volumen, convertimos el problema en una función de una sola variable donde solo puede haber un punto crítico.
 
-El proceso de sustitución fue clave: usar la restricción $V = \pi r^2 h$ para expresar $h$ en términos de $r$ nos permitió reducir el problema a optimizar una función de una variable.
+El proceso de sustitución fue clave, ya que al usar la restricción $V = \pi r^2 h$ para expresar $h$ en términos de $r$ nos permitió reducir el problema a optimizar una función de una variable.
 
 \subsection{Conclusión}
 
-El cilindro de área mínima con volumen fijo tiene la relación $h = 2r$. Este resultado se obtuvo aplicando cálculo diferencial después de usar la restricción para reducir el problema a una variable. La geometría óptima es más "alta" que "ancha" en comparación con un cilindro donde $h = r$.
+El cilindro de área mínima con volumen fijo tiene la relación $h = 2r$. Este resultado se obtuvo aplicando cálculo diferencial después de usar la restricción para reducir el problema a una variable. Con esto podemos decir que el cilindro tiene misma altura y anchura, ya que al existir esta relación $h = 2r$, es lo mismo que decir que el $h$ es igual al diámetro de la circunferencia.
 
 % ========================================
 % SECCIÓN 5
@@ -484,9 +481,8 @@ Por lo tanto, $(a - 1)^2 \geq 0$ para todo $a \in \mathbb{R}$, y en particular p
 
 Al despejar la función para que fuera $\geq 0$ se pudo ver de manera fácil que podíamos transformar esta ecuación en una cuadrática al multiplicarla por $a$, dado un binomio cuadrado, y por lógica sabemos que el cuadrado siempre es $\geq 0$, lo cual concuerda con la expresión que teníamos.
 
-El punto clave es que $(a-1)^2 \geq 0$ siempre es verdadero para cualquier número real $a$, y la igualdad se alcanza únicamente cuando $a = 1$. Esto significa que el valor mínimo de $a + \frac{1}{a}$ es exactamente $2$, y se obtiene cuando $a = 1$.
+El punto clave es que $(a-1)^2 \geq 0$ siempre es verdadero para cualquier número real $a$. Esto significa que el valor mínimo de $a + \frac{1}{a}$ es exactamente $2$, y se obtiene cuando $a = 1$.
 
-Esta desigualdad también se conoce como la desigualdad aritmético-geométrica para dos términos, ya que $\frac{a + \frac{1}{a}}{2} \geq \sqrt{a \cdot \frac{1}{a}} = 1$, lo que implica $a + \frac{1}{a} \geq 2$.
 
 \subsection{Conclusión}
 
@@ -509,7 +505,7 @@ Para cada una de las siguientes funciones, encuentre sus puntos críticos y clas
 
 \subsection{Metodología}
 
-Para encontrar y clasificar puntos críticos de funciones de dos variables:
+Para encontrar y clasificar puntos críticos de funciones de dos variables, debemos seguir estos pasos:
 \begin{enumerate}
     \item Calcular $f_x = 0$ y $f_y = 0$ para hallar puntos críticos.
     \item Formar la matriz Hessiana con $f_{xx}$, $f_{yy}$ y $f_{xy}$.
@@ -674,9 +670,9 @@ No existe un valor de $y$ que satisfaga ambas condiciones simultáneamente. Por 
 \label{fig:6a_contour}
 \end{figure}
 
-\textbf{Inciso (d): $f(x,y) = (x^{2} + y - 11)^{2} + (x + y^{2} - 7)^{2}$ (Función de Himmelblau)}
-
-Esta función es conocida como la función de Himmelblau. Para desarrollar las derivadas, definamos las funciones auxiliares:
+\textbf{Inciso (d): $f(x,y) = (x^{2} + y - 11)^{2} + (x + y^{2} - 7)^{2}$}
+Pese a que este problema en principio podría verse sencillo, encontrar los puntos donde la función se hace $0$ es un reto. La ventaja que se tiene en este caso es que justamente esta función es conocida como la función de Himmelblau, la cual ya han sido encontrados todos sus puntos críticos.\\
+El proceso para acercarnos a esto es definiendo las siguientes funciones auxiliares:
 \begin{align}
 u(x,y) &= x^2 + y - 11 \\
 v(x,y) &= x + y^2 - 7
@@ -828,21 +824,23 @@ Todos los puntos críticos de la función de Himmelblau son mínimos locales con
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\textwidth]{images/6d_plot.png}
-\caption{Gráfica de contornos de la función $f(x,y) = (x^{2} + y - 11)^{2} + (x + y^{2} - 7)^{2}$, demostrando todos sus puntos minimos.}
+\caption{Gráfica de contornos de la función $f(x,y) = (x^{2} + y - 11)^{2} + (x + y^{2} - 7)^{2}$, demostrando todos sus puntos mínimos.}
 \label{fig:6a_contour}
 \end{figure}
 
 \subsection{Discusión}
 
 Los resultados muestran diferentes comportamientos:
-- **Inciso (a)**: Función con un solo mínimo global en el origen, aunque represento un reto tener que trabajar con derivadas de muchos terminos. Al final, gracias a la factorización, se pudo manejar de manera mas sencilla.
-- **Inciso (b)**: Función cuadrática simple con un mínimo único, fácil de analizar.
-- **Inciso (c)**: Sin puntos críticos porque $e^x > 0$ siempre y no se pueden anular simultáneamente $\cos(y)$ y $\sin(y)$.
-- **Inciso (d)**: La famosa función de Himmelblau con cuatro mínimos globales, útil para probar algoritmos de optimización.
+\begin{enumerate}
+    \item[(a)] Función con un solo mínimo global en el origen, aunque represento un reto tener que trabajar con derivadas de muchos términos. Al final, gracias a la factorización, se pudo manejar de manera mas sencilla.
+    \item[(b)] Función cuadrática simple con un mínimo único, fácil de analizar.
+    \item[(c)] Sin puntos críticos porque $e^x > 0$ siempre y no se pueden anular simultáneamente $\cos(y)$ y $\sin(y)$.
+    \item[(d)] La famosa función de Himmelblau con cuatro mínimos globales, la cual nos facilitó en cierto punto el procedimiento al ya tener los puntos críticos encontrados, ya que estos son bastante complicados de descubrir.
+\end{enumerate}
 
 \subsection{Conclusión}
 
-Las gráficas de contorno confirman los cálculos analíticos. La clasificación mediante la matriz Hessiana es efectiva para determinar la naturaleza de los puntos críticos. Las funciones sin puntos críticos (como la del inciso c) son menos comunes pero importantes de reconocer.
+Las gráficas de contorno confirman los cálculos analíticos. La clasificación mediante la matriz Hessiana es efectiva para determinar la naturaleza de los puntos críticos. Las funciones sin puntos críticos, como lo fue el caso del inciso c, son poco comunes pero importantes de reconocer.
 
 % ========================================
 % SECCIÓN 7
@@ -957,11 +955,11 @@ x = y = z
 
 El resultado $x = y = z$ demuestra que el paralelepípedo óptimo es efectivamente un cubo. Este resultado se obtuvo mediante multiplicadores de Lagrange, que es el método estándar para problemas de optimización con restricciones de igualdad.
 
-La clave del análisis fue igualar las expresiones para $2\lambda$ obtenidas de las diferentes ecuaciones del sistema. Al hacer esto sistemáticamente, pudimos demostrar paso a paso que todas las dimensiones deben ser iguales.
+La clave del análisis fue igualar las expresiones para $2\lambda$ obtenidas de las diferentes ecuaciones del sistema. Al hacer esto sistemáticamente, pudimos demostrar que todas las dimensiones deben ser iguales.
 
 \subsection{Conclusión}
 
-Se demostró que entre todos los paralelepípedos rectangulares con superficie fija, el cubo es el que maximiza el volumen. Este resultado geométrico intuitivo se confirma rigurosamente mediante el método de multiplicadores de Lagrange, mostrando que la simetría conduce a la optimización.
+Se demostró que entre todos los paralelepípedos rectangulares con superficie fija, el cubo es el que maximiza el volumen. Este resultado geométrico intuitivo se confirma mediante el método de multiplicadores de Lagrange, mostrando que la simetría en todos los lados del cubo conducen a la optimización de su volumen.
 
 % ========================================
 % SECCIÓN 8
@@ -1026,7 +1024,7 @@ M_2 &= \det\begin{pmatrix} 16 & -8 \\ -8 & 29 \end{pmatrix} \\
 &= 400 > 0
 \end{align}
 
-\textbf{Tercer menor principal (determinante completo):}
+\textbf{Tercer menor principal:}
 Usando la regla de Sarrus:
 \begin{align}
 M_3 &= \det(A) = (16)(29)(41) + (-8)(12)(-4) + (-4)(-8)(12) \\
@@ -1109,12 +1107,12 @@ f(\mathbf{x}) &= \sum_{i=1}^{n-1} \bigl[100(x_{i+1}-x_i^{2})^{2} + (x_i-1)^{2}\b
 
 \subsection{Metodología}
 
-Para abordar este problema seguimos dos enfoques complementarios:
+Para abordar este problema, debemos de seguir dos enfoques complementarios, uno teórico y el otro práctico: 
 
-\textbf{Inciso (a) - Implementación en Python:}
+\textbf{Inciso (a) y (c) - Implementación en Python:}
 Lo ideal es crear una clase genérica con la lógica de diferencias finitas que permita pasar por parámetros tanto los puntos a evaluar como las funciones objetivo. Esto permite reutilizar el código eficientemente para diferentes funciones y puntos de evaluación. La clase debe implementar:
 \begin{enumerate}
-    \item Gradiente usando diferencias finitas centrales: $\frac{\partial f}{\partial x_i} \approx \frac{f(x + h e_i) - f(x - h e_i)}{2h}$
+    \item Gradiente usando diferencias finitas centrales: $\frac{\partial f}{\partial x_i} = \frac{f(x + h e_i) - f(x - h e_i)}{2h}$
     \item Hessiano calculando segundas derivadas y términos cruzados con diferencias finitas
 \end{enumerate}
 
@@ -1129,7 +1127,8 @@ Para encontrar los mínimos analizamos la estructura de cada función:
 \subsection{Resultados}
 \setcounter{equation}{0}
 
-\textbf{Inciso (a) y (b): Su desarrollo se encuentra en el ipynb}
+\textbf{Inciso (a) y (c):}
+Para la parte de implementación en python, favor de consultar el archivo "t02\_alejandro\_zarate\_macias.ipynb", donde se demuestran los resultados del siguiente inciso.\\
 
 \textbf{Inciso (b): Puntos mínimos por inspección}
 
@@ -1186,7 +1185,7 @@ El valor mínimo es $f(\mathbf{x}^*) = 0$.
 
 El análisis por inspección del inciso (b) reveló patrones claros en las tres funciones. Todas tienen estructura de suma de cuadrados, lo que facilita identificar sus mínimos globales donde los términos se anulan.
 
-Se pudo corroborar de manera exitosa lo que indica la teoría mediante los scripts de Python desarrollados. Los cálculos numéricos usando diferencias finitas confirmaron que:
+Se pudo corroborar de manera exitosa lo que indica la teoría mediante los scripts de Python. Los cálculos numéricos usando diferencias finitas confirmaron que:
 \begin{itemize}
     \item Los gradientes se aproximan a cero en los puntos identificados analíticamente
     \item Las matrices Hessianas son definidas positivas, confirmando que son mínimos locales
@@ -1214,47 +1213,49 @@ Codifique el método de Newton en un script de Python. Luego, úselo para optimi
 
 \subsection{Metodología}
 
-Para implementar el método de Newton se requiere:
+Para implementar el método de Newton en python y corroborar lo visto en el problema 9 (ahora con este método) de la manera más óptima, debemos tener en cuenta los siguientes pasos:
 \begin{enumerate}
-    \item Crear una clase que encapsule la lógica del algoritmo iterativo
-    \item Implementar el cálculo de gradientes y Hessianos (ya desarrollado en el problema 9)
+    \item Crear una clase que encapsule la lógica del algoritmo iterativo de manera que aplique para cualquier función.
+    \item Implementar el cálculo de gradientes y hessianos en funciones independientes para poder usarlas en la clase anteriormente mencionada.
     \item Aplicar la fórmula: $\mathbf{x}_{k+1} = \mathbf{x}_{k} - H^{-1}(\mathbf{x}_k) \nabla f(\mathbf{x}_k)$
-    \item Seleccionar puntos de partida cercanos a los mínimos conocidos para asegurar convergencia
-    \item Generar gráficas para visualizar tanto la convergencia de la función como la evolución de las variables
+    \item Seleccionar puntos de partida cercanos a los mínimos conocidos para asegurar convergencia.
+    \item Generar gráficas para visualizar tanto la convergencia de la función con respecto a cada paso de k, y adicionalmente podemos también añadir una gráfica en el que podemos ver la evolución que van tomando las variables de entrada $x$.
 \end{enumerate}
 
 \subsection{Resultados}
 \setcounter{equation}{0}
 
+Una vez implementado el script en python (para más detalles, favor de consultar el archivo "t02\_alejandro\_zarate\_macias.ipynb"), se obtuvieron los siguientes resultados para cada función. 
+
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\textwidth]{images/10_1_plot.png}
-\caption{Gráfica de optimización para la función $f(\mathbf{x}) &= \sum_{i=1}^{n} x_i^{2}$.}
+\caption{Gráfica de optimización para la función $f(\mathbf{x}) = \sum_{i=1}^{n} x_i^{2}$.}
 \label{fig:10_1_optim}
 \end{figure}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\textwidth]{images/10_2_plot.png}
-\caption{Gráfica de optimización para la función $f(x,y) &= (x^{2}+y-11)^{2} + (x+y^{2}-7)^{2}$.}
+\caption{Gráfica de optimización para la función $f(x,y) = (x^{2}+y-11)^{2} + (x+y^{2}-7)^{2}$.}
 \label{fig:10_2_optim}
 \end{figure}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\textwidth]{images/10_3_plot.png}
-\caption{Gráfica de optimización para la función $f(\mathbf{x}) &= \sum_{i=1}^{n-1} \bigl[100(x_{i+1}-x_i^{2})^{2} + (x_i-1)^{2}\bigr]$.}
+\caption{Gráfica de optimización para la función $f(\mathbf{x}) = \sum_{i=1}^{n-1} \bigl[100(x_{i+1}-x_i^{2})^{2} + (x_i-1)^{2}\bigr]$.}
 \label{fig:10_3_optim}
 \end{figure}
 
 \subsection{Discusión}
 
-El método de Newton demostró ser altamente eficiente para todas las funciones cuando se inicia cerca del mínimo. La convergencia cuadrática característica del método es evidente en las gráficas, donde el valor de la función decrece rápidamente en las primeras iteraciones.
+El método de Newton demostró ser eficiente para todas las funciones cuando se inicia cerca del mínimo. Aunque en el caso de la primer funcion, se pudo observar que por mas alejado que estuviera el varlor, solo bastaba con una iteracion.
 
-La selección del punto inicial es crucial: puntos muy alejados pueden causar problemas de convergencia o convergencia a otros mínimos locales (especialmente notable en la función de Himmelblau). Las gráficas de trayectoria muestran claramente cómo las variables evolucionan hacia sus valores óptimos.
+La selección del punto inicial es crucial, ya que puntos muy alejados pueden causar problemas de convergencia. Las gráficas de trayectoria muestran claramente cómo las variables evolucionan hacia sus valores óptimos.
 
 \subsection{Conclusión}
 
-El método de Newton es una herramienta poderosa para optimización cuando se cuenta con información del Hessiano y puntos de partida adecuados. Su implementación en Python permite visualizar efectivamente el comportamiento del algoritmo y validar la convergencia hacia los mínimos teóricos identificados previamente.
+El método de Newton es una herramienta poderosa para optimización cuando se cuenta con información del gradiente, el hessiano y puntos de partida adecuados. Su implementación en Python permite visualizar efectivamente el comportamiento del algoritmo y validar la convergencia hacia los puntos mínimos identificados previamente.
 
 \end{document}
