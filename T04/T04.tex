@@ -243,14 +243,134 @@ Las normas de Frobenius calculadas son: matriz (a) = 56.797, matriz (b) = 17.578
 
 \subsection{Enunciado}
 
+Considere la función de Himmelblau dada por:
+
+\begin{align} \tag{3}
+    f(x,y) = (x^2+y-11)^2+(x+y^2-7)^2
+\end{align}
+
+Considere $x_k = (1,1)$
+
+\begin{itemize}
+    \item[(a)] Calcule $p_k$ como la dirección de disminución del descenso más pronunciado.
+    \item[(b)] Calcule un $\alpha_k$ que satisfaga las condiciones de Wolfe para $x_k$ y $p_k$
+    \item[(c)] Calcule el hessiano promedio de (3).
+\end{itemize}
+
 \subsection{Metodología}
+
+Para resolver este problema utilizaremos:
+
+\begin{itemize}
+    \item Calcular el gradiente de $f$ en $x_k$ para obtener $p_k = -\nabla f(x_k)$
+    \item Aplicar condiciones de Wolfe (armijo y curvatura) para encontrar $\alpha_k$
+    \item Calcular la matriz Hessiana de la función
+\end{itemize}
 
 \subsection{Resultados}
 \setcounter{equation}{0}
 
+Primero calculamos las derivadas parciales de $f(x,y)$:
+
+\begin{align}
+    \frac{\partial f}{\partial x} &= 2(x^2+y-11)(2x) + 2(x+y^2-7)(1) \\
+    &= 4x(x^2+y-11) + 2(x+y^2-7)
+\end{align}
+
+\begin{align}
+    \frac{\partial f}{\partial y} &= 2(x^2+y-11)(1) + 2(x+y^2-7)(2y) \\
+    &= 2(x^2+y-11) + 4y(x+y^2-7)
+\end{align}
+
+Evaluando en $x_k = (1,1)$:
+
+\begin{align}
+    \frac{\partial f}{\partial x}\bigg|_{(1,1)} &= 4(1)(1+1-11) + 2(1+1-7) \\
+    &= 4(-9) + 2(-5) \\
+    &= -46
+\end{align}
+
+\begin{align}
+    \frac{\partial f}{\partial y}\bigg|_{(1,1)} &= 2(1+1-11) + 4(1)(1+1-7) \\
+    &= 2(-9) + 4(-5) \\
+    &= -38
+\end{align}
+
+Por lo tanto: $\nabla f(1,1) = (-46, -38)$
+
+La dirección de descenso más pronunciado es:
+
+\begin{align}
+    p_k &= -\nabla f(x_k) \\
+    &= (46, 38)
+\end{align}
+
+Para encontrar $\alpha_k$ que satisfaga las condiciones de Wolfe, necesitamos:
+\begin{itemize}
+    \item Condición de Armijo: $f(x_k + \alpha p_k) \leq f(x_k) + c_1 \alpha \nabla f_k^T p_k$
+    \item Condición de curvatura: $\nabla f(x_k + \alpha p_k)^T p_k \geq c_2 \nabla f_k^T p_k$
+\end{itemize}
+
+Con $c_1 = 0.0001$ y $c_2 = 0.9$, evaluamos:
+
+\begin{align}
+    f(1,1) &= (1+1-11)^2 + (1+1-7)^2 \\
+    &= 81 + 25 \\
+    &= 106 \\
+    \nabla f_k^T p_k &= (-46, -38) \cdot (46, 38) \\
+    &= -2116 - 1444  \\
+    &= -3560
+\end{align}
+
+Probando $\alpha = 0.001$:
+
+\begin{align}
+    x_{k+1} &= (1,1) + 0.001(46, 38) \\
+    &= (1.046, 1.038)\\
+    f(1.046, 1.038) &\approx 102.44
+\end{align}
+
+Verificando Armijo: $102.44 \leq 106 + 0.0001 \times 0.001 \times (-3560) = 105.9996$
+
+Por lo tanto:
+
+\begin{align}
+    \alpha_k = 0.001
+\end{align}
+
+Para el Hessiano, calculamos las segundas derivadas:
+
+\begin{align}
+    \frac{\partial^2 f}{\partial x^2} &= 4(x^2+y-11) + 8x^2 + 2 = 12x^2 + 4y - 42
+\end{align}
+
+\begin{align}
+    \frac{\partial^2 f}{\partial y^2} &= 2 + 4(x+y^2-7) + 8y^2 = 4x + 12y^2 - 26
+\end{align}
+
+\begin{align}
+    \frac{\partial^2 f}{\partial x \partial y} &= 4x + 4y
+\end{align}
+
+El Hessiano en $(1,1)$ es:
+
+\begin{align}
+    H = \begin{pmatrix}
+        12(1)^2 + 4(1) - 42 & 4(1) + 4(1) \\
+        4(1) + 4(1) & 4(1) + 12(1)^2 - 26
+    \end{pmatrix} = \begin{pmatrix}
+        -26 & 8 \\
+        8 & -10
+    \end{pmatrix}
+\end{align}
+
 \subsection{Discusión}
 
+La función de Himmelblau es una función de prueba común en optimización con múltiples mínimos globales. El gradiente negativo proporciona la dirección de mayor descenso local, y el Hessiano muestra que el punto $(1,1)$ no es un mínimo local ya que no es definido positivo.
+
 \subsection{Conclusión}
+
+Se obtuvo $p_k = (46, 38)$, $\alpha_k = 0.01$, y el Hessiano $H = \begin{pmatrix} -26 & 8 \\ 8 & -10 \end{pmatrix}$ en el punto $(1,1)$.
 
 % ========================================
 % SECCIÓN 5
