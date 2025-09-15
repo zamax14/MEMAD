@@ -373,11 +373,43 @@ La función de Himmelblau es una función de prueba común en optimización con 
 Se obtuvo $p_k = (46, 38)$, $\alpha_k = 0.01$, y el Hessiano $H = \begin{pmatrix} -26 & 8 \\ 8 & -10 \end{pmatrix}$ en el punto $(1,1)$.
 
 % ========================================
+% SECCIÓN IMPORTANT!
+% ========================================
+\section*{Important}
+
+Para los problemas 5 y 6 considere las siguientes funciones $f : \mathbb{R}^n \rightarrow \mathbb{R}$:
+
+\begin{itemize}
+    \item Función de esfera trasladada:\\
+    \begin{align} \tag{4}
+        f(\mathbf{x}) = \sum_{i=1}^{n} (x_i - c_i)^2, \quad \text{para un determinado (fijo)} \quad \mathbf{c} \in \mathbb{R}^n.
+    \end{align}
+    Puede tomarse $\mathbf{c} = (1,1,\dots,1)$, por ejemplo.
+
+    \item Función de Rosenbrock:\\
+    \begin{align}  \tag{5}
+        f(\mathbf{x}) = \sum_{i=1}^{n-1} \Big[ 100(x_{i+1} - x_i^{2})^{2} + (x_i - 1)^{2} \Big].
+    \end{align}
+
+    \item Función de Perm $n,\beta$:\\
+    \begin{align}  \tag{6}
+        f(\mathbf{x}) =
+        \sum_{i=1}^{n} \left(
+            \sum_{j=1}^{n}\,(j^{\,i} + \beta)\left( \left(\frac{x_j}{j}\right)^{i} - 1 \right)
+        \right)^{2}, \quad \text{para un determinado (fijo)} \quad \beta \in \mathbb{R}.
+    \end{align}
+    Puede tomarse $\beta = 1$, por ejemplo.
+\end{itemize}
+Además, como punto inicial considere $\mathbf{x}_0 = (0.5,0.5,\dots,0.5)$. Asimismo, puede suponerse $n=5$.
+
+% ========================================
 % SECCIÓN 5
 % ========================================
 \section{Problema 5}
 
 \subsection{Enunciado}
+
+Cree un script en Python que implemente el algoritmo BFGS para las funciones (4)-(6). Utilice condiciones de Wolfe o condiciones de Wolfe fuertes para calcular pasos de longitud adecuados. Utilice diferencias finitas para aproximar los gradientes analíticos de las funciones. Muestre gráficos de las iteraciones en función del valor de la función para mostrar cómo este último disminuye a medida que aumenta el primero.
 
 \subsection{Metodología}
 
@@ -395,6 +427,8 @@ Se obtuvo $p_k = (46, 38)$, $\alpha_k = 0.01$, y el Hessiano $H = \begin{pmatrix
 
 \subsection{Enunciado}
 
+Considere la función (5). Resuelva el problema de optimización asociado utilizando los métodos de Newton, SD y BFGS. Para todos estos algoritmos, puede utilizar gradientes numéricos o analíticos. Además, tanto para SD como para BFGS, considere las condiciones de Wolfe o las condiciones de Wolfe fuertes. Muestre los valores de la función para el mismo número de iteraciones mediante una tabla o una figura. La idea es mostrar la comparación de las tasas de convergencia lineal, superlineal y cuadrática.
+
 \subsection{Metodología}
 
 \subsection{Resultados}
@@ -410,6 +444,13 @@ Se obtuvo $p_k = (46, 38)$, $\alpha_k = 0.01$, y el Hessiano $H = \begin{pmatrix
 \section{Problema 7}
 
 \subsection{Enunciado}
+
+Considere el "Linear" dataset $D=\{X, y\}$ proporcionado con esta tarea. Considere un modelo con la siguiente forma
+\begin{align} \tag{7}
+h(X;\theta) = \sum_{j=0}^{N} \theta_j\, x^{i}_{j}.
+\end{align}
+
+Encuentre los parámetros óptimos de (7) considerando $N=1$ usando las ecuaciones normales. Realice una gráfica del modelo y de los datos. ¿Cuál es el error que obtiene con los parámetros encontrados?
 
 \subsection{Metodología}
 
@@ -427,6 +468,8 @@ Se obtuvo $p_k = (46, 38)$, $\alpha_k = 0.01$, y el Hessiano $H = \begin{pmatrix
 
 \subsection{Enunciado}
 
+Considere el "Polynomial" dataset $D = \{X,y\}$ proporcionado con esta tarea. Considere un modelo con la forma (7). Utilizando las ecuaciones normales, encuentre los parámetros óptimos del modelo probando varios valores de $N$. Genere gráficos del modelo y los datos para respaldar sus estimaciones de $N$. ¿Cuál es el error que obtiene con los parámetros que encontró para cada valor de $N$ probado? ¿Cuál es el valor óptimo de $N$ según su análisis?
+
 \subsection{Metodología}
 
 \subsection{Resultados}
@@ -443,6 +486,23 @@ Se obtuvo $p_k = (46, 38)$, $\alpha_k = 0.01$, y el Hessiano $H = \begin{pmatrix
 
 \subsection{Enunciado}
 
+Considere el "Lennard-Jones energy levels" dataset proporcionado con esta tarea. Dadas $N$ partículas, $N \ge 2$, la energía potencial de Lennard Jones está dada por
+
+\begin{align} \tag{8}
+    E_N &= 4 \sum_{i<j}^{N} \left[ \left(\frac{1}{r_{ij}}\right)^{12} - \left(\frac{1}{r_{ij}}\right)^{6} \right],
+\end{align}
+
+Donde $r_{ij}$ denota la distancia euclidiana entre las partículas $X_i$ y $X_j$. Para diversas aplicaciones, resulta de gran interés encontrar la configuración espacial particular de $N$ partículas que minimice la energía (8). Entonces:
+
+\begin{itemize}
+    \item[(a)] Elija un valor particular para $N$ mayor que 2.
+    \item[(b)] Escriba la expresión para el vector residual $r(X)$.
+    \item[(c)] Usando los datos proporcionados, implemente el método de Gauss-Newton para resolver el problema de mínimos cuadrados no lineales.
+    \item[(d)] Grafique los valores de (8) a lo largo de las iteraciones y compare su estimación final con los de la Tabla 1 de \cite{wales1997}.
+    \item[(e)] Grafique en 3D la configuración final de la partícula (es decir, los puntos $X$).
+    \item[(f)] ¿Cuál fue el valor máximo de $N$ que pudo obtener?
+\end{itemize}
+
 \subsection{Metodología}
 
 \subsection{Resultados}
@@ -452,20 +512,11 @@ Se obtuvo $p_k = (46, 38)$, $\alpha_k = 0.01$, y el Hessiano $H = \begin{pmatrix
 
 \subsection{Conclusión}
 
-% ========================================
-% SECCIÓN 10
-% ========================================
-\section{Problema 10}
 
-\subsection{Enunciado}
-
-\subsection{Metodología}
-
-\subsection{Resultados}
-\setcounter{equation}{0}
-
-\subsection{Discusión}
-
-\subsection{Conclusión}
+\begin{thebibliography}{9}
+\bibitem{wales1997}
+D.\,J. Wales y J.\,P.\,K. Doye,
+\textbf{Global Optimization by Basin-Hopping and the Lowest Energy Structures of Lennard-Jones Clusters Containing up to 110 Atoms}, Abstract published in AdVance ACS Abstracts, June 15, 1997.
+\end{thebibliography}
 
 \end{document}
