@@ -113,14 +113,46 @@ Hemos demostrado exitosamente que si $\alpha_k$ y $p_k$ satisfacen las condicion
 
 \subsection{Enunciado}
 
+Considere la ecuación secante
+\begin{equation}\tag{2}
+    B_{k+1}\, s_k = y_k,
+\end{equation}
+donde se asume que \(B_k > 0\) y \(B_k = B_k^{\top}\). Recuerde que si (1) se cumple, entonces (2) siempre tiene solución. De hecho, ese sistema tiene un número infinito de soluciones, ya que los grados de libertad son las entradas de \(B_k\). ¿Cuántos grados de libertad tiene (2)? ¿Cuántas condiciones impuestas (ecuaciones) tiene (2)?
+
 \subsection{Metodología}
+
+Para resolver este problema, analizaremos la estructura de la matriz simétrica $B_{k+1}$ de dimensión $n \times n$.
+
+\begin{itemize}
+    \item Contar las entradas independientes de una matriz simétrica
+    \item Determinar el número de ecuaciones que impone $B_{k+1} s_k = y_k$
+    \item Calcular la diferencia entre grados de libertad y condiciones
+\end{itemize}
 
 \subsection{Resultados}
 \setcounter{equation}{0}
 
+Para una matriz simétrica $B_{k+1}$ de $n \times n$, las entradas independientes son: $n$ valores de la diagonal y $\frac{n(n-1)}{2}$ del triángulo superior.
+
+\begin{align}
+    \text{Grados de libertad} = n + \frac{n(n-1)}{2} = \frac{n(n+1)}{2}
+\end{align}
+
+La ecuación secante $B_{k+1} s_k = y_k$ representa $n$ ecuaciones lineales.
+
+Considerando que $s_k$ es un vector dado y la estructura de la ecuación secante, el número de condiciones independientes efectivas es:
+
+\begin{align}
+    \text{Condiciones impuestas} = \frac{n(n-1)}{2}
+\end{align}
+
 \subsection{Discusión}
 
+El análisis muestra que tenemos más grados de libertad que condiciones, lo que explica por qué la ecuación secante tiene infinitas soluciones. Esta propiedad es fundamental en métodos quasi-Newton para justificar la necesidad de criterios adicionales.
+
 \subsection{Conclusión}
+
+La ecuación secante tiene $\frac{n(n+1)}{2}$ grados de libertad y $\frac{n(n-1)}{2}$ condiciones impuestas, resultando en un sistema subdeterminado con múltiples soluciones.
 
 % ========================================
 % SECCIÓN 3
