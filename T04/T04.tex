@@ -1,0 +1,253 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{float}
+
+\title{MEMAD-T04}
+\author{ALEJANDRO ZARATE MACIAS}
+\date{15 de Septiembre 2025}
+
+\begin{document}
+
+\maketitle
+
+% ========================================
+% INTRODUCCIÓN
+% ========================================
+\section*{Introducción}
+
+
+% ========================================
+% SECCIÓN 1
+% ========================================
+\section{Problema 1}
+
+\subsection{Enunciado}
+
+Definamos 
+
+\begin{align*}
+    s_k = x_{k+1} - x_k = \alpha_k p_k, \quad y_k = \nabla f_{k+1} - f_k.
+\end{align*}
+
+Muestre que si $\alpha_k$ y $p_k$ satisfacen las condiciones de Wolfe, entonces se cumple la siguiente desigualdad (condición de curvatura)
+
+\begin{align}
+    s_k^Ty_k > 0. 
+\end{align}
+
+\subsection{Metodología}
+
+Para la resolución de este problema, lo que necesitamos primeramente es entender las condiciones de Wolfe y cómo es que se ven en su definición para poder encontrar una relación de estas con la condición de curvatura, o en su defecto, tratar de acomodar sus valores hasta encontrar algo que se le parezca.
+Para esto primero debemos considerar lo siguiente con respecto a las condiciones de Wolfe:
+
+\begin{itemize}
+    \item El uso de constantes $0 < c_1 < c_2 < 1$
+    \item Un tamaño de paso $\alpha_k > 0$
+    \item Y $p_k$ como dirección de descenso es $\nabla f(x_k)^Tp_k<0$
+\end{itemize}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+Sabemos por la definición del problema que $s_k = \alpha_kp_k$ y que $y_k = \nabla f_{k+1} - \nabla f_k$, por lo que primero debemos modificar a $s_k^Ty_k$ para que estén en los mismos términos.
+
+\begin{align}
+    s_k^Ty_k = (\alpha_k p_k)^T(\nabla f_{k+1} - \nabla f_k)
+\end{align}
+
+A esta expresión podemos factorizar $\alpha_k$ y multiplicar los otros términos por $p_k$, y nos queda la siguiente expresión:
+
+\begin{align}
+    s_k^Ty_k = \alpha_k(\nabla f_{k+1}^Tp_k - \nabla f_k^Tp_k)
+\end{align}
+
+En las condiciones de Wolfe, la condicion de curvatura dice que:
+
+\begin{align}
+    \nabla f_{k+1}^T p_k \geq c_2 \nabla f_k^T p_k
+\end{align}
+
+Donde $0 < c_1 < c_2 < 1$. Por lo tanto, reorganizando esta desigualdad:
+
+\begin{align}
+    \nabla f_{k+1}^T p_k - \nabla f_k^T p_k &\geq c_2 \nabla f_k^T p_k - \nabla f_k^T p_k \\
+    \nabla f_{k+1}^T p_k - \nabla f_k^T p_k &\geq (c_2 - 1) \nabla f_k^T p_k
+\end{align}
+
+Sustituyendo esta cota inferior en la ecuación (2):
+
+\begin{align}
+    s_k^Ty_k = \alpha_k(\nabla f_{k+1}^Tp_k - \nabla f_k^Tp_k) \geq \alpha_k(c_2 - 1) \nabla f_k^T p_k
+\end{align}
+
+Ahora analizamos los signos de cada término:
+
+\begin{itemize}
+    \item $\alpha_k > 0$ (tamaño de paso positivo)
+    \item $(c_2 - 1) < 0$ (ya que $c_2 < 1$)
+    \item $\nabla f_k^T p_k < 0$ (condición de dirección de descenso)
+\end{itemize}
+
+Por lo tanto:
+
+\begin{align}
+    s_k^Ty_k &\geq \alpha_k(c_2 - 1) \nabla f_k^T p_k > 0 \\
+\end{align}
+
+\subsection{Discusión}
+
+La demostración muestra cómo las condiciones de Wolfe garantizan que la condición de curvatura $s_k^T y_k > 0$ se satisfaga. Esta propiedad es fundamental en los métodos quasi-Newton, ya que asegura que las aproximaciones de la matriz Hessiana mantengan la definición positiva, lo cual es crucial para la convergencia del algoritmo.
+
+\subsection{Conclusión}
+
+Hemos demostrado exitosamente que si $\alpha_k$ y $p_k$ satisfacen las condiciones de Wolfe, entonces se cumple la condición de curvatura $s_k^T y_k > 0$. Esta demostración se basa en la aplicación directa de la segunda condición de Wolfe y el análisis cuidadoso de los signos de los términos involucrados en la expresión final.
+
+% ========================================
+% SECCIÓN 2
+% ========================================
+\section{Problema 2}
+
+\subsection{Enunciado}
+
+\subsection{Metodología}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+\subsection{Discusión}
+
+\subsection{Conclusión}
+
+% ========================================
+% SECCIÓN 3
+% ========================================
+\section{Problema 3}
+
+\subsection{Enunciado}
+
+\subsection{Metodología}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+\subsection{Discusión}
+
+\subsection{Conclusión}
+
+% ========================================
+% SECCIÓN 4
+% ========================================
+\section{Problema 4}
+
+\subsection{Enunciado}
+
+\subsection{Metodología}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+\subsection{Discusión}
+
+\subsection{Conclusión}
+
+% ========================================
+% SECCIÓN 5
+% ========================================
+\section{Problema 5}
+
+\subsection{Enunciado}
+
+\subsection{Metodología}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+\subsection{Discusión}
+
+\subsection{Conclusión}
+
+% ========================================
+% SECCIÓN 6
+% ========================================
+\section{Problema 6}
+
+\subsection{Enunciado}
+
+\subsection{Metodología}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+\subsection{Discusión}
+
+\subsection{Conclusión}
+
+% ========================================
+% SECCIÓN 7
+% ========================================
+\section{Problema 7}
+
+\subsection{Enunciado}
+
+\subsection{Metodología}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+\subsection{Discusión}
+
+\subsection{Conclusión}
+
+% ========================================
+% SECCIÓN 8
+% ========================================
+\section{Problema 8}
+
+\subsection{Enunciado}
+
+\subsection{Metodología}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+\subsection{Discusión}
+
+\subsection{Conclusión}
+
+% ========================================
+% SECCIÓN 9
+% ========================================
+\section{Problema 9}
+
+\subsection{Enunciado}
+
+\subsection{Metodología}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+\subsection{Discusión}
+
+\subsection{Conclusión}
+
+% ========================================
+% SECCIÓN 10
+% ========================================
+\section{Problema 10}
+
+\subsection{Enunciado}
+
+\subsection{Metodología}
+
+\subsection{Resultados}
+\setcounter{equation}{0}
+
+\subsection{Discusión}
+
+\subsection{Conclusión}
+
+\end{document}
