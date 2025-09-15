@@ -132,7 +132,13 @@ Para resolver este problema, analizaremos la estructura de la matriz simétrica 
 \subsection{Resultados}
 \setcounter{equation}{0}
 
-Para una matriz simétrica $B_{k+1}$ de $n \times n$, las entradas independientes son: $n$ valores de la diagonal y $\frac{n(n-1)}{2}$ del triángulo superior.
+Para una matriz simétrica $B_{k+1}$ de $n \times n$, las entradas independientes son: 
+\begin{itemize}
+    \item $n$ valores de la diagonal
+    \item $\frac{n(n-1)}{2}$ del triángulo superior
+\end{itemize}
+
+Por lo tanto:
 
 \begin{align}
     \text{Grados de libertad} = n + \frac{n(n-1)}{2} = \frac{n(n+1)}{2}
@@ -161,14 +167,74 @@ La ecuación secante tiene $\frac{n(n+1)}{2}$ grados de libertad y $\frac{n(n-1)
 
 \subsection{Enunciado}
 
+Calcular la norma de Frobenius de las siguientes matrices:
+
+\begin{itemize}
+    \item[(a)] \[A=\begin{pmatrix}
+                        16 & -8 & -4\\
+                        -8 & 29 & 12\\
+                        -4 & 12 & 41
+                    \end{pmatrix}.\]
+    \item[(b)] \[A=\begin{pmatrix}
+                        9 & 0 & -8\\
+                        6 & -5 & -2\\
+                        -9 & 3 & 3
+                    \end{pmatrix}.\]
+    \item[(c)] \[A=\begin{pmatrix}
+                        -9 & 0 & -8\\
+                        6 & -5 & -2\\
+                        -9 & 3 & 3
+                    \end{pmatrix}.\]
+\end{itemize}
+
 \subsection{Metodología}
 
+Para calcular la norma de Frobenius de una matriz $A$ de dimensión $m \times n$, utilizaremos la fórmula:
+
+\begin{align}
+    ||A||_F = \sqrt{\sum_{i=1}^{m} \sum_{j=1}^{n} |a_{ij}|^2}
+\end{align}
 \subsection{Resultados}
 \setcounter{equation}{0}
 
+Para la matriz (a), calculamos:
+
+\begin{align}
+    ||A||_F = \sqrt{16^2 + (-8)^2 + (-4)^2 + (-8)^2 + 29^2 + 12^2 + (-4)^2 + 12^2 + 41^2}
+\end{align}
+
+\begin{align}
+    ||A||_F &= \sqrt{256 + 64 + 16 + 64 + 841 + 144 + 16 + 144 + 1681} \\
+    &= \sqrt{3226} \\
+    &\approx 56.797
+\end{align}
+
+Para la matriz (b), calculamos:
+
+\begin{align}
+    ||A||_F = \sqrt{9^2 + 0^2 + (-8)^2 + 6^2 + (-5)^2 + (-2)^2 + (-9)^2 + 3^2 + 3^2}
+\end{align}
+
+\begin{align}
+    ||A||_F &= \sqrt{81 + 0 + 64 + 36 + 25 + 4 + 81 + 9 + 9} \\
+    &= \sqrt{309} \\
+    &\approx 17.578
+\end{align}
+
+Para la matriz (c), solo cambia el signo del primer elemento, por lo que la norma es la misma:
+
+\begin{align}
+    ||A||_F &= \sqrt{(-9)^2 + 0^2 + (-8)^2 + 6^2 + (-5)^2 + (-2)^2 + (-9)^2 + 3^2 + 3^2} \\
+    &\approx 17.578
+\end{align}
+
 \subsection{Discusión}
 
+Los resultados muestran que las matrices (b) y (c) tienen la misma norma de Frobenius debido a que la norma no se ve afectada por el signo de los elementos, ya que todos se elevan al cuadrado. La matriz (a) tiene una norma considerablemente mayor debido a sus valores más grandes.
+
 \subsection{Conclusión}
+
+Las normas de Frobenius calculadas son: matriz (a) = 56.797, matriz (b) = 17.578, y matriz (c) = 17.578, confirmando que el cambio de signo en un elemento no afecta la norma de Frobenius.
 
 % ========================================
 % SECCIÓN 4
