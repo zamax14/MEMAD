@@ -701,12 +701,53 @@ Donde $r_{ij}$ denota la distancia euclidiana entre las partículas $X_i$ y $X_j
 
 \subsection{Metodología}
 
+Para resolver este problema se implementó el método de Gauss-Newton siguiendo estos pasos:
+
+\begin{itemize}
+    \item Implementar una clase GaussNewton.
+    \item Crear la función de energía de Lennard-Jones.
+    \item Implementar la función residual.
+    \item Calcular la matriz Jacobiana del residual.
+    \item Probar diferentes valores de $N$ para analizar la convergencia.
+    \item Generar gráficas de convergencia y configuración final de partículas.
+\end{itemize}
+
 \subsection{Resultados}
 \setcounter{equation}{0}
 
+Los resultados obtenidos para $N = 25$ partículas se presentan a continuación:
+
+Energías calculadas:
+\begin{align}
+    E_{\text{final}} &= -8.144 \\
+    E_{\text{referencia}} &= -102.373 \\
+    \text{Error absoluto} &= 94.228
+\end{align}
+
+Convergencia del algoritmo:
+El algoritmo ejecutó 200 iteraciones sin alcanzar el criterio de convergencia establecido (tolerancia = $1 \times 10^{-6}$).
+
+Las gráficas de los resultados se presentan en las siguientes figuras:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/9_descenso.png}
+    \caption{Convergencia de la energía de Lennard-Jones para $N=25$ partículas utilizando el método de Gauss-Newton.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/9_configuracion_x.png}
+    \caption{Configuración final en 3D de las 25 partículas después de la optimización con Gauss-Newton.}
+\end{figure}
+
 \subsection{Discusión}
 
+A pesar de haber probado con múltiples valores de $N$, mi implementación del método de Gauss-Newton resultó ser poco óptima al no poder converger adecuadamente la función de energía de Lennard-Jones. Aunque las gráficas pueden ser engañosas a simple vista, mostrando que los valores de energía disminuyen y que las partículas en la gráfica 3D se agrupan en configuraciones aparentemente estables, la realidad es que el algoritmo no logra alcanzar los valores de referencia esperados.
+
 \subsection{Conclusión}
+
+La implementación del método de Gauss-Newton para minimizar la energía de Lennard-Jones presenta limitaciones significativas para este tipo de problema. Pese a que se probaron múltiples valores de $N$ y el algoritmo muestra aparente progreso en las gráficas, la convergencia no se logra de manera efectiva. 
 
 
 \begin{thebibliography}{9}
