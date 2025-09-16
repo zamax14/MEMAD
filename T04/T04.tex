@@ -524,12 +524,59 @@ Encuentre los parámetros óptimos de (7) considerando $N=1$ usando las ecuacion
 
 \subsection{Metodología}
 
+Para resolver este problema se implementará un modelo de línea recta usando las ecuaciones normales. El modelo es:
+
+\begin{align}
+h(X;\theta) = \theta_0 + \theta_1 x
+\end{align}
+
+Los pasos a seguir son:
+\begin{itemize}
+    \item Cargar los datos del archivo "Linear.csv"
+    \item Crear una matriz que incluya una columna de unos y los valores de X
+    \item Usar la fórmula de ecuaciones normales para calcular los parámetros
+    \item Calcular el error promedio del modelo
+    \item Hacer una gráfica con los datos y la línea del modelo
+\end{itemize}
+
 \subsection{Resultados}
 \setcounter{equation}{0}
 
+La implementación del modelo de regresión lineal utilizando las ecuaciones normales produjo los siguientes resultados:
+
+Los parámetros óptimos encontrados son:
+\begin{align}
+    \theta_0 &= 9.796 \\
+    \theta_1 &= -1.156
+\end{align}
+
+Por lo tanto, el modelo ajustado es:
+\begin{align}
+    h(X;\theta) = 9.796 - 1.156x
+\end{align}
+
+El error cuadrático medio obtenido es:
+\begin{align}
+    MSE = 1.142
+\end{align}
+
+La gráfica del modelo y los datos se presenta en la siguiente figura:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/7_regresion.png}
+    \caption{Ajuste del modelo de regresión lineal al dataset "Linear". Los puntos azules representan los datos originales y la línea roja muestra el modelo ajustado $h(X;\theta) = 9.796 - 1.156x$. Se observa que el modelo captura efectivamente la tendencia lineal decreciente de los datos.}
+\end{figure}
+
+La gráfica muestra un ajuste lineal que captura la tendencia general decreciente de los datos, donde se observa que la línea roja del modelo pasa aproximadamente por el centro de la distribución de puntos azules que representan los datos originales.
+
 \subsection{Discusión}
 
+El modelo lineal ajustado mediante las ecuaciones normales captura exitosamente la tendencia decreciente presente en el dataset "Linear". El coeficiente negativo $\theta_1 = -1.156$ confirma la relación inversamente proporcional entre las variables $X$ e $y$. El error cuadrático medio de 1.142 indica un ajuste razonable, considerando la dispersión natural de los datos alrededor de la tendencia lineal. Las ecuaciones normales proporcionaron una solución analítica exacta para este problema de regresión lineal simple.
+
 \subsection{Conclusión}
+
+Se determinaron exitosamente los parámetros óptimos del modelo lineal $h(X;\theta) = 9.796 - 1.156x$ utilizando las ecuaciones normales. El modelo presenta un error cuadrático medio de 1.142 y captura adecuadamente la tendencia lineal decreciente de los datos. Esta implementación demuestra la efectividad de las ecuaciones normales para resolver problemas de regresión lineal de forma directa y precisa.
 
 % ========================================
 % SECCIÓN 8
