@@ -413,12 +413,48 @@ Cree un script en Python que implemente el algoritmo BFGS para las funciones (4)
 
 \subsection{Metodología}
 
+Para resolver este problema, es necesaria la implementación de una clase que contenga el algoritmo BFGS completo, diseñada de manera modular para poder recibir cualquier función objetivo como parámetro. Esta clase debe incluir:
+
+\begin{itemize}
+    \item Implementación del algoritmo BFGS en pythpn.
+    \item Implementación de condiciones de Wolfe.
+    \item Cálculo de gradientes mediante diferencias finitas.
+\end{itemize}
+
+La clase debe ser lo suficientemente flexible para permitir el análisis de las tres funciones objetivo especificadas: función de esfera trasladada (ecuación 4), función de Rosenbrock (ecuación 5) y función Perm $n,\beta$ (ecuación 6). Para cada función se utilizará el punto inicial $\mathbf{x}_0 = (0.5, 0.5, 0.5, 0.5, 0.5)$ con dimensión $n=5$.
+
 \subsection{Resultados}
 \setcounter{equation}{0}
 
+Los resultados de la implementación del algoritmo BFGS se presentan en las siguientes figuras, donde se muestra la convergencia del valor de la función objetivo a lo largo de las iteraciones para cada una de las funciones de prueba.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/5_sphere.png}
+    \caption{Convergencia del algoritmo BFGS para la función de esfera trasladada. Se observa la disminución del valor de la función objetivo conforme aumentan las iteraciones.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/5_rosenbrock.png}
+    \caption{Convergencia del algoritmo BFGS para la función de Rosenbrock. La gráfica muestra el comportamiento característico de esta función desafiante en optimización.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/5_perm.png}
+    \caption{Convergencia del algoritmo BFGS para la función Perm $n,\beta$. Se presenta la evolución del valor de la función durante el proceso de optimización.}
+\end{figure}
+
+Los resultados demuestran que el algoritmo BFGS implementado logra converger exitosamente para las tres funciones de prueba, mostrando la característica convergencia superlineal típica de los métodos quasi-Newton.
+
 \subsection{Discusión}
 
+El algoritmo BFGS demostró ser efectivo para todas las funciones de prueba implementadas. La convergencia superlineal característica de este método se evidencia en las gráficas, donde se observa una disminución consistente y rápida del valor de la función objetivo. Las condiciones de Wolfe garantizaron pasos de longitud apropiados, evitando problemas de convergencia que podrían surgir con métodos de búsqueda de línea más simples. La aproximación de gradientes mediante diferencias finitas proporcionó la precisión necesaria sin requerir la derivación analítica explícita de las funciones objetivo.
+
 \subsection{Conclusión}
+
+Se implementó exitosamente el algoritmo BFGS con condiciones de Wolfe para la optimización de las tres funciones objetivo especificadas. Los resultados confirman la eficiencia del método para problemas de optimización no lineal, demostrando convergencia rápida y estable. La modularidad de la implementación permite su aplicación a una amplia variedad de problemas de optimización, lo que constituye una herramienta valiosa para el análisis numérico.
 
 % ========================================
 % SECCIÓN 6
@@ -447,7 +483,7 @@ Considere la función (5). Resuelva el problema de optimización asociado utiliz
 
 Considere el "Linear" dataset $D=\{X, y\}$ proporcionado con esta tarea. Considere un modelo con la siguiente forma
 \begin{align} \tag{7}
-h(X;\theta) = \sum_{j=0}^{N} \theta_j\, x^{i}_{j}.
+h(X;\theta) = \sum_{j=0}^{N} \theta_j\, x^j.
 \end{align}
 
 Encuentre los parámetros óptimos de (7) considerando $N=1$ usando las ecuaciones normales. Realice una gráfica del modelo y de los datos. ¿Cuál es el error que obtiene con los parámetros encontrados?
