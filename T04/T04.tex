@@ -19,6 +19,16 @@
 % ========================================
 \section*{Introducción}
 
+Para la tarea de esta semana se busca profundizar aún más en los métodos de optimización, expandiendo los conceptos fundamentales vistos en la tarea anterior. El objetivo es avanzar hacia técnicas más sofisticadas y eficientes que son ampliamente utilizadas en aplicaciones prácticas de optimización. Todo esto con el fin de aplicar y comprender:
+
+\begin{itemize}
+    \item Condiciones de Wolfe extendidas.
+    \item Métodos de Newton.
+    \item Métodos Quasi-Newton (BFGS).
+    \item Mejoras al método de Steepest Descent.
+    \item Método de Gauss-Newton.
+    \item Normas matriciales.
+\end{itemize}
 
 % ========================================
 % SECCIÓN 1
@@ -654,9 +664,9 @@ Los gráficos comparativos se presentan en las siguientes figuras:
 Los resultados muestran tres comportamientos distintos:
 
 \begin{itemize}
-    \item \textbf{$N=2$ (Underfitting):} MSE = 2.224. Modelo demasiado simple para capturar la complejidad cúbica de los datos.
-    \item \textbf{$N=3$ (Óptimo):} MSE = 0.969. Balance ideal entre ajuste y generalización.
-    \item \textbf{$N=6$ (Overfitting):} MSE = 0.157. Aunque tiene menor error, sigue muy de cerca los puntos individuales perdiendo capacidad de generalización.
+    \item $N=2$ (Underfitting): MSE = 2.224. Modelo demasiado simple para capturar la complejidad cúbica de los datos.
+    \item $N=3$ (Óptimo): MSE = 0.969. Balance ideal entre ajuste y generalización.
+    \item $N=6$ (Overfitting): MSE = 0.157. Aunque tiene menor error, sigue muy de cerca los puntos individuales perdiendo capacidad de generalización.
 \end{itemize}
 
 El dataset sigue naturalmente una función cúbica, por lo que $N=3$ representa la complejidad apropiada.
