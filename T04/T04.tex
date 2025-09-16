@@ -441,19 +441,19 @@ Los resultados de la implementación del algoritmo BFGS se presentan en las sigu
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/5_sphere.png}
-    \caption{Convergencia del algoritmo BFGS para la función de esfera trasladada. Se observa la disminución del valor de la función objetivo conforme aumentan las iteraciones.}
+    \caption{Convergencia del algoritmo BFGS para la función de esfera trasladada.}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/5_rosenbrock.png}
-    \caption{Convergencia del algoritmo BFGS para la función de Rosenbrock. La gráfica muestra el comportamiento característico de esta función desafiante en optimización.}
+    \caption{Convergencia del algoritmo BFGS para la función de Rosenbrock.}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/5_perm.png}
-    \caption{Convergencia del algoritmo BFGS para la función Perm $n,\beta$. Se presenta la evolución del valor de la función durante el proceso de optimización.}
+    \caption{Convergencia del algoritmo BFGS para la función Perm $n,\beta$.}
 \end{figure}
 
 Los resultados demuestran que el algoritmo BFGS implementado logra converger exitosamente para las tres funciones de prueba, mostrando la característica convergencia superlineal típica de los métodos quasi-Newton.
@@ -497,7 +497,7 @@ Los resultados de la comparación entre los tres métodos de optimización se pr
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{images/6_convergencia.png}
-    \caption{Comparación de las curvas de convergencia para los métodos de Newton, Steepest Descent y BFGS aplicados a la función de Rosenbrock. Se observan las tasas de convergencia características: cuadrática para Newton, lineal para SD y superlineal para BFGS.}
+    \caption{Comparación de las curvas de convergencia para los métodos de Newton, Steepest Descent y BFGS aplicados a la función de Rosenbrock.}
 \end{figure}
 
 La Figura 2 presenta una tabla detallada con los valores numéricos de la función objetivo para cada iteración, permitiendo una comparación cuantitativa precisa del desempeño de cada algoritmo.
@@ -505,7 +505,7 @@ La Figura 2 presenta una tabla detallada con los valores numéricos de la funci�
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{images/6_tabla_resultados.png}
-    \caption{Tabla comparativa de valores de la función objetivo por iteración para los tres métodos de optimización. Los datos confirman la superior eficiencia del método de Newton, seguido por BFGS y finalmente Steepest Descent.}
+    \caption{Tabla comparativa de valores de la función objetivo por iteración para los tres métodos de optimización.}
 \end{figure}
 
 Los resultados confirman las propiedades teóricas de cada método: Newton presenta convergencia cuadrática con el menor número de iteraciones, BFGS muestra convergencia superlineal como característica de los métodos quasi-Newton, y Steepest Descent exhibe convergencia lineal, requiriendo significativamente más iteraciones para alcanzar la precisión deseada.
@@ -575,7 +575,7 @@ La gráfica del modelo y los datos se presenta en la siguiente figura:
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/7_regresion.png}
-    \caption{Ajuste del modelo de regresión lineal al dataset "Linear". Los puntos azules representan los datos originales y la línea roja muestra el modelo ajustado $h(X;\theta) = 9.796 - 1.156x$. Se observa que el modelo captura efectivamente la tendencia lineal decreciente de los datos.}
+    \caption{Ajuste del modelo de regresión lineal al dataset "Linear".}
 \end{figure}
 
 La gráfica muestra un ajuste lineal que captura la tendencia general decreciente de los datos, donde se observa que la línea roja del modelo pasa aproximadamente por el centro de la distribución de puntos azules que representan los datos originales.
@@ -621,19 +621,19 @@ Los pasos a seguir son:
 
 Se probaron tres valores diferentes de $N$ para analizar el comportamiento del modelo polinomial. Los resultados obtenidos para cada grado son:
 
-\textbf{Modelo con $N=2$ (Polinomio cuadrático):}
+Modelo con $N=2$ (Polinomio cuadrático):
 \begin{align}
     \theta &= [0.802, -0.163, -1.571] \\
     MSE &= 2.224
 \end{align}
 
-\textbf{Modelo con $N=3$ (Polinomio cúbico):}
+Modelo con $N=3$ (Polinomio cúbico):
 \begin{align}
     \theta &= [-1.990, 17.021, -23.160, 7.196] \\
     MSE &= 0.969
 \end{align}
 
-\textbf{Modelo con $N=6$ (Polinomio de grado 6):}
+Modelo con $N=6$ (Polinomio de grado 6):
 \begin{align}
     \theta &= [-0.181, 0.414, 8.200, -12.277, 7.360, -5.372, 1.860] \\
     MSE &= 0.157
@@ -644,19 +644,19 @@ Los gráficos comparativos se presentan en las siguientes figuras:
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/8_N2.png}
-    \caption{Regresión polinomial con $N=2$. El modelo cuadrático muestra un ajuste limitado a los datos cúbicos subyacentes, con MSE = 2.224. Se observa que el modelo es demasiado simple para capturar la complejidad de los datos.}
+    \caption{Regresión polinomial con $N=2$.}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/8_N3.png}
-    \caption{Regresión polinomial con $N=3$. El modelo cúbico captura adecuadamente la forma general de los datos con MSE = 0.969, mostrando un buen balance entre ajuste y generalización.}
+    \caption{Regresión polinomial con $N=3$.}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/8_N6.png}
-    \caption{Regresión polinomial con $N=6$. El modelo de alto grado muestra signos de sobreajuste con MSE = 0.157, siguiendo muy de cerca los puntos individuales y perdiendo capacidad de generalización.}
+    \caption{Regresión polinomial con $N=6$.}
 \end{figure}
 
 \subsection{Discusión}
