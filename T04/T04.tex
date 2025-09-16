@@ -467,12 +467,46 @@ Considere la función (5). Resuelva el problema de optimización asociado utiliz
 
 \subsection{Metodología}
 
+Para resolver este problema se deberán implementar tres clases independientes en Python, cada una especializada en un algoritmo de optimización específico: Newton, Steepest Descent (SD) y BFGS. Estas clases deberán ser diseñadas de manera modular para recibir la función de Rosenbrock (ecuación 5) como parámetro, permitiendo así una comparación directa y justa entre los métodos.
+
+Cada implementación deberá incluir:
+\begin{itemize}
+    \item Cálculo de gradientes mediante diferencias finitas o analíticos
+    \item Búsqueda de línea utilizando condiciones de Wolfe para SD y BFGS
+    \item Registro del valor de la función objetivo en cada iteración
+    \item Criterios de convergencia apropiados para cada método
+\end{itemize}
+
+Una vez completadas las optimizaciones individuales, se deberán generar gráficas comparativas para analizar las tasas de convergencia características de cada método: lineal para SD, superlineal para BFGS y cuadrática para Newton.
+
 \subsection{Resultados}
 \setcounter{equation}{0}
 
+Los resultados de la comparación entre los tres métodos de optimización se presentan en las siguientes figuras. La Figura 1 muestra las curvas de convergencia, donde se puede observar claramente las diferentes tasas de convergencia de cada algoritmo.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/6_convergencia.png}
+    \caption{Comparación de las curvas de convergencia para los métodos de Newton, Steepest Descent y BFGS aplicados a la función de Rosenbrock. Se observan las tasas de convergencia características: cuadrática para Newton, lineal para SD y superlineal para BFGS.}
+\end{figure}
+
+La Figura 2 presenta una tabla detallada con los valores numéricos de la función objetivo para cada iteración, permitiendo una comparación cuantitativa precisa del desempeño de cada algoritmo.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/6_tabla_resultados.png}
+    \caption{Tabla comparativa de valores de la función objetivo por iteración para los tres métodos de optimización. Los datos confirman la superior eficiencia del método de Newton, seguido por BFGS y finalmente Steepest Descent.}
+\end{figure}
+
+Los resultados confirman las propiedades teóricas de cada método: Newton presenta convergencia cuadrática con el menor número de iteraciones, BFGS muestra convergencia superlineal como característica de los métodos quasi-Newton, y Steepest Descent exhibe convergencia lineal, requiriendo significativamente más iteraciones para alcanzar la precisión deseada.
+
 \subsection{Discusión}
 
+La implementación exitosa de los tres algoritmos de optimización permitió realizar una comparación comprensiva de sus características de convergencia. Los resultados obtenidos confirman las propiedades teóricas esperadas de cada método, demostrando la superioridad del método de Newton en términos de velocidad de convergencia, seguido por BFGS y finalmente Steepest Descent. Esta comparación práctica proporciona una validación empírica de la teoría de optimización y demuestra la importancia de seleccionar el algoritmo apropiado según las características del problema.
+
 \subsection{Conclusión}
+
+Se logró implementar y comparar exitosamente los tres métodos de optimización (Newton, BFGS y Steepest Descent) aplicados a la función de Rosenbrock. Los resultados permitieron contrastar de manera clara las diferentes tasas de convergencia características de cada algoritmo, confirmando que el método de Newton presenta la convergencia más rápida, seguido por BFGS con convergencia superlineal, y Steepest Descent con convergencia lineal. Esta comparación práctica valida las propiedades teóricas de cada método y proporciona una base sólida para la selección de algoritmos en problemas de optimización.
 
 % ========================================
 % SECCIÓN 7
