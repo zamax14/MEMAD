@@ -589,12 +589,81 @@ Considere el "Polynomial" dataset $D = \{X,y\}$ proporcionado con esta tarea. Co
 
 \subsection{Metodología}
 
+Para resolver este problema se implementará una clase de regresión polinomial que permita ajustar modelos de diferentes grados usando las ecuaciones normales. El modelo general es:
+
+\begin{align}
+h(X;\theta) = \theta_0 + \theta_1 x + \theta_2 x^2 + \ldots + \theta_N x^N
+\end{align}
+
+Los pasos a seguir son:
+\begin{itemize}
+    \item Cargar los datos del archivo "Polynomial.csv"
+    \item Probar diferentes valores de $N$ (grados polinomiales)
+    \item Para cada $N$, crear la matriz de diseño con columnas $[1, x, x^2, \ldots, x^N]$
+    \item Usar ecuaciones normales para calcular los parámetros óptimos
+    \item Calcular el error cuadrático medio para cada modelo
+    \item Generar gráficas comparativas para analizar el ajuste
+    \item Identificar el valor óptimo de $N$ basado en el balance entre ajuste y generalización
+\end{itemize}
+
 \subsection{Resultados}
 \setcounter{equation}{0}
 
+Se probaron tres valores diferentes de $N$ para analizar el comportamiento del modelo polinomial. Los resultados obtenidos para cada grado son:
+
+\textbf{Modelo con $N=2$ (Polinomio cuadrático):}
+\begin{align}
+    \theta &= [0.802, -0.163, -1.571] \\
+    MSE &= 2.224
+\end{align}
+
+\textbf{Modelo con $N=3$ (Polinomio cúbico):}
+\begin{align}
+    \theta &= [-1.990, 17.021, -23.160, 7.196] \\
+    MSE &= 0.969
+\end{align}
+
+\textbf{Modelo con $N=6$ (Polinomio de grado 6):}
+\begin{align}
+    \theta &= [-0.181, 0.414, 8.200, -12.277, 7.360, -5.372, 1.860] \\
+    MSE &= 0.157
+\end{align}
+
+Los gráficos comparativos se presentan en las siguientes figuras:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/8_N2.png}
+    \caption{Regresión polinomial con $N=2$. El modelo cuadrático muestra un ajuste limitado a los datos cúbicos subyacentes, con MSE = 2.224. Se observa que el modelo es demasiado simple para capturar la complejidad de los datos.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/8_N3.png}
+    \caption{Regresión polinomial con $N=3$. El modelo cúbico captura adecuadamente la forma general de los datos con MSE = 0.969, mostrando un buen balance entre ajuste y generalización.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/8_N6.png}
+    \caption{Regresión polinomial con $N=6$. El modelo de alto grado muestra signos de sobreajuste con MSE = 0.157, siguiendo muy de cerca los puntos individuales y perdiendo capacidad de generalización.}
+\end{figure}
+
 \subsection{Discusión}
 
+Los resultados muestran tres comportamientos distintos:
+
+\begin{itemize}
+    \item \textbf{$N=2$ (Underfitting):} MSE = 2.224. Modelo demasiado simple para capturar la complejidad cúbica de los datos.
+    \item \textbf{$N=3$ (Óptimo):} MSE = 0.969. Balance ideal entre ajuste y generalización.
+    \item \textbf{$N=6$ (Overfitting):} MSE = 0.157. Aunque tiene menor error, sigue muy de cerca los puntos individuales perdiendo capacidad de generalización.
+\end{itemize}
+
+El dataset sigue naturalmente una función cúbica, por lo que $N=3$ representa la complejidad apropiada.
+
 \subsection{Conclusión}
+
+El análisis demuestra que $N=3$ es el valor óptimo, proporcionando el mejor balance entre ajuste y generalización para este dataset cúbico. Los resultados confirman la importancia de seleccionar apropiadamente la complejidad del modelo para evitar underfitting ($N=2$) y overfitting ($N=6$).
 
 % ========================================
 % SECCIÓN 9
