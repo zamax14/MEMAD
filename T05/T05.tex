@@ -26,6 +26,28 @@
 
 \subsection{Enunciado}
 
+Considere la siguiente función
+\begin{align*}
+    f(x) = 2^{cos(x^2)}, \quad x \in (-\pi,\pi).
+\end{align*}
+A continuación, haga lo siguiente:
+
+\begin{itemize}
+    \item Calcule 500 pares de datos de muestra $D = {x_i,f(x_i)}$ donde los $x_i$ están equiespaciados.
+    \item Realice un gráfico de $D$.
+    \item Considere un modelo polinomial de grado $\mathcal{N}$:
+        \begin{equation*}
+            h(x_i, \theta) = \hat{y_i} = \sum^{\mathcal{N}}_{\ell=0}\theta_{\ell}x^{\ell}_{i}, \quad \theta=(\theta_{0}, \theta_{1}, \theta_{2}, ...,\theta_{\mathcal{N}}) \in \mathbb{R}^{\mathcal{N}+1}.
+        \end{equation*}
+    \item Considere una función de pérdida y costo de MSE:
+        \begin{align*}
+            Loss(y_i, \hat{y_i}) = (y_i - \hat{y_i})^2, \\
+            Cost(\theta;D) = \frac{1}{m}\sum^{m}_{i=1}Loss(y_i, \hat{y_i})
+        \end{align*}
+    \item Codifique un script en Python para resolver el problema de optimización asociado utilizando un algoritmo de búsqueda lineal determinista. Puede probar $\mathcal{N}$ = 8, por ejemplo.
+    \item Haz una gráfica de la solución contra $f(x_i)$ y muestra en otra gráfica cómo el costo disminuye a medida que pasan las iteraciones.
+\end{itemize}
+
 \subsection{Metodología}
 
 \subsection{Resultados}
@@ -41,6 +63,8 @@
 \section{Problema 2}
 
 \subsection{Enunciado}
+
+Intenta encontrar un tamaño más adecuado para el modelo paramétrico del problema anterior resolviendo de nuevo varios valores de $\mathcal{N}$. Crea gráficos que muestren tus hallazgos. A partir de aquí, puedes fijar este valor de N para los problemas restantes.
 
 \subsection{Metodología}
 
@@ -58,6 +82,8 @@
 
 \subsection{Enunciado}
 
+Cree un script para resolver el Problema 1 utilizando un gradiente descendente de Minibach con una tasa de aprendizaje constante $\alpha$. Genere una gráfica de la solución en función de $f(x_i)$ y muestre en otra gráfica cómo disminuye el coste a medida que transcurren las iteraciones.
+
 \subsection{Metodología}
 
 \subsection{Resultados}
@@ -73,6 +99,8 @@
 \section{Problema 4}
 
 \subsection{Enunciado}
+
+Repita el Problema 3 usando Adam.
 
 \subsection{Metodología}
 
@@ -90,6 +118,8 @@
 
 \subsection{Enunciado}
 
+Compara las soluciones y el rendimiento de los tres algoritmos que utilizaste para resolver el problema 1. Escribe tus conclusiones y haz algunos gráficos.
+
 \subsection{Metodología}
 
 \subsection{Resultados}
@@ -106,6 +136,14 @@
 
 \subsection{Enunciado}
 
+Hasta ahora has resuelto un problema sin ruido, es decir,
+
+\begin{equation*}
+    f(x)=2^{cos(x^2)}+\mathcal{X}, \quad x \in (-\pi,\pi), \mathcal{X} \sim \mathcal{N}(0,\sigma^{2}),
+\end{equation*}
+
+Donde solo se ha considerado el caso con $\sigma^2=0$. Repita los ejercicios 1 a 5 para los niveles de ruido $\sigma^2 = 0.05,0.1,0.5$. No olvide anotar todas sus conclusiones y reflexiones.
+
 \subsection{Metodología}
 
 \subsection{Resultados}
@@ -121,6 +159,15 @@
 \section{Problema 7}
 
 \subsection{Enunciado}
+
+Explique con sus propias palabras lo siguiente:
+
+\begin{itemize}
+    \item[(a)] Las diferencias y similitudes entre el descenso de gradiente estocástico, el descenso más pronunciado y el descenso de gradiente en minilotes.
+    \item[(b)] Algunos ejemplos del uso de los tres últimos algoritmos citados (es decir, explique cómo identificar cuándo se debe utilizar un algoritmo entre otros).
+    \item[(c)] Algunos ejemplos del uso de un enfoque determinista (Newton, descenso más pronunciado, BFGS, Gauss-Newton, etc.) y un enfoque estocástico (descenso de gradiente estocástico, descenso de gradiente en minilotes, Adam, etc.), es decir, explique cómo identificar cuándo se debe utilizar un enfoque particular sobre otro.
+
+\end{itemize}
 
 \subsection{Metodología}
 
