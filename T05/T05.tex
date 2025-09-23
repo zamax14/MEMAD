@@ -207,12 +207,35 @@ Repita el Problema 3 usando Adam.
 
 \subsection{Metodología}
 
+Para este problema implementaremos el algoritmo ADAM, el perfecto balance entre el manejo de datos de minibatch, momento y RMSprop para el ajuste de theta. Los pasos serán los siguientes:
+
+\begin{enumerate}
+    \item Utilizar los mismos 500 puntos equiespaciados de problemas anteriores
+    \item Implementar ADAM con parámetros estándar: $\beta_1 = 0.9$, $\beta_2 = 0.999$
+    \item Aplicar $\alpha = 0.1$, $\mathcal{N} = 20$, tamaño de lote = 50, 2000 épocas máximo
+    \item Comparar resultados con SGD Minibatch
+\end{enumerate}
+
 \subsection{Resultados}
 \setcounter{equation}{0}
 
+Para los parámetros establecidos obtuvimos una convergencia notablemente superior con ADAM comparado con SGD Minibatch.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/4_adam.png}
+    \caption{Resultados del ajuste polinomial usando ADAM con $\mathcal{N}=20$}
+    \label{fig:adam_results}
+\end{figure}
+
 \subsection{Discusión}
 
+ADAM demostró ventajas claras sobre SGD Minibatch en términos de calidad del ajuste final y mejor aproximación a la función original. Sin embargo, mostró un comportamiento interesante donde la función de costo presenta picos iniciales que luego se corrigen, contrastando con SGD que mantuvo una evolución más constante sin picos pronunciados.
+
 \subsection{Conclusión}
+
+Logramos implementar exitosamente ADAM obteniendo resultados superiores a SGD Minibatch en estabilidad y calidad de convergencia. Los resultados confirman las ventajas de los métodos adaptativos sobre gradiente tradicional, estableciendo una base sólida para las comparaciones del siguiente problema.
+
 
 % ========================================
 % SECCIÓN 5
