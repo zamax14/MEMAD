@@ -147,7 +147,7 @@ Los polinomios de grado bajo ($\mathcal{N} = 2, 4$) muestran aproximaciones muy 
 
 \subsection{Conclusión}
 
-Logramos identificar que $\mathcal{N} = 12$ representa el valor óptimo para el modelo paramétrico, ofreciendo un equilibrio adecuado entre precisión de aproximación y eficiencia computacional. Este valor será utilizado en los problemas restantes, ya que proporciona una aproximación satisfactoria de la función original sin el costo computacional excesivo de polinomios de mayor grado. Los resultados demuestran la importancia de evaluar múltiples grados para encontrar el balance óptimo entre complejidad del modelo y calidad del ajuste.
+Logramos identificar que $\mathcal{N} = 12$ representa el valor óptimo para el modelo paramétrico, ofreciendo un equilibrio adecuado entre precisión de aproximación y eficiencia computacional. Pese a lo anteriormente mencionado, para los siguientes problemas se estará utilizando $\mathcal{N} = 20$ simplemente para comparar los siguientes algoritmos en un terreno más demandante e intentar exprimir sus ventajas lo más que se pueda.
 
 % ========================================
 % SECCIÓN 3
@@ -160,12 +160,41 @@ Cree un script para resolver el Problema 1 utilizando un gradiente descendente d
 
 \subsection{Metodología}
 
+Para resolver este problema utilizaremos el algoritmo de descenso de gradiente estocástico con enfoque en Minibatch como alternativa al método determinista de Gauss-Newton empleado anteriormente para reducir un poco la carga computacional sobre las iteraciones.
+
+Implementaremos las mismas funciones base ($f(x)$, $h$, $loss$ y $cost$) junto con una función de gradiente específica para SGD, ademas de una función enfocada a dividir nuestro dataset en "batches" para poder iterar sobre ellos.
+
+El procedimiento consistirá en:
+\begin{enumerate}
+    \item Utilizar los mismos 500 puntos equiespaciados del Problema 1
+    \item Implementar el algoritmo SGD Minibatch con tamaño de lote de 50 muestras
+    \item Aplicar una tasa de aprendizaje constante $\alpha = 0.1$
+    \item Usar $\mathcal{N} = 20$ (basado en los resultados del Problema 2)
+    \item Ejecutar el algoritmo por 2000 épocas máximo
+    \item Graficar los resultados y la evolución del costo
+\end{enumerate}
+
 \subsection{Resultados}
 \setcounter{equation}{0}
 
+Para los parámetros establecidos: $\mathcal{N} = 20$, $\alpha = 0.1$, tamaño de lote = 50, y 2000 épocas máximas, obtuvimos una convergencia satisfactoria del algoritmo SGD Minibatch.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/3_sgd_minibatch.png}
+    \caption{Resultados del ajuste polinomial usando SGD Minibatch con $\mathcal{N}=20$}
+    \label{fig:sgd_results}
+\end{figure}
+
 \subsection{Discusión}
 
+El método SGD Minibatch demostró ser efectivo para este problema de regresión polinomial. A diferencia del método determinista de Gauss-Newton, SGD no aproxima tan bien la función como en el caso de Gauss Newton, e incluso hizo uso de todas las iteraciones indicadas sin alcanzar la tolerancia indicada. Pese a esto, los resultados son bastante buenos y en velocidad sí se percibe que, pese al hacer más iteraciones, SGD es bastante más rápido que Gauss-Newton.
+
+La tasa de aprendizaje de 0.1 resultó adecuada para lograr convergencia sin causar inestabilidad en el entrenamiento, y el tamaño de lote de 50 proporcionó un buen balance entre eficiencia computacional y estabilidad.
+
 \subsection{Conclusión}
+
+Logramos implementar exitosamente el algoritmo SGD Minibatch para resolver el mismo problema de aproximación polinomial. El método estocástico proporcionó resultados comparables al método determinista, demostrando la viabilidad de enfoques estocásticos para problemas de regresión.
 
 % ========================================
 % SECCIÓN 4
