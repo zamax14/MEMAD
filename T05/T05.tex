@@ -342,13 +342,35 @@ Explique con sus propias palabras lo siguiente:
 
 \end{itemize}
 
-\subsection{Metodología}
+\subsection{Análisis Personal}
 
-\subsection{Resultados}
-\setcounter{equation}{0}
+\textbf{(a) Diferencias y similitudes entre SGD, descenso más pronunciado y minibatch:}
 
-\subsection{Discusión}
+Desde mi experiencia a lo largo de este primer modulo, estos tres métodos han sido los más simples de implementar, principalmenta para el caso de steepest descent cuando nuestro $\alpha$ es de valor fijo. Dan buenos resultados, y en ambos casos los gradientes podemos depender de fórmulas más generales de implementar sin importar el problema.
+
+Para steepest descent tenemos la posibilidad de usar diferencias centrales, y en el caso de los estocásticos nos enfocamos en optimizar la función de costo, la cual ya tiene una forma dada para cada problema. Como comparativa entre estocásticos, SGD y minibatch son lo mismo en implementación para los ajustes de $\theta$, difiriendo solamente en la cantidad de datos que se procesan, ya que minibatch nos permite dar ajustes con valores más agrupados según la necesidad y capacidad computacional, por lo que es mejor priorizar su implementación sobre SGD (aunque en esencia son lo mismo).
+
+La mayor desventaja es que steepest computacionalmente es más costoso que los estocásticos, como lo hemos venido recalcando en esta tarea, a menos que usemos gradientes analíticos. Pero para ciertos casos puede ser igual de simple de implementar y más eficiente. Sin embargo, para la mayoría de los casos, sobre todo en deep learning, los estocásticos son siempre la mejor opción.
+
+\textbf{(b) Ejemplos de uso y cuándo elegir cada algoritmo:}
+
+Reiterando lo anteriormente mencionado en el inciso (a), si el problema a optimizar no es tan complejo y podemos calcular el gradiente de manera analítica, es mejor optar por los métodos deterministas como steepest descent al dar resultados más precisos y en un número razonable de iteraciones. Como lo veíamos en el caso de funciones como esfera trasladada vista en tareas pasadas, que al ser de orden cuadrático, los resultados de la optimización eran casi inmediatos.
+
+Desgraciadamente no podemos vivir siempre en el mundo ideal, y tenemos el ejemplo de funciones vistas como Rosenbrook y Perm, por lo que cuando las funciones se vuelven cada vez más complejas, es mucho mejor optar por la facilidad de los estocásticos y principalmente por minibatch si es que nuestro volumen de datos es muy grande. En estos casos, la capacidad de procesar datos en lotes (ya sea pequeños o grandes, depende del poder computacional que tengamos) nos permite manejar datasets masivos sin saturar la memoria del sistema, algo que sería imposible con métodos deterministas que requieren procesar todo el conjunto de datos en cada iteración.
+
+\textbf{(c) Enfoques deterministas vs estocásticos - cuándo usar cada uno:}
+
+Métodos como Newton, Quasi-Newton (BFGS) o Gauss-Newton son mucho más complejos de implementar a nivel de código, pero los resultados valen totalmente la pena al ser mucho mejores que steepest descent en el caso de modelos deterministas. Mientras que la complejidad de los estocásticos no aumenta tanto en comparación al aumento de mejora en resultados que nos dan en comparación de SGD a ADAM, donde por simplemente un par de lineas de codigo extras, los resultados mejoran considerablemente.
+
+Si queremos resultados precisos sobre cuándo las funciones alcanzan sus puntos críticos y dónde es que estas son óptimas sin importar la complejidad computacional y sacrificando tiempos de ejecución (y si es que nos lo podemos permitir en temas de recursos de cpu/ram/gpu), lo ideal es usar deterministas por la eficacia de sus resultados.
+
+Ahora bien, métodos como ADAM resultaron ser muy óptimos para resolver estos problemas como lo veíamos en el caso del polinomio $N=20$, que pese a no ser un valor exacto, nos da una buena generalización, que es lo que esencialmente buscamos en problemas como regresión. Queremos que nuestro modelo tome una forma bastante similar a como están distribuidos los datos sin llegar a hacer overfitting, lo cual nos ayuda para predecir otros valores. Es por esto que estos predominan completamente el área del deep learning.
 
 \subsection{Conclusión}
+
+En resumen, ambos tipos de algoritmos tienen sus enfoques particulares y podemos disponer de ambos según el caso específico que enfrentemos. Los métodos deterministas ofrecen precisión superior cuando necesitamos resultados exactos y tenemos los recursos computacionales disponibles, mientras que los métodos estocásticos proporcionan eficiencia y escalabilidad para problemas más complejos y datasets grandes.
+
+Sin embargo, en mi experiencia personal, prefiero más los estocásticos por su simplicidad de implementación y buenos resultados. La facilidad para programarlos, combinada con su capacidad de manejar datos masivos y su robustez en diferentes tipos de problemas, los convierte en una herramienta más práctica y versátil para la mayoría de situaciones que he enfrentado en este curso.
+
 
 \end{document}
