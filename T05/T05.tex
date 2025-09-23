@@ -50,12 +50,51 @@ A continuación, haga lo siguiente:
 
 \subsection{Metodología}
 
+Para resolver este problema, primero se deben implementar las funciones definidas en el enunciado ($f(x)$, $h$, $loss$ y $cost$).
+
+Una vez implementadas estas funciones, procederemos a utilizar un algoritmo de búsqueda lineal determinista. Para este caso, emplearemos el método de Gauss-Newton implementado en tarea 04, pero ya con las correcciones realizadas en el algoritmo, a diferencia de la entrega pasada (en mi caso).
+
+El procedimiento consistirá en:
+\begin{enumerate}
+    \item Generar 500 puntos equiespaciados en el intervalo $(-\pi, \pi)$ utilizando numpy y la función "linespace".
+    \item Calcular los valores de $f(x_i)$ para cada punto.
+    \item Aplicar el algoritmo de Gauss-Newton para encontrar los parámetros óptimos $\theta$.
+    \item Finalmente graficar los resultados y el comportamiento de la función de costo.
+\end{enumerate}
+
 \subsection{Resultados}
 \setcounter{equation}{0}
 
+La Figura \ref{fig:fx} muestra la función original $f(x) = 2^{\cos(x^2)}$ evaluada en los 500 puntos de muestra equiespaciados en el intervalo $(-\pi, \pi)$.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/1_fx.png}
+    \caption{Función original $f(x) = 2^{\cos(x^2)}$ con 500 puntos de muestra}
+    \label{fig:fx}
+\end{figure}
+
+Para los parámetros de optimización: $\mathcal{N}=8$, tasa de aprendizaje inicial $\alpha = 0.01$, 2000 iteraciones máximas y tolerancia de $1 \times 10^{-8}$, obtuvimos que el algoritmo de Gauss-Newton alcanzó su punto óptimo en 170 iteraciones.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/1_gauss_newton_N8.png}
+    \caption{Resultados del ajuste polinomial usando Gauss-Newton con $\mathcal{N}=8$}
+    \label{fig:gauss_newton_results}
+\end{figure}
+
 \subsection{Discusión}
 
+Después de haber podido implementar de manera exitosa el método de Gauss-Newton para esta tarea, a diferencia de la implementación pasada, logramos la convergencia de la función de manera satisfactoria. 
+
+Para el caso del polinomio de grado $\mathcal{N}=8$, aunque la función resultante no hace un "fit" exacto a la función original, se asemeja considerablemente a ella. Esto es esperado dado que estamos aproximando una función con un polinomio de grado relativamente bajo a comparacion de la original ($f(x)$).
+
+La convergencia en 170 iteraciones indica que el algoritmo fue eficiente para este problema particular, y la tolerancia establecida fue adecuada para obtener una solución de buena calidad.
+
 \subsection{Conclusión}
+
+Logramos resolver exitosamente el problema de optimización utilizando el método de Gauss-Newton. La implementación mejorada del algoritmo nos permitió obtener una convergencia adecuada y un ajuste polinomial que aproxima razonablemente bien la función objetivo $f(x) = 2^{\cos(x^2)}$. Los resultados demuestran que el enfoque determinista de búsqueda lineal es efectivo para este tipo de problemas de regresión polinomial, logrando una solución satisfactoria en un número bajo de iteraciones.
+
 
 % ========================================
 % SECCIÓN 2
