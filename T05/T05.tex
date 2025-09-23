@@ -248,12 +248,28 @@ Compara las soluciones y el rendimiento de los tres algoritmos que utilizaste pa
 
 \subsection{Metodología}
 
+Para este problema reutilizaremos todas las clases ya implementadas (GaussNewton, SGD y Adam) para comparar los resultados de los tres algoritmos en una misma gráfica y evaluar sus diferencias en términos de calidad de ajuste y comportamiento de convergencia.
+
 \subsection{Resultados}
 \setcounter{equation}{0}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/5_comparation_algorithms.png}
+    \caption{Comparación de los tres algoritmos: Gauss-Newton, SGD Minibatch y ADAM}
+    \label{fig:comparison_algorithms}
+\end{figure}
+
 \subsection{Discusión}
 
+Como hemos observado desde el inicio, Gauss-Newton representa el mejor ajuste a la función original a costa de un mayor costo computacional. Por el contrario, SGD y ADAM son considerablemente más rápidos, aunque generalizan más el resultado sin parecerse completamente a la función original.
+
+Entre los métodos, ADAM se destaca al poder disminuir más la función de costo que SGD y lograr un mejor parecido a la función original. Esto confirma las ventajas de los métodos adaptativos en términos de calidad de convergencia, manteniendo la eficiencia computacional.
+
 \subsection{Conclusión}
+
+La comparación confirma que existe un balance entre precisión y eficiencia computacional. Gauss-Newton ofrece la mayor precisión pero con mayor costo, mientras que los métodos estocásticos proporcionan soluciones más rápidas con calidad aceptable. ADAM destaca como el mejor entre ambos enfoques, combinando eficiencia computacional con mejor calidad de ajuste que SGD tradicional.
+
 
 % ========================================
 % SECCIÓN 6
