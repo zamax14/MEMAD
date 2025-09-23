@@ -288,12 +288,43 @@ Donde solo se ha considerado el caso con $\sigma^2=0$. Repita los ejercicios 1 a
 
 \subsection{Metodología}
 
+Para evaluar el comportamiento de los algoritmos bajo condiciones de ruido, implementamos una nueva función "f\_noise(x)" que altera los valores de $y$ en función de $x$ y el valor de $\sigma$ indicado.
+
+Aplicamos los tres algoritmos (Gauss-Newton, SGD Minibatch y ADAM) para cada nivel de ruido propuesto: $\sigma^2 = 0.05, 0.1, 0.5$, mediante un loop que compare todos los métodos según $\sigma^2$, pero en este caso se optará por utilizar $\mathcal{N}=12$ para disminuir un poco la carga computacional de estos ciclos iterativos donde debemos evalur muchas veces los algoritmos.
+
 \subsection{Resultados}
 \setcounter{equation}{0}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/6_sigma_05.png}
+    \caption{Comparación de algoritmos con ruido $\sigma^2 = 0.05$}
+    \label{fig:noise_005}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/6_sigma_1.png}
+    \caption{Comparación de algoritmos con ruido $\sigma^2 = 0.1$}
+    \label{fig:noise_01}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/6_sigma_5.png}
+    \caption{Comparación de algoritmos con ruido $\sigma^2 = 0.5$}
+    \label{fig:noise_05}
+\end{figure}
+
 \subsection{Discusión}
 
+Los resultados muestran que conforme aumenta el nivel de ruido, todos los algoritmos enfrentan mayor dificultad para aproximar la función original. Sin embargo, mantienen patrones de comportamiento consistentes con las observaciones previas.
+
+Gauss-Newton continúa proporcionando el mejor ajuste incluso en presencia de ruido, aunque su ventaja se reduce conforme aumenta $\sigma^2$. Los métodos estocásticos (SGD y ADAM) muestran mayor robustez al ruido, manteniendo aproximaciones razonables incluso con $\sigma^2 = 0.5$, siendo ADAM nuevamente quien más destaca.
+
 \subsection{Conclusión}
+
+La evaluación con ruido confirma que los algoritmos mantienen sus características distintivas bajo condiciones mas complejas. Gauss-Newton conserva su precisión superior, mientras que los métodos estocásticos ofrecen mayor robustez. El ruido afecta la calidad del ajuste en todos los casos, pero ADAM vuelve a mostrarse como el método más equilibrado para escenarios con datos ruidosos.
 
 % ========================================
 % SECCIÓN 7
