@@ -41,6 +41,7 @@ Cada carpeta de tarea contiene:
 - **Semana 02**: [Lista de reproducción en YouTube](https://www.youtube.com/playlist?list=PL66A4_etiRmwHCxbmYGUHKMExtLqpNP0t)
 - **Semana 03**: [Lista de reproducción en YouTube](https://www.youtube.com/playlist?list=PL66A4_etiRmyllBGU4edNxyiQSsXcs88U)
 - **Semana 04**: [Lista de reproducción en YouTube](https://www.youtube.com/playlist?list=PL66A4_etiRmyzWlnZbdI9qnas_xvjPrIg)
+- **Semana 05**: [Lista de reproducción en YouTube](https://www.youtube.com/playlist?list=PL66A4_etiRmx6RLYaXhRGuv72do0S5zV5)
 
 ## Repositorio
 
