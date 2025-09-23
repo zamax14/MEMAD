@@ -107,12 +107,47 @@ Intenta encontrar un tamaño más adecuado para el modelo paramétrico del probl
 
 \subsection{Metodología}
 
+Para encontrar el tamaño más adecuado del modelo paramétrico, tomaremos la implementación previa del algoritmo de Gauss-Newton y procederemos a iterar con distintos valores de $\mathcal{N}$ para determinar cuál puede ser el más óptimo para este problema.
+
+Después de varias pruebas experimentales, se descubrió que los puntos donde la función resultante llega a adquirir diferentes formas es con los valores $\mathcal{N} = [2, 4, 8, 12, 16, 20]$. Estos valores nos permitirán observar cómo evoluciona la aproximación polinomial conforme aumenta el grado.
+
+El procedimiento consistirá en:
+\begin{enumerate}
+    \item Aplicar el algoritmo de Gauss-Newton para cada valor de $\mathcal{N}$
+    \item Agrupar y mostrar las gráficas del resultado de la optimización de los valores $\theta$
+    \item Comparar el avance del costo para cada grado de polinomio
+\end{enumerate}
+
 \subsection{Resultados}
 \setcounter{equation}{0}
 
+Para los valores de $\mathcal{N} = [2, 4, 8, 12, 16, 20]$ obtuvimos que casi todas las optimizaciones convergen en un número similar de iteraciones, pero los resultados son considerablemente distintos entre sí.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/2_comparasion_Ns.png}
+    \caption{Comparación de ajustes polinomiales para diferentes grados $\mathcal{N}$}
+    \label{fig:comparison_N}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/2_comparasion_Ns_costs.png}
+    \caption{Evolución del costo para diferentes grados de polinomio}
+    \label{fig:comparison_costs}
+\end{figure}
+
+Los resultados muestran que conforme aumenta el grado del polinomio, la aproximación a la función original mejora significativamente, especialmente para $\mathcal{N} \geq 12$.
+
 \subsection{Discusión}
 
+Pese a que $\mathcal{N} = 20$ resultó ser el valor más apegado a la función original, es considerablemente más costoso computacionalmente calcularlo. Por el contrario, $\mathcal{N} = 12$ representa un polinomio no tan grande pero con una aproximación bastante decente.
+
+Los polinomios de grado bajo ($\mathcal{N} = 2, 4$) muestran aproximaciones muy limitadas que no capturan la complejidad de la función original. Los grados intermedios ($\mathcal{N} = 8, 12$) ofrecen un buen balance entre precisión y eficiencia computacional, mientras que los grados altos ($\mathcal{N} = 16, 20$) proporcionan la mejor aproximación a costa de mayor complejidad.
+
 \subsection{Conclusión}
+
+Logramos identificar que $\mathcal{N} = 12$ representa el valor óptimo para el modelo paramétrico, ofreciendo un equilibrio adecuado entre precisión de aproximación y eficiencia computacional. Este valor será utilizado en los problemas restantes, ya que proporciona una aproximación satisfactoria de la función original sin el costo computacional excesivo de polinomios de mayor grado. Los resultados demuestran la importancia de evaluar múltiples grados para encontrar el balance óptimo entre complejidad del modelo y calidad del ajuste.
 
 % ========================================
 % SECCIÓN 3
